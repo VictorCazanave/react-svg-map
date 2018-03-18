@@ -10,16 +10,10 @@
 		fill: #a1d99b;
 		cursor: pointer;
 
-		&:active,
 		&:focus,
 		&:hover {
 			fill: #b8e2b3;
 			outline: 0;
 		}
 	}
-}
-
-.rect {
-	fill: none;
-	stroke: #666;
 }
