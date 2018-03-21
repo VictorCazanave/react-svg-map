@@ -15,5 +15,9 @@
 			fill: #b8e2b3;
 			outline: 0;
 		}
+
+		&[aria-checked=true] {
+			fill: Orange;
+		}
 	}
 }
