@@ -3,8 +3,8 @@ import TaiwanMap from '../src/';
 import './ExampleApp.scss';
 
 class ExampleApp extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			pointedLocation: null,
