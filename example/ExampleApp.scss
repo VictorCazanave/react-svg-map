@@ -1,16 +1,24 @@
 .example {
+	font-family: Arial, sans-serif;
+	text-align: center;
 
 	&__title {
-		text-align: center;
-		margin-bottom: 50px;
+		margin-bottom: 80px;
 	}
 
 	&__map {
-		width: 450px;
-		margin: 0 auto;
+		display: inline-block;
+		width: 500px;
 	}
 
 	&__info {
-		
+		display: inline-block;
+		vertical-align: top;
+		width: 300px;
+		text-align: left;
+
+		&__block {
+			margin-bottom: 20px;
+		}
 	}
 }

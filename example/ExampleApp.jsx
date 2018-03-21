@@ -5,6 +5,7 @@ import './ExampleApp.scss';
 class ExampleApp extends React.Component {
 	constructor() {
 		super();
+
 		this.state = {
 			pointedLocation: null,
 			focusedLocation: null,
@@ -69,21 +70,23 @@ class ExampleApp extends React.Component {
 		return (
 			<section className="example">
 				<h1 className="example__title">
-					Example of react-taiwan-map use
+					Example of <a href="https://github.com/VictorCazanave/react-taiwan-map">react-taiwan-map</a>
 				</h1>
 				<div className="example__info">
-					Pointed location: {this.state.pointedLocation}
-				</div>
-				<div className="example__info">
-					Focused location: {this.state.focusedLocation}
-				</div>
-				<div className="example__info">
-					Selected locations:
-					<ul>
-						{
-							this.state.selectedLocations.map(location => (<li key={location.id}>{location.name}</li>))
-						}
-					</ul>
+					<div className="example__info__block">
+						Pointed location: {this.state.pointedLocation}
+					</div>
+					<div className="example__info__block">
+						Focused location: {this.state.focusedLocation}
+					</div>
+					<div className="example__info__block">
+						Selected locations:
+							<ul>
+								{
+									this.state.selectedLocations.map(location => (<li key={location.id}>{location.name}</li>))
+								}
+							</ul>
+						</div>
 				</div>
 				<div className="example__map">
 					<TaiwanMap
