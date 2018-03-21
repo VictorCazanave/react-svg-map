@@ -29,19 +29,27 @@ class ExampleApp extends React.Component {
 	}
 
 	handleLocationClick(event) {
-		/*
-		const selectedLocation = { id: event.target.id, name: event.target.attributes.name.value };
-		this.setState(prevState => {
-			let selectedLocations = [...prevState.selectedLocations];
-			console.log('test', selectedLocations);
-			selectedLocations.push(selectedLocation)
-			console.log('test2', selectedLocations);
-			const newState = { ...prevState, selectedLocations };
+		const clickedLocation = { id: event.target.id, name: event.target.attributes.name.value };
+		const isSelected = event.target.attributes['aria-checked'].value === 'true';
+		let selectedLocations = [];
 
+		this.setState(prevState => {
+			if (isSelected) {
+				// Remove clickedLocation
+				selectedLocations = prevState.selectedLocations.filter(location => location.id !== clickedLocation.id);
+			} else {
+				// Add clickedLocation
+				selectedLocations = [...prevState.selectedLocations, clickedLocation];
+			}
+
+			const newState = {
+				pointedLocation: prevState.pointedLocation,
+				focusedLocation: prevState.focusedLocation,
+				selectedLocations: selectedLocations
+			};
 
 			return newState
 		});
-		*/
 	}
 
 	handleLocationFocus(event) {
@@ -54,8 +62,7 @@ class ExampleApp extends React.Component {
 	}
 
 	isLocationSelected(location) {
-		return this.state.selectedLocations.findIndex(selectedLocation => selectedLocation.id ===
-			location.id) > -1;
+		return this.state.selectedLocations.findIndex(selectedLocation => selectedLocation.id === location.id) > -1;
 	}
 
 	render() {
@@ -74,12 +81,13 @@ class ExampleApp extends React.Component {
 					Selected locations:
 					<ul>
 						{
-							this.state.selectedLocations.map(selectedLocation => (<li>selectedLocation.name</li>))
+							this.state.selectedLocations.map(location => (<li key={location.id}>{location.name}</li>))
 						}
 					</ul>
 				</div>
 				<div className="example__map">
 					<TaiwanMap
+						type="checkbox"
 						onLocationMouseOver={this.handleLocationMouseOver}
 						onLocationMouseOut={this.handleLocationMouseOut}
 						onLocationClick={this.handleLocationClick}
