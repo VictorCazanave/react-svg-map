@@ -1,5 +1,5 @@
 export default {
-	label:'Map of Taiwan',
+	label: 'Map of Taiwan',
 	viewBox: '312 322 688 973',
 	locations: [{
 		name: 'Changhua County',
