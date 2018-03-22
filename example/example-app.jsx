@@ -1,6 +1,6 @@
 import React from 'react';
-import TaiwanMap from '../src/';
-import './ExampleApp.scss';
+import SVGMap from '../src/';
+import './example-app.scss';
 
 class ExampleApp extends React.Component {
 	constructor(props) {
@@ -70,7 +70,7 @@ class ExampleApp extends React.Component {
 		return (
 			<section className="example">
 				<h1 className="example__title">
-					Example of <a href="https://github.com/VictorCazanave/react-taiwan-map">react-taiwan-map</a>
+					Example of <a href="https://github.com/VictorCazanave/react-svg-map">react-svg-map</a>
 				</h1>
 				<div className="example__info">
 					<div className="example__info__block">
@@ -89,7 +89,7 @@ class ExampleApp extends React.Component {
 						</div>
 				</div>
 				<div className="example__map">
-					<TaiwanMap
+					<SVGMap
 						type="checkbox"
 						onLocationMouseOver={this.handleLocationMouseOver}
 						onLocationMouseOut={this.handleLocationMouseOut}
