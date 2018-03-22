@@ -1,10 +1,10 @@
 import React from 'react';
-import TaiwanMapSVG from './TaiwanMapSVG';
+import TaiwanMap from './maps/taiwan';
 import './index.scss';
 
-function TaiwanMap(props) {
+function SVGMap(props) {
 	// Set default props
-	const svg = props.svg || TaiwanMapSVG;
+	const map = props.map || TaiwanMap;
 	const tabIndex = props.tabIndex || '0'; // Make it focusable
 	const role = props.type || 'none';
 
@@ -14,12 +14,12 @@ function TaiwanMap(props) {
 	}
 
 	return (
-		<svg className="taiwan-map" xmlns="http://www.w3.org/2000/svg" viewBox={svg.viewBox} role="group" aria-label={svg.label}>
+		<svg className="svg-map" xmlns="http://www.w3.org/2000/svg" viewBox={map.viewBox} role="group" aria-label={map.label}>
 		{
-			svg.locations.map(location => {
+			map.locations.map(location => {
 				return (<path
 						id={location.id}
-						className="taiwan-map__location"
+						className="svg-map__location"
 						name={location.name}
 						d={location.path}
 						onMouseOver={props.onLocationMouseOver}
@@ -39,4 +39,4 @@ function TaiwanMap(props) {
 	);
 }
 
-export default TaiwanMap;
+export default SVGMap;
