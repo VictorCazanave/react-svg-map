@@ -1,7 +1,7 @@
 {
-	"name": "react-taiwan-map",
+	"name": "react-svg-map",
 	"version": "0.0.1",
-	"description": "A React.js component to display an interactive SVG map of Taiwan",
+	"description": "A React.js component to display an interactive SVG map",
 	"main": "index.js",
 	"scripts": {
 		"start": "webpack-dev-server --mode development --open",
@@ -10,7 +10,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/VictorCazanave/react-taiwan-map.git"
+		"url": "git+https://github.com/VictorCazanave/react-svg-map.git"
 	},
 	"keywords": [
 		"React",
@@ -21,9 +21,9 @@
 	"author": "Victor Cazanave <victor.cazanave@gmail.com>",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/VictorCazanave/react-taiwan-map/issues"
+		"url": "https://github.com/VictorCazanave/react-svg-map/issues"
 	},
-	"homepage": "https://github.com/VictorCazanave/react-taiwan-map#readme",
+	"homepage": "https://github.com/VictorCazanave/react-svg-map#readme",
 	"devDependencies": {
 		"babel-core": "^6.26.0",
 		"babel-loader": "^7.1.4",
