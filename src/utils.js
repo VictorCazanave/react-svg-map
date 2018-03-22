@@ -13,7 +13,7 @@ export function getLocationId(event) {
  * @return {String}      Name of the location
  */
 export function getLocationName(event) {
-	return event.target.attributes.name.value
+	return event.target.attributes.name.value;
 }
 
 /**
