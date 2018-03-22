@@ -1,5 +1,6 @@
 import React from 'react';
 import SVGMap from '../src/';
+import { getLocationId, getLocationName, getLocationSelected } from '../src/utils';
 import Taiwan from '../src/maps/taiwan';
 import '../src/index.scss';
 import './example-app.scss';
@@ -23,8 +24,7 @@ class ExampleApp extends React.Component {
 	}
 
 	handleLocationMouseOver(event) {
-		const locationName = event.target.attributes.name.value;
-		this.setState({ pointedLocation: locationName });
+		this.setState({ pointedLocation: getLocationName(event) });
 	}
 
 	handleLocationMouseOut() {
@@ -32,14 +32,14 @@ class ExampleApp extends React.Component {
 	}
 
 	handleLocationClick(event) {
-		const clickedLocation = { id: event.target.id, name: event.target.attributes.name.value };
-		const isSelected = event.target.attributes['aria-checked'].value === 'true';
+		const clickedLocation = getLocationName(event);
+		const isSelected = getLocationSelected(event);
 		let selectedLocations = [];
 
 		this.setState(prevState => {
 			if (isSelected) {
 				// Remove clickedLocation
-				selectedLocations = prevState.selectedLocations.filter(location => location.id !== clickedLocation.id);
+				selectedLocations = prevState.selectedLocations.filter(location => location !== clickedLocation);
 			} else {
 				// Add clickedLocation
 				selectedLocations = [...prevState.selectedLocations, clickedLocation];
@@ -56,8 +56,7 @@ class ExampleApp extends React.Component {
 	}
 
 	handleLocationFocus(event) {
-		const locationName = event.target.attributes.name.value;
-		this.setState({ focusedLocation: locationName });
+		this.setState({ focusedLocation: getLocationName(event) });
 	}
 
 	handleLocationBlur() {
@@ -65,7 +64,7 @@ class ExampleApp extends React.Component {
 	}
 
 	isLocationSelected(location) {
-		return this.state.selectedLocations.findIndex(selectedLocation => selectedLocation.id === location.id) > -1;
+		return this.state.selectedLocations.findIndex(selectedLocation => selectedLocation === location.name) > -1;
 	}
 
 	render() {
@@ -85,7 +84,7 @@ class ExampleApp extends React.Component {
 						Selected locations:
 							<ul>
 								{
-									this.state.selectedLocations.map(location => (<li key={location.id}>{location.name}</li>))
+									this.state.selectedLocations.map(location => (<li key={location}>{location}</li>))
 								}
 							</ul>
 						</div>
