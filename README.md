@@ -1,18 +1,19 @@
-# react-taiwan-map
-A React.js component to display an interactive SVG map of Taiwan.
+# react-svg-map
+A React.js component to display an interactive SVG map.
 
 ## Installation
-`npm install react-taiwan-map --save`
+`npm install react-svg-map --save`
 
 ## Usage
-1. Import react-taiwan-map to use TaiwanMap component.
-1. Optionally, import react-taiwan-map/lib/css/index.css if you want to apply the default styling.
+1. Import `react-svg-map` to use `SVGMap` component.
+1. Import the map you want from `react-svg-map/maps/`.
+1. Optionally, import `react-svg-map/lib/css/index.css` if you want to apply the default styling.
 
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TaiwanMap from 'react-taiwan-map';
-import 'react-taiwan-map/lib/css/index.css';
+import SVGMap from 'react-svg-map';
+import Taiwan from 'react-svg-map/maps/taiwan';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <TaiwanMap />
+      <SVGMap map={Taiwan} />
     );
   }
 }
