@@ -1,5 +1,7 @@
 import React from 'react';
 import SVGMap from '../src/';
+import Taiwan from '../src/maps/taiwan';
+import '../src/index.scss';
 import './example-app.scss';
 
 class ExampleApp extends React.Component {
@@ -90,6 +92,7 @@ class ExampleApp extends React.Component {
 				</div>
 				<div className="example__map">
 					<SVGMap
+						map={Taiwan}
 						type="checkbox"
 						onLocationMouseOver={this.handleLocationMouseOver}
 						onLocationMouseOut={this.handleLocationMouseOut}
