@@ -6,9 +6,15 @@ module.exports = {
 		rules: [{
 			test: /\.jsx?/,
 			exclude: /node_modules/,
-			use: {
-				loader: 'babel-loader'
-			}
+			use: [
+				'babel-loader',
+				{
+					loader: 'eslint-loader',
+					options: {
+						emitWarning: true, // @note: only for development
+					}
+				}
+			],
 		}, {
 			test: /\.scss$/,
 			exclude: /node_modules/,
