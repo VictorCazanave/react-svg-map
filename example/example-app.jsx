@@ -12,7 +12,7 @@ class ExampleApp extends React.Component {
 		this.state = {
 			pointedLocation: null,
 			focusedLocation: null,
-			selectedLocations: []
+			selectedLocations: new Set()
 		};
 
 		this.handleLocationMouseOver = this.handleLocationMouseOver.bind(this);
@@ -24,7 +24,8 @@ class ExampleApp extends React.Component {
 	}
 
 	handleLocationMouseOver(event) {
-		this.setState({ pointedLocation: getLocationName(event) });
+		const pointedLocation = getLocationName(event);
+		this.setState({ pointedLocation: pointedLocation });
 	}
 
 	handleLocationMouseOut() {
@@ -34,15 +35,14 @@ class ExampleApp extends React.Component {
 	handleLocationClick(event) {
 		const clickedLocation = getLocationName(event);
 		const isSelected = getLocationSelected(event);
-		let selectedLocations = [];
 
 		this.setState(prevState => {
+			let selectedLocations = new Set(prevState.selectedLocations);
+
 			if (isSelected) {
-				// Remove clickedLocation
-				selectedLocations = prevState.selectedLocations.filter(location => location !== clickedLocation);
+				selectedLocations.delete(clickedLocation);
 			} else {
-				// Add clickedLocation
-				selectedLocations = [...prevState.selectedLocations, clickedLocation];
+				selectedLocations.add(clickedLocation);
 			}
 
 			const newState = {
@@ -56,7 +56,8 @@ class ExampleApp extends React.Component {
 	}
 
 	handleLocationFocus(event) {
-		this.setState({ focusedLocation: getLocationName(event) });
+		const focusedLocation = getLocationName(event);
+		this.setState({ focusedLocation: focusedLocation });
 	}
 
 	handleLocationBlur() {
@@ -64,7 +65,7 @@ class ExampleApp extends React.Component {
 	}
 
 	isLocationSelected(location) {
-		return this.state.selectedLocations.findIndex(selectedLocation => selectedLocation === location.name) > -1;
+		return this.state.selectedLocations.has(location.name);
 	}
 
 	render() {
@@ -84,7 +85,7 @@ class ExampleApp extends React.Component {
 						Selected locations:
 							<ul>
 								{
-									this.state.selectedLocations.map(location => (<li key={location}>{location}</li>))
+									[...this.state.selectedLocations].map(location => (<li key={location}>{location}</li>))
 								}
 							</ul>
 						</div>
