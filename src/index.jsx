@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function SVGMap(props) {
 	// Set default props
@@ -37,5 +38,21 @@ function SVGMap(props) {
 	</svg>
 	);
 }
+
+SVGMap.propTypes = {
+	map: PropTypes.shape({
+		viewBox: PropTypes.string,
+		label: PropTypes.string,
+		locations: PropTypes.array
+	}).isRequired,
+	tabIndex: PropTypes.string,
+	type: PropTypes.string,
+	onLocationMouseOver: PropTypes.func,
+	onLocationMouseOut: PropTypes.func,
+	onLocationClick: PropTypes.func,
+	onLocationFocus: PropTypes.func,
+	onLocationBlur: PropTypes.func,
+	isLocationSelected: PropTypes.func
+};
 
 export default SVGMap;
