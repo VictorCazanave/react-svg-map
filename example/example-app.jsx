@@ -51,7 +51,7 @@ class ExampleApp extends React.Component {
 				selectedLocations: selectedLocations
 			};
 
-			return newState
+			return newState;
 		});
 	}
 
@@ -83,12 +83,12 @@ class ExampleApp extends React.Component {
 					</div>
 					<div className="example__info__block">
 						Selected locations:
-							<ul>
-								{
-									[...this.state.selectedLocations].map(location => (<li key={location}>{location}</li>))
-								}
-							</ul>
-						</div>
+						<ul>
+							{
+								[...this.state.selectedLocations].map(location => (<li key={location}>{location}</li>))
+							}
+						</ul>
+					</div>
 				</div>
 				<div className="example__map">
 					<SVGMap
