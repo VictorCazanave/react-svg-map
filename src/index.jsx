@@ -34,9 +34,15 @@ function SVGMap(props) {
 
 SVGMap.propTypes = {
 	map: PropTypes.shape({
-		viewBox: PropTypes.string,
-		label: PropTypes.string,
-		locations: PropTypes.array
+		viewBox: PropTypes.string.isRequired,
+		locations: PropTypes.arrayOf(
+			PropTypes.shape({
+				path: PropTypes.string.isRequired,
+				name: PropTypes.string,
+				id: PropTypes.string
+			})
+		).isRequired,
+		label: PropTypes.string
 	}).isRequired,
 	tabIndex: PropTypes.string,
 	type: PropTypes.string,
