@@ -1,6 +1,6 @@
 import React from 'react';
 import SVGMap from '../src/svg-map';
-import { getLocationName, getLocationSelected } from '../src/utils';
+import { getLocationName, getLocationSelected } from './utils';
 import Taiwan from '../src/maps/taiwan';
 import '../src/svg-map.scss';
 import './example-app.scss';
