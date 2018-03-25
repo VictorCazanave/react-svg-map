@@ -1,8 +1,8 @@
 import React from 'react';
-import SVGMap from '../src/svg-map';
+import SVGMap from '../src/';
 import { getLocationName, getLocationSelected } from './utils';
 import Taiwan from '../src/maps/taiwan';
-import '../src/svg-map.scss';
+import '../src/index.scss';
 import './example-app.scss';
 
 class ExampleApp extends React.Component {
