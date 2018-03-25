@@ -2,7 +2,7 @@
 	"name": "react-svg-map",
 	"version": "0.0.1",
 	"description": "A React.js component to display an interactive SVG map",
-	"main": "index.js",
+	"main": "index.jsx",
 	"scripts": {
 		"start": "webpack-dev-server --mode development --open",
 		"build": "webpack --mode production",
