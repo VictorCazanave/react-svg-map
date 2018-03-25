@@ -2,10 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function SVGMap(props) {
-	// Set default props
-	const tabIndex = props.tabIndex || '0'; // Make it focusable
-	const role = props.type || 'none';
-
 	return (
 		<svg className="svg-map" xmlns="http://www.w3.org/2000/svg" viewBox={props.map.viewBox} role="group" aria-label={props.map.label}>
 			{
@@ -20,8 +16,8 @@ function SVGMap(props) {
 						onClick={props.onLocationClick}
 						onFocus={props.onLocationFocus}
 						onBlur={props.onLocationBlur}
-						tabIndex={tabIndex}
-						role={role}
+						tabIndex={props.tabIndex}
+						role={props.type}
 						aria-label={location.name}
 						aria-checked={props.isLocationSelected && props.isLocationSelected(location)}
 						key={location.id} />);
@@ -51,6 +47,11 @@ SVGMap.propTypes = {
 	onLocationFocus: PropTypes.func,
 	onLocationBlur: PropTypes.func,
 	isLocationSelected: PropTypes.func
+};
+
+SVGMap.defaultProps = {
+	tabIndex: '0', // Focusable locations
+	type: 'none'
 };
 
 export default SVGMap;
