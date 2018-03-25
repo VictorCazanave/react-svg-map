@@ -45,13 +45,7 @@ class ExampleApp extends React.Component {
 				selectedLocations.add(clickedLocation);
 			}
 
-			const newState = {
-				pointedLocation: prevState.pointedLocation,
-				focusedLocation: prevState.focusedLocation,
-				selectedLocations: selectedLocations
-			};
-
-			return newState;
+			return { ...prevState, selectedLocations };
 		});
 	}
 
