@@ -1,5 +1,5 @@
 import React from 'react';
-import SVGMap from '../src/';
+import SVGMap from '../src/svg-map';
 import { getLocationName, getLocationSelected } from '../src/utils';
 import Taiwan from '../src/maps/taiwan';
 import '../src/index.scss';
