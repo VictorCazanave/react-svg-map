@@ -2,7 +2,7 @@ import React from 'react';
 import SVGMap from '../src/svg-map';
 import { getLocationName, getLocationSelected } from '../src/utils';
 import Taiwan from '../src/maps/taiwan';
-import '../src/index.scss';
+import '../src/svg-map.scss';
 import './example-app.scss';
 
 class ExampleApp extends React.Component {
