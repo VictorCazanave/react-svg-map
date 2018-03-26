@@ -2,11 +2,12 @@
 	"name": "react-svg-map",
 	"version": "0.0.1",
 	"description": "A React.js component to display an interactive SVG map",
-	"main": "index.jsx",
+	"main": "lib/index.js",
 	"scripts": {
-		"start": "webpack-dev-server --mode development --open",
+		"start": "webpack-dev-server --mode development --open --config webpack.example.config.js",
 		"build": "webpack --mode production",
-		"test": "jest"
+		"test": "jest",
+		"build-example": "webpack --mode production --config webpack.example.config.js"
 	},
 	"repository": {
 		"type": "git",
@@ -15,8 +16,8 @@
 	"keywords": [
 		"React",
 		"SVG",
-		"map",
-		"Taiwan"
+		"interactive",
+		"map"
 	],
 	"author": "Victor Cazanave <victor.cazanave@gmail.com>",
 	"license": "MIT",
@@ -51,5 +52,9 @@
 		"prop-types": "^15.6.1",
 		"react": "^16.2.0",
 		"react-dom": "^16.2.0"
+	},
+	"peerDependencies": {
+		"react": "^16.0.0",
+		"react-dom": "^16.0.0"
 	}
 }
