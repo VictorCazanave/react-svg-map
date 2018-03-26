@@ -1,8 +1,14 @@
 /*eslint-env node*/
-const HtmlWebPackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
-	entry: './example/src/index.jsx',
+	entry: './src/index.jsx',
+	output: {
+		path: path.resolve(__dirname, 'lib'),
+		filename: 'index.js',
+		library: 'SVGMap',
+		libraryTarget: 'commonjs2'
+	},
 	module: {
 		rules: [{
 			test: /\.jsx?/,
@@ -10,10 +16,7 @@ module.exports = {
 			use: [
 				'babel-loader',
 				{
-					loader: 'eslint-loader',
-					options: {
-						emitWarning: true, // @note: only for development
-					}
+					loader: 'eslint-loader'
 				}
 			],
 		}, {
@@ -26,24 +29,12 @@ module.exports = {
 			}, {
 				loader: 'sass-loader'
 			}]
-		}, {
-			test: /\.html$/,
-			exclude: /node_modules/,
-			use: [{
-				loader: 'html-loader',
-				options: {
-					minimize: true
-				}
-			}]
 		}]
 	},
 	resolve: {
 		extensions: ['.json', '.js', '.jsx'],
 	},
-	plugins: [
-		new HtmlWebPackPlugin({
-			template: './example/src/index.html',
-			filename: './index.html'
-		})
-	]
+	externals: {
+		'react': 'commonjs react'
+	}
 };
