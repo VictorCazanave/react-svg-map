@@ -7,15 +7,17 @@
 		"start": "webpack-dev-server --mode development --open --config webpack.example.config.js",
 		"build": "webpack --mode production",
 		"test": "jest",
-		"build-example": "webpack --mode production --config webpack.example.config.js"
+		"build-example": "webpack --mode production --config webpack.example.config.js",
+		"prepublish": "npm test && npm run build"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/VictorCazanave/react-svg-map.git"
 	},
 	"keywords": [
-		"React",
-		"SVG",
+		"react",
+		"component",
+		"svg",
 		"interactive",
 		"map"
 	],
