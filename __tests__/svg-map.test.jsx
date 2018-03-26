@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import SVGMap from '../src/';
-import Taiwan from '../src/maps/taiwan';
+import { SVGMap, Taiwan } from '../src/';
 
 test('SVGMap displays map of Taiwan with default props', () => {
 	const component = renderer.create(<SVGMap map={Taiwan}/>);
