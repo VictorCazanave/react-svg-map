@@ -1,5 +1,6 @@
 /*eslint-env node*/
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 	entry: './src/index.js',
@@ -22,18 +23,21 @@ module.exports = {
 		}, {
 			test: /\.scss$/,
 			exclude: /node_modules/,
-			use: [{
-				loader: 'style-loader'
-			}, {
-				loader: 'css-loader'
-			}, {
-				loader: 'sass-loader'
-			}]
+			use: [
+				MiniCssExtractPlugin.loader,
+				'css-loader',
+				'sass-loader'
+			]
 		}]
 	},
 	resolve: {
 		extensions: ['.json', '.js', '.jsx'],
 	},
+	plugins: [
+		new MiniCssExtractPlugin({
+			filename: 'index.css'
+		})
+	],
 	externals: {
 		'react': 'commonjs react'
 	}
