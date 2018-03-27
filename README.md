@@ -45,7 +45,7 @@ ReactDOM.render(
 | ---- | ---- | ------- | ----------- |
 | map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
 | tabIndex | string | '0' | Tabindex of each location. This property is used to set the `tabindex` HTML attribute. |
-| type | string | 'none' | Type of each location: `'checkbox'`/`'radiobutton'`/`'link'`. This property is used to set the `role` HTML attribute and should match the behaviour of your map. |
+| type | string | 'none' | Type of each location: 'checkbox'/'radiobutton'/'link'. This property is used to set the `role` HTML attribute and should match the behaviour of your map. |
 | onLocationMouseOver | func | undefined | Invoked when the user put the mouse over a location. |
 | onLocationMouseOut | func | undefined | Invoked when the user put the mouse out of a location. |
 | onLocationClick | func | undefined | Invoked when the user click on a location. |
@@ -61,7 +61,11 @@ The component provides maps that you can import and use directly.
 
 #### Australia
 
+TBA
+
 #### France
+
+TBA
 
 #### Taiwan
 
@@ -87,6 +91,6 @@ Locations:
 * Yilan County
 * Yunlin County
 
-### Customized maps
+### Custom maps
 
 You are free to customize existing maps or to create your own.
