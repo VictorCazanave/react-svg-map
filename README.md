@@ -44,6 +44,14 @@ ReactDOM.render(
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
+| tabIndex | string | '0' | Tabindex of each location. This property is used to set the `tabindex` HTML attribute. |
+| type | string | 'none' | Type of each location: `'checkbox'`/`'radiobutton'`/`'link'`. This property is used to set the `role` HTML attribute and should match the behaviour of your map. |
+| onLocationMouseOver | func | undefined | Invoked when the user put the mouse over a location. |
+| onLocationMouseOut | func | undefined | Invoked when the user put the mouse out of a location. |
+| onLocationClick | func | undefined | Invoked when the user click on a location. |
+| onLocationFocus | func | undefined | Invoked when the user focus a location (with mouse or keyboard). |
+| onLocationBlur | func | undefined | Invoked when the user unfocus a location. |
+| isLocationSelected | func | undefined | Executed to determine if a location is selected when using checkbox or radiobutton behaviour. This property is used to set the `aria-checked` HTML attribute. |
 
 ## Maps
 
