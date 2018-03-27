@@ -1,0 +1,63 @@
+{
+	"name": "react-svg-map",
+	"version": "1.0.0-alpha.0",
+	"description": "A React.js component to display an interactive SVG map",
+	"main": "lib/index.js",
+	"scripts": {
+		"start": "webpack-dev-server --mode development --open --config webpack.example.config.js",
+		"build": "webpack --mode production",
+		"test": "jest",
+		"build-example": "webpack --mode production --config webpack.example.config.js",
+		"prepublish": "npm test && npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/VictorCazanave/react-svg-map.git"
+	},
+	"keywords": [
+		"react",
+		"component",
+		"svg",
+		"interactive",
+		"map"
+	],
+	"author": "Victor Cazanave <victor.cazanave@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/VictorCazanave/react-svg-map/issues"
+	},
+	"homepage": "https://github.com/VictorCazanave/react-svg-map#readme",
+	"devDependencies": {
+		"babel-core": "^6.26.0",
+		"babel-jest": "^22.4.3",
+		"babel-loader": "^7.1.4",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-preset-env": "^1.6.1",
+		"babel-preset-react": "^6.24.1",
+		"css-loader": "^0.28.11",
+		"eslint": "^4.19.1",
+		"eslint-loader": "^2.0.0",
+		"eslint-plugin-jest": "^21.15.0",
+		"eslint-plugin-react": "^7.7.0",
+		"html-loader": "^0.5.5",
+		"html-webpack-plugin": "^3.0.6",
+		"jest": "^22.4.3",
+		"mini-css-extract-plugin": "^0.2.0",
+		"node-sass": "^4.7.2",
+		"react-test-renderer": "^16.2.0",
+		"sass-loader": "^6.0.7",
+		"style-loader": "^0.20.3",
+		"webpack": "^4.1.1",
+		"webpack-cli": "^2.0.12",
+		"webpack-dev-server": "^3.1.1"
+	},
+	"dependencies": {
+		"prop-types": "^15.6.1",
+		"react": "^16.2.0",
+		"react-dom": "^16.2.0"
+	},
+	"peerDependencies": {
+		"react": "^16.0.0",
+		"react-dom": "^16.0.0"
+	}
+}
