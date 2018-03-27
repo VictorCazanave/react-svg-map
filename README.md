@@ -115,7 +115,7 @@ class App extends React.Component {
 			locations: Taiwan.locations.map((location) => {
 				// Modify each location
 			})
-		}
+		};
   }
 
   render() {
@@ -130,4 +130,4 @@ It is recommended to not modify the SVG properties (viewBox, path), because it m
 
 #### Create a map
 
-If you create a new map (other country, city...), feel free to share it creating a pull request to add it in `src/maps/`!
+If you create a new map (other country, city...), feel free to share it creating a pull request!
