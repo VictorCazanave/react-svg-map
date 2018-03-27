@@ -1,19 +1,25 @@
 # react-svg-map
+
 A React.js component to display an interactive SVG map.
 
+## Demo
+
+[Take a look at the live demo](https://victorcazanave.com/react-svg-map)
+
 ## Installation
-`npm install react-svg-map --save`
+
+`npm install react-svg-map`
 
 ## Usage
-1. Import `react-svg-map` to use `SVGMap` component.
-1. Import the map you want from `react-svg-map/maps/`.
-1. Optionally, import `react-svg-map/lib/css/index.css` if you want to apply the default styling.
+
+* Import `SVGMap` component and the map you want from `react-svg-map`.
+* Optionally, import `react-svg-map/lib/index.css` if you want to apply the default styles.
 
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SVGMap from 'react-svg-map';
-import Taiwan from 'react-svg-map/maps/taiwan';
+import { SVGMap, Taiwan } from 'react-svg-map';
+import 'react-svg-map/lib/index.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,3 +38,9 @@ ReactDOM.render(
   document.getElementById('app')
 );
 ```
+
+## API
+
+| Prop                                  | Type              | Default                                                                             | Description                                                                                                                                                                                                               |
+| ------------------------------------- | ----------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| map                               | object              | **Required**                                                                        | Describe SVG map to display.                                                                                                                                                       |
