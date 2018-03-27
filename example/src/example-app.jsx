@@ -65,7 +65,7 @@ class ExampleApp extends React.Component {
 		return (
 			<section className="example">
 				<h1 className="example__title">
-					Example of <a href="https://github.com/VictorCazanave/react-svg-map">react-svg-map</a>
+					Example of <a href="https://www.npmjs.com/package/react-svg-map">react-svg-map</a>
 				</h1>
 				<div className="example__info">
 					<div className="example__info__block">

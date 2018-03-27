@@ -1,6 +1,6 @@
 {
 	"name": "react-svg-map",
-	"version": "1.0.0-alpha.0",
+	"version": "1.0.0-alpha.1",
 	"description": "A React.js component to display an interactive SVG map",
 	"main": "lib/index.js",
 	"scripts": {
@@ -8,7 +8,7 @@
 		"build": "webpack --mode production",
 		"test": "jest",
 		"build-example": "webpack --mode production --config webpack.example.config.js",
-		"prepublish": "npm test && npm run build"
+		"prepare": "npm test && npm run build"
 	},
 	"repository": {
 		"type": "git",
@@ -44,6 +44,8 @@
 		"jest": "^22.4.3",
 		"mini-css-extract-plugin": "^0.2.0",
 		"node-sass": "^4.7.2",
+		"react": "^16.2.0",
+		"react-dom": "^16.2.0",
 		"react-test-renderer": "^16.2.0",
 		"sass-loader": "^6.0.7",
 		"style-loader": "^0.20.3",
@@ -52,12 +54,15 @@
 		"webpack-dev-server": "^3.1.1"
 	},
 	"dependencies": {
-		"prop-types": "^15.6.1",
-		"react": "^16.2.0",
-		"react-dom": "^16.2.0"
+		"prop-types": "^15.6.1"
 	},
 	"peerDependencies": {
 		"react": "^16.0.0",
 		"react-dom": "^16.0.0"
+	},
+	"jest": {
+		"moduleNameMapper": {
+			"\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+		}
 	}
 }
