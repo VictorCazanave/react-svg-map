@@ -45,19 +45,19 @@ ReactDOM.render(
 | ---- | ---- | ------- | ----------- |
 | map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
 | tabIndex | string | '0' | Tabindex of each location. This property is used to set the `tabindex` HTML attribute. |
-| type | string | 'none' | Type of each location: 'checkbox'/'radiobutton'/'link'. This property is used to set the `role` HTML attribute and should match the behaviour of your map. |
-| onLocationMouseOver | func | undefined | Invoked when the user put the mouse over a location. |
-| onLocationMouseOut | func | undefined | Invoked when the user put the mouse out of a location. |
-| onLocationClick | func | undefined | Invoked when the user click on a location. |
-| onLocationFocus | func | undefined | Invoked when the user focus a location (with mouse or keyboard). |
-| onLocationBlur | func | undefined | Invoked when the user unfocus a location. |
-| isLocationSelected | func | undefined | Executed to determine if a location is selected when using checkbox or radiobutton behaviour. This property is used to set the `aria-checked` HTML attribute. |
+| type | string | 'none' | Type of each location: 'checkbox'/'radio'/'link'. This property is used to set the `role` HTML attribute and should match the behavior of your map. |
+| onLocationMouseOver | func |  | Invoked when the user put the mouse over a location. |
+| onLocationMouseOut | func |  | Invoked when the user put the mouse out of a location. |
+| onLocationClick | func |  | Invoked when the user click on a location. |
+| onLocationFocus | func |  | Invoked when the user focus a location (with mouse or keyboard). |
+| onLocationBlur | func |  | Invoked when the user unfocus a location. |
+| isLocationSelected | func |  | Executed to determine if a location is selected when using checkbox or radio behavior. This property is used to set the `aria-checked` HTML attribute. |
 
 ## Maps
 
 ### Existing maps
 
-The component provides maps that you can import and use directly.
+The component provides maps that can be imported and used directly.
 
 #### Australia
 
@@ -93,4 +93,41 @@ Locations:
 
 ### Custom maps
 
-You are free to customize existing maps or to create your own.
+You can modify existing maps or create your own.
+
+#### Modify a map
+
+1. Import the map to modify.
+1. Create a new object from this map.
+1. Pass this new object as `map` prop of `SVGMap` component.
+
+```javascript
+import React from 'react';
+import { SVGMap, Taiwan } from 'react-svg-map';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+		this.customTaiwan = {
+			...Taiwan,
+			label: 'Custom map label',
+			locations: Taiwan.locations.map((location) => {
+				// Modify each location
+			})
+		}
+  }
+
+  render() {
+    return (
+      <SVGMap map={this.customTaiwan} />
+    );
+  }
+}
+```
+
+It is recommended to not modify the SVG properties (viewBox, path), because it may break the map's display.
+
+#### Create a map
+
+If you create a new map (other country, city...), feel free to share it creating a pull request to add it in `src/maps/`!
