@@ -4,7 +4,7 @@ A React.js component to display an interactive SVG map.
 
 ## Demo
 
-[Take a look at the live demo](https://victorcazanave.com/react-svg-map)
+[Take a look at the live demo!](https://victorcazanave.com/react-svg-map)
 
 ## Installation
 
@@ -41,6 +41,44 @@ ReactDOM.render(
 
 ## API
 
-| Prop                                  | Type              | Default                                                                             | Description                                                                                                                                                                                                               |
-| ------------------------------------- | ----------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| map                               | object              | **Required**                                                                        | Describe SVG map to display.                                                                                                                                                       |
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
+
+## Maps
+
+### Existing maps
+
+The component provides maps that you can import and use directly.
+
+#### Australia
+
+#### France
+
+#### Taiwan
+
+Locations:
+* Changhua County
+* Chiayi City
+* Chiayi County
+* Hualien County
+* Hsinchu City
+* Hsinchu County
+* Kaohsiung City
+* Keelung City
+* Miaoli County
+* Nantou County
+* New Taipei City
+* Penghu County
+* Pingtung County
+* Taichung City
+* Tainan City
+* Taipei City
+* Taitung County
+* Taoyuan City
+* Yilan County
+* Yunlin County
+
+### Customized maps
+
+You are free to customize existing maps or to create your own.
