@@ -1,5 +1,10 @@
 # react-svg-map
 
+[![npm version](https://badge.fury.io/js/react-svg-map.svg)](https://badge.fury.io/js/react-svg-map)
+[![Build Status](https://travis-ci.org/VictorCazanave/react-svg-map.svg?branch=master)](https://travis-ci.org/VictorCazanave/react-svg-map)
+[![Dependency Status](https://david-dm.org/VictorCazanave/react-svg-map.svg)](https://david-dm.org/VictorCazanave/react-svg-map)
+[![NSP Status](https://nodesecurity.io/orgs/victorcazanave/projects/fad41a53-4937-4a49-982e-485959827083/badge)](https://nodesecurity.io/orgs/victorcazanave/projects/fad41a53-4937-4a49-982e-485959827083)
+
 A React.js component to display an interactive SVG map.
 
 ## Demo
