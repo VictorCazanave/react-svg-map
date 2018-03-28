@@ -1,10 +1,9 @@
 import React from 'react';
-import { SVGMap, Taiwan } from '../../src/';
-import { getLocationName, getLocationSelected } from './utils';
-import '../../src/svg-map.scss';
-import './example-app.scss';
+import { SVGMap, Taiwan } from '../../../src/';
+import { getLocationName, getLocationSelected } from '../utils';
+import '../../../src/svg-map.scss';
 
-class ExampleApp extends React.Component {
+class CheckboxMap extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -63,18 +62,18 @@ class ExampleApp extends React.Component {
 
 	render() {
 		return (
-			<section className="example">
-				<h1 className="example__title">
-					Example of <a href="https://www.npmjs.com/package/react-svg-map">react-svg-map</a>
-				</h1>
-				<div className="example__info">
-					<div className="example__info__block">
+			<article className="examples__block">
+				<h2 className="examples__block__title">
+					Taiwan SVG map as checkboxes
+				</h2>
+				<div className="examples__block__info">
+					<div className="examples__block__info__item">
 						Pointed location: {this.state.pointedLocation}
 					</div>
-					<div className="example__info__block">
+					<div className="examples__block__info__item">
 						Focused location: {this.state.focusedLocation}
 					</div>
-					<div className="example__info__block">
+					<div className="examples__block__info__item">
 						Selected locations:
 						<ul>
 							{
@@ -83,7 +82,7 @@ class ExampleApp extends React.Component {
 						</ul>
 					</div>
 				</div>
-				<div className="example__map">
+				<div className="examples__block__map">
 					<SVGMap
 						map={Taiwan}
 						type="checkbox"
@@ -94,9 +93,9 @@ class ExampleApp extends React.Component {
 						onLocationBlur={this.handleLocationBlur}
 						isLocationSelected={this.isLocationSelected} />
 				</div>
-			</section>
+			</article>
 		);
 	}
 }
 
-export default ExampleApp;
+export default CheckboxMap;

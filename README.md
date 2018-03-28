@@ -45,7 +45,7 @@ ReactDOM.render(
 | ---- | ---- | ------- | ----------- |
 | map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
 | tabIndex | string | '0' | Tabindex of each location. This property is used to set the `tabindex` HTML attribute. |
-| type | string | 'none' | Type of each location: 'checkbox'/'radio'/'link'. This property is used to set the `role` HTML attribute and should match the behavior of your map. |
+| type | string | 'none' | Type of each location: 'radio'/'checkbox'/'link'. This property is only used to set the `role` HTML attribute and should match the behavior of your map. See examples for more details. |
 | onLocationMouseOver | func |  | Invoked when the user put the mouse over a location. |
 | onLocationMouseOut | func |  | Invoked when the user put the mouse out of a location. |
 | onLocationClick | func |  | Invoked when the user click on a location. |
@@ -61,15 +61,44 @@ The component provides maps that can be imported and used directly.
 
 #### Australia
 
-TBA
+Locations (states and territories):
+* Australian Capital Territory
+* New South Wales
+* Northern Territory - Groote Eylandt
+* Northern Territory - Mainland
+* Northern Territory Melville Island
+* Queensland - Fraser Island
+* Queensland - Mainland
+* Queensland - Mornington Island
+* South Australia - Kangaroo Island
+* South Australia - Mainland
+* Tasmania - Cape Barren
+* Tasmania - Flinders Island
+* Tasmania - King Currie Island
+* Tasmania - Mainland
+* Victoria
+* Western Australia
 
 #### France
 
-TBA
+Locations (regions):
+* Auvergne-Rhône-Alpes
+* Bourgogne-Franche-Comté
+* Bretagne
+* Centre-Val de Loire
+* Corse
+* Grand Est
+* Hauts-de-France
+* Île-de-France
+* Normandie
+* Nouvelle-Aquitaine
+* Occitanie
+* Pays de la Loire
+* Provence-Alpes-Côte d'Azur
 
 #### Taiwan
 
-Locations:
+Locations (counties and cities):
 * Changhua County
 * Chiayi City
 * Chiayi County
@@ -99,7 +128,7 @@ You can modify existing maps or create your own.
 
 1. Import the map to modify.
 1. Create a new object from this map.
-1. Pass this new object as `map` prop of `SVGMap` component.
+1. Pass this new object as `map` prop of `<SVGMap />` component.
 
 ```javascript
 import React from 'react';
@@ -109,6 +138,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+		// Create new map object
 		this.customTaiwan = {
 			...Taiwan,
 			label: 'Custom map label',
@@ -130,4 +160,4 @@ It is recommended to not modify the SVG properties (viewBox, path), because it m
 
 #### Create a map
 
-If you create a new map (other country, city...), feel free to share it creating a pull request!
+If you create a new map (other country, city...), feel free to share it and add it to this project creating a pull request!
