@@ -1,0 +1,47 @@
+.examples {
+	width: 1000px;
+	margin: 0 auto;
+	font-family: Arial, sans-serif;
+	text-align: center;
+
+	&__title {
+		margin-bottom: 80px;
+		padding-bottom: 40px;
+		border-bottom: 1px dotted black;
+		font-size: 24px;
+	}
+
+	&__block {
+		margin-bottom: 80px;
+		padding-bottom: 80px;
+		border-bottom: 1px dotted black;
+
+
+		&__title {
+			margin-bottom: 40px;
+			font-size: 20px;
+		}
+
+		&__info {
+			display: inline-block;
+			vertical-align: top;
+			width: 450px;
+			text-align: left;
+
+			&__item {
+				margin-bottom: 20px;
+			}
+		}
+
+		&__map {
+			display: inline-block;
+			width: 500px;
+
+			&--australia {
+				.svg-map {
+					stroke-width: 0.5; // Australia stroke is larger than other maps
+				}
+			}
+		}
+	}
+}

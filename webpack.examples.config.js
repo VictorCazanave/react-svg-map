@@ -4,9 +4,9 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, options) => {
 	return {
-		entry: './example/src/index.jsx',
+		entry: './examples/src/index.jsx',
 		output: {
-			path: path.resolve(__dirname, 'example/dist'),
+			path: path.resolve(__dirname, 'examples/dist'),
 			filename: 'index.js',
 		},
 		module: {
@@ -48,7 +48,7 @@ module.exports = (env, options) => {
 		},
 		plugins: [
 			new HtmlWebPackPlugin({
-				template: './example/src/index.html',
+				template: './examples/src/index.html',
 				filename: './index.html'
 			})
 		]
