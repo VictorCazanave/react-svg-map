@@ -136,7 +136,7 @@ import { SVGMap, Taiwan } from 'react-svg-map';
 
 class App extends React.Component {
   constructor(props) {
-		super(props);
+    super(props);
 
 		// Create new map object
 		this.customTaiwan = {
@@ -146,10 +146,12 @@ class App extends React.Component {
 				// Modify each location
 			})
 		};
-	}
+  }
 
   render() {
-    return (<SVGMap map={this.customTaiwan} />);
+    return (
+      <SVGMap map={this.customTaiwan} />
+    );
   }
 }
 ```
