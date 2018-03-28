@@ -128,7 +128,7 @@ You can modify existing maps or create your own.
 
 1. Import the map to modify.
 1. Create a new object from this map.
-1. Pass this new object as `map` prop of `SVGMap` component.
+1. Pass this new object as `map` prop of `<SVGMap />` component.
 
 ```javascript
 import React from 'react';
@@ -136,8 +136,9 @@ import { SVGMap, Taiwan } from 'react-svg-map';
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+		super(props);
 
+		// Create new map object
 		this.customTaiwan = {
 			...Taiwan,
 			label: 'Custom map label',
@@ -145,12 +146,10 @@ class App extends React.Component {
 				// Modify each location
 			})
 		};
-  }
+	}
 
   render() {
-    return (
-      <SVGMap map={this.customTaiwan} />
-    );
+    return (<SVGMap map={this.customTaiwan} />);
   }
 }
 ```
