@@ -8,6 +8,7 @@
 		"build": "webpack --mode production",
 		"test": "jest",
 		"build-examples": "webpack --mode production --config webpack.examples.config.js",
+		"build-tests": "jest -u",
 		"prepare": "npm test && npm run build"
 	},
 	"repository": {
