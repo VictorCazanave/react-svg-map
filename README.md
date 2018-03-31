@@ -166,3 +166,7 @@ It is recommended to not modify the SVG properties (viewBox, path), because it m
 #### Create a map
 
 If you create a new map (other country, city...), feel free to share it and add it to this project creating a pull request!
+
+## License
+
+MIT
