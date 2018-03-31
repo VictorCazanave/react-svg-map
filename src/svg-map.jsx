@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 function SVGMap(props) {
 	return (
 		<svg className="svg-map" xmlns="http://www.w3.org/2000/svg" viewBox={props.map.viewBox} role="group" aria-label={props.map.label}>
-			{
-				props.map.locations.map(location => {
-					return (<path
+			{props.map.locations.map(location => {
+				return (
+					<path
 						id={location.id}
 						className="svg-map__location"
 						name={location.name}
@@ -20,9 +20,10 @@ function SVGMap(props) {
 						role={props.type}
 						aria-label={location.name}
 						aria-checked={props.isLocationSelected && props.isLocationSelected(location)}
-						key={location.id} />);
-				})
-			}
+						key={location.id}
+					/>
+				);
+			})}
 		</svg>
 	);
 }
