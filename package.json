@@ -1,6 +1,6 @@
 {
 	"name": "react-svg-map",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A React.js component to display an interactive SVG map",
 	"main": "lib/index.js",
 	"scripts": {
@@ -58,6 +58,8 @@
 	"jest": {
 		"moduleNameMapper": {
 			"\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
-		}
+		},
+		"coverageDirectory": "./coverage/",
+		"collectCoverage": true
 	}
 }
