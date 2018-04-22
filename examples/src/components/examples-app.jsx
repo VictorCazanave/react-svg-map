@@ -2,6 +2,7 @@ import React from 'react';
 import CheckboxMap from './checkbox-map';
 import RadioMap from './radio-map';
 import LinkMap from './link-map';
+import TooltipMap from './tooltip-map';
 import './examples-app.scss';
 
 class ExamplesApp extends React.Component {
@@ -18,6 +19,7 @@ class ExamplesApp extends React.Component {
 				<RadioMap />
 				<CheckboxMap />
 				<LinkMap />
+				<TooltipMap />
 			</section>
 		);
 	}
