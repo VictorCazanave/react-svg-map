@@ -14,7 +14,7 @@ A React.js component to display an interactive SVG map.
 
 ## Installation
 
-`npm install react-svg-map`
+`npm install --save react-svg-map`
 
 ## Usage
 
@@ -125,6 +125,61 @@ Locations (counties and cities):
 * Taoyuan City
 * Yilan County
 * Yunlin County
+
+#### USA
+
+Locations (states):
+* Alaska
+* Alabama
+* Arkansas
+* Arizona
+* California
+* Colorado
+* Connecticut
+* Washington, DC
+* Delaware
+* Florida
+* Georgia
+* Hawaii
+* Iowa
+* Idaho
+* Illinois
+* Indiana
+* Kansas
+* Kentucky
+* Louisiana
+* Massachusetts
+* Maryland
+* Maine
+* Michigan
+* Minnesota
+* Missouri
+* Mississippi
+* Montana
+* North Carolina
+* North Dakota
+* Nebraska
+* New Hampshire
+* New Jersey
+* New Mexico
+* Nevada
+* New York
+* Ohio
+* Oklahoma
+* Oregon
+* Pennsylvania
+* Rhode Island
+* South Carolina
+* South Dakota
+* Tennessee
+* Texas
+* Utah
+* Virginia
+* Vermont
+* Washington
+* Wisconsin
+* West Virginia
+* Wyoming
 
 ### Custom maps
 
