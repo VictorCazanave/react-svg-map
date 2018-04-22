@@ -13,6 +13,7 @@ function SVGMap(props) {
 						d={location.path}
 						onMouseOver={props.onLocationMouseOver}
 						onMouseOut={props.onLocationMouseOut}
+						onMouseMove={props.onLocationMouseMove}
 						onClick={props.onLocationClick}
 						onFocus={props.onLocationFocus}
 						onBlur={props.onLocationBlur}
@@ -44,6 +45,7 @@ SVGMap.propTypes = {
 	type: PropTypes.string,
 	onLocationMouseOver: PropTypes.func,
 	onLocationMouseOut: PropTypes.func,
+	onLocationMouseMove: PropTypes.func,
 	onLocationClick: PropTypes.func,
 	onLocationFocus: PropTypes.func,
 	onLocationBlur: PropTypes.func,

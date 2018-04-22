@@ -9,6 +9,9 @@ module.exports = (env, options) => {
 			path: path.resolve(__dirname, 'examples/dist'),
 			filename: 'index.js',
 		},
+		performance: {
+			hints: false // Disable assets limit
+		},
 		module: {
 			rules: [{
 				test: /\.jsx?/,
