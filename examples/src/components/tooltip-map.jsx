@@ -3,7 +3,7 @@ import { SVGMap, USA } from '../../../src/';
 import { getLocationName } from '../utils';
 import '../../../src/svg-map.scss';
 
-class LinkMap extends React.Component {
+class TooltipMap extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -58,4 +58,4 @@ class LinkMap extends React.Component {
 	}
 }
 
-export default LinkMap;
+export default TooltipMap;
