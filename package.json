@@ -1,6 +1,6 @@
 {
 	"name": "react-svg-map",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "A React.js component to display an interactive SVG map",
 	"main": "lib/index.js",
 	"scripts": {
@@ -15,7 +15,17 @@
 		"type": "git",
 		"url": "git+https://github.com/VictorCazanave/react-svg-map.git"
 	},
-	"keywords": ["react", "component", "svg", "interactive", "map"],
+	"keywords": [
+		"react",
+		"component",
+		"svg",
+		"interactive",
+		"map",
+		"australia",
+		"france",
+		"taiwan",
+		"usa"
+	],
 	"author": "Victor Cazanave <victor.cazanave@gmail.com>",
 	"license": "MIT",
 	"bugs": {
