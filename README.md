@@ -56,6 +56,7 @@ ReactDOM.render(
 | type | string | 'none' | Type of each location: 'radio'/'checkbox'/'link'. This property is only used to set the `role` HTML attribute and should match the behavior of your map. See examples for more details. |
 | onLocationMouseOver | func |  | Invoked when the user put the mouse over a location. |
 | onLocationMouseOut | func |  | Invoked when the user put the mouse out of a location. |
+| onLocationMouseMove | func |  | Invoked when the user move the mouse on a location. |
 | onLocationClick | func |  | Invoked when the user click on a location. |
 | onLocationFocus | func |  | Invoked when the user focus a location (with mouse or keyboard). |
 | onLocationBlur | func |  | Invoked when the user unfocus a location. |
@@ -201,14 +202,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-		// Create new map object
-		this.customTaiwan = {
-			...Taiwan,
-			label: 'Custom map label',
-			locations: Taiwan.locations.map((location) => {
-				// Modify each location
-			})
-		};
+    // Create new map object
+    this.customTaiwan = {
+      ...Taiwan,
+      label: 'Custom map label',
+      locations: Taiwan.locations.map((location) => {
+        // Modify each location
+      })
+    };
   }
 
   render() {
