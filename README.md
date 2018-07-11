@@ -1,9 +1,10 @@
-# react-svg-map
+ # react-svg-map
 
 [![npm version](https://badge.fury.io/js/react-svg-map.svg)](https://badge.fury.io/js/react-svg-map)
 [![Build Status](https://travis-ci.org/VictorCazanave/react-svg-map.svg?branch=master)](https://travis-ci.org/VictorCazanave/react-svg-map)
 [![codecov](https://codecov.io/gh/VictorCazanave/react-svg-map/branch/master/graph/badge.svg)](https://codecov.io/gh/VictorCazanave/react-svg-map)
 [![Dependency Status](https://david-dm.org/VictorCazanave/react-svg-map.svg)](https://david-dm.org/VictorCazanave/react-svg-map)
+[![peerDependencies Status](https://david-dm.org/VictorCazanave/react-svg-map/peer-status.svg)](https://david-dm.org/VictorCazanave/react-svg-map?type=peer)
 [![NSP Status](https://nodesecurity.io/orgs/victorcazanave/projects/fad41a53-4937-4a49-982e-485959827083/badge)](https://nodesecurity.io/orgs/victorcazanave/projects/fad41a53-4937-4a49-982e-485959827083)
 
 A React.js component to display an interactive SVG map.
@@ -52,15 +53,15 @@ ReactDOM.render(
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
-| tabIndex | string | '0' | Tabindex of each location. This property is used to set the `tabindex` HTML attribute. |
-| type | string | 'none' | Type of each location: 'radio'/'checkbox'/'link'. This property is only used to set the `role` HTML attribute and should match the behavior of your map. See examples for more details. |
-| onLocationMouseOver | func |  | Invoked when the user put the mouse over a location. |
-| onLocationMouseOut | func |  | Invoked when the user put the mouse out of a location. |
-| onLocationMouseMove | func |  | Invoked when the user move the mouse on a location. |
-| onLocationClick | func |  | Invoked when the user click on a location. |
-| onLocationFocus | func |  | Invoked when the user focus a location (with mouse or keyboard). |
-| onLocationBlur | func |  | Invoked when the user unfocus a location. |
-| isLocationSelected | func |  | Executed to determine if a location is selected when using checkbox or radio behavior. This property is used to set the `aria-checked` HTML attribute. |
+| tabIndex | string | `'0'` | Tabindex of each location. This property is used to set the `tabindex` HTML attribute. |
+| type | string | `'none'` | Type of each location: `'radio'`/`'checkbox'`/`'link'`. This property is only used to set the `role` HTML attribute and should match the behaviour of your map. See [examples](https://github.com/VictorCazanave/react-svg-map/tree/master/examples/src) for more details. |
+| onLocationMouseOver | function |  | Invoked when the user put the mouse over a location. |
+| onLocationMouseOut | function |  | Invoked when the user put the mouse out of a location. |
+| onLocationMouseMove | function |  | Invoked when the user move the mouse on a location. |
+| onLocationClick | function |  | Invoked when the user click on a location. |
+| onLocationFocus | function |  | Invoked when the user focus a location (with mouse or keyboard). |
+| onLocationBlur | function |  | Invoked when the user unfocus a location. |
+| isLocationSelected | function |  | Executed to determine if a location is selected when using checkbox or radio behaviour. This property is used to set the `aria-checked` HTML attribute. |
 
 ## Maps
 
