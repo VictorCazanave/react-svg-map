@@ -26,5 +26,8 @@ If you want to contribute to this project, here's a quick guide:
 * Run ESLint with `npm run lint`
 * Run the tests with `npm test`
 
+### Documentation
+* Add the country with the list of locations alphabetically sorted in the [existing maps section](https://github.com/VictorCazanave/react-svg-map#existing-maps)
+
 ## Reporting a bug
 [Open an issue](https://github.com/VictorCazanave/react-svg-map/issues/new).
