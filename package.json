@@ -1,15 +1,16 @@
 {
 	"name": "react-svg-map",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "A React.js component to display an interactive SVG map",
 	"main": "lib/index.js",
 	"scripts": {
 		"start": "webpack-dev-server --mode development --open --config webpack.examples.config.js",
 		"build": "webpack --mode production",
+		"lint": "eslint src/*.js* src/maps/*.js",
 		"test": "jest",
 		"build-examples": "webpack --mode production --config webpack.examples.config.js",
 		"build-tests": "jest -u",
-		"prepare": "npm test && npm run build"
+		"prepare": "npm run lint && npm test && npm run build"
 	},
 	"repository": {
 		"type": "git",
