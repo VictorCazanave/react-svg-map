@@ -6,10 +6,11 @@
 	"scripts": {
 		"start": "webpack-dev-server --mode development --open --config webpack.examples.config.js",
 		"build": "webpack --mode production",
+		"lint": "eslint src/*.js* src/maps/*.js",
 		"test": "jest",
 		"build-examples": "webpack --mode production --config webpack.examples.config.js",
 		"build-tests": "jest -u",
-		"prepare": "npm test && npm run build"
+		"prepare": "npm run lint && npm test && npm run build"
 	},
 	"repository": {
 		"type": "git",
