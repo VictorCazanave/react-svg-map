@@ -3,6 +3,7 @@ import CheckboxMap from './checkbox-map';
 import RadioMap from './radio-map';
 import LinkMap from './link-map';
 import TooltipMap from './tooltip-map';
+import CheckboxUtahMap from './checkbox-utah-map';
 import './examples-app.scss';
 
 class ExamplesApp extends React.Component {
@@ -13,13 +14,7 @@ class ExamplesApp extends React.Component {
 	render() {
 		return (
 			<section className="examples">
-				<h1 className="examples__title">
-					Examples of <a href="https://www.npmjs.com/package/react-svg-map">react-svg-map</a>
-				</h1>
-				<RadioMap />
-				<CheckboxMap />
-				<LinkMap />
-				<TooltipMap />
+				<CheckboxUtahMap />
 			</section>
 		);
 	}

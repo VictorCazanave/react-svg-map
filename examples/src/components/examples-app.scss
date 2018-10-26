@@ -42,6 +42,7 @@
 		&__map {
 			display: inline-block;
 			width: 500px;
+         stroke-width: 1;
 
 			&--australia {
 				.svg-map {
@@ -49,15 +50,21 @@
 				}
 			}
 
+         &--utah {
+            .svg-map {
+               stroke-width: 0.5; // Australia stroke is larger than other maps
+            }
+         }
+
 			&--usa {
 				width: 800px; // USA needs more space	for tooltip
 			}
 
 			&__tooltip {
 				position: fixed;
-				width: 200px;
+				width: 150px;
 				padding: 10px;
-				border: 1px solid darkgray;
+				border: 1px solid black;
 				background-color: white;
 			}
 		}

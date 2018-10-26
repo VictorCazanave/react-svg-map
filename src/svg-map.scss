@@ -1,8 +1,8 @@
 .svg-map {
 	width: 100%;
 	height: auto;
-	stroke: #666;
-	stroke-width: 1;
+	stroke: #000000;
+	stroke-width: 100;
 	stroke-linecap: round;
 	stroke-linejoin: round;
 
@@ -17,7 +17,7 @@
 		}
 
 		&[aria-checked=true] {
-			fill: #f4bc44;
+			fill: #00A600;
 		}
 	}
 }
