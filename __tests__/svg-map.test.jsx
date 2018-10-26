@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { SVGMap, Australia, France, Taiwan, USA } from '../src/';
+import { SVGMap, Australia, France, Taiwan, USA, Utah } from '../src/';
 
 test('SVGMap displays map of Australia with default props', () => {
 	const component = renderer.create(<SVGMap map={Australia} />);
@@ -49,6 +49,19 @@ test('SVGMap displays map of USA with default props', () => {
 test('SVGMap displays map of Taiwan with custom props', () => {
 	const handleLocationMouseMove = () => false;
 	const component = renderer.create(<SVGMap map={USA} tabIndex="4" onLocationMouseMove={handleLocationMouseMove} />);
+	const tree = component.toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
+test('SVGMap displays map of Utah with default props', () => {
+	const component = renderer.create(<SVGMap map={Utah} />);
+	const tree = component.toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
+test('SVGMap displays map of Utah with custom props', () => {
+	const isSelected = () => false;
+	const component = renderer.create(<SVGMap map={Utah} type="radio" tabIndex="1" isLocationSelected={isSelected} />);
 	const tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 });
