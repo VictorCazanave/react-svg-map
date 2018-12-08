@@ -38,7 +38,7 @@ class SVGMap extends React.Component {
 			path.setAttribute('tabIndex', this.props.tabIndex);
 			path.setAttribute('aria-label', name);
 
-			// Add aria-checked attribute only when needed
+			// Add aria-checked attribute when needed
 			if (this.props.isLocationSelected) {
 				path.setAttribute('aria-checked', this.props.isLocationSelected(name));
 			}
@@ -46,6 +46,7 @@ class SVGMap extends React.Component {
 	}
 
 	componentDidUpdate() {
+		// Update aria-checked when needed
 		if (this.props.isLocationSelected) {
 			for (let i = 0; i < this.paths.length; i++) {
 				const path = this.paths[i];
