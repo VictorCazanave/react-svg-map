@@ -1,5 +1,5 @@
 import React from 'react';
-import { SVGMap, Australia } from '../../../src/';
+import { RadioSVGMap, Australia } from '../../../src/';
 import { getLocationName } from '../utils';
 import '../../../src/svg-map.scss';
 
@@ -15,10 +15,9 @@ class RadioMap extends React.Component {
 
 		this.handleLocationMouseOver = this.handleLocationMouseOver.bind(this);
 		this.handleLocationMouseOut = this.handleLocationMouseOut.bind(this);
-		this.handleLocationClick = this.handleLocationClick.bind(this);
 		this.handleLocationFocus = this.handleLocationFocus.bind(this);
 		this.handleLocationBlur = this.handleLocationBlur.bind(this);
-		this.isLocationSelected = this.isLocationSelected.bind(this);
+		this.handleOnChange = this.handleOnChange.bind(this);
 	}
 
 	handleLocationMouseOver(event) {
@@ -30,11 +29,6 @@ class RadioMap extends React.Component {
 		this.setState({ pointedLocation: null });
 	}
 
-	handleLocationClick(event) {
-		const selectedLocation = getLocationName(event);
-		this.setState({ selectedLocation: selectedLocation });
-	}
-
 	handleLocationFocus(event) {
 		const focusedLocation = getLocationName(event);
 		this.setState({ focusedLocation: focusedLocation });
@@ -44,8 +38,10 @@ class RadioMap extends React.Component {
 		this.setState({ focusedLocation: null });
 	}
 
-	isLocationSelected(location) {
-		return this.state.selectedLocation === location;
+	handleOnChange(selectedLocation) {
+		this.setState(prevState => {
+			return { ...prevState, selectedLocation };
+		});
 	}
 
 	render() {
@@ -66,15 +62,13 @@ class RadioMap extends React.Component {
 					</div>
 				</div>
 				<div className="examples__block__map examples__block__map--australia">
-					<SVGMap
+					<RadioSVGMap
 						map={Australia}
-						type="radio"
 						onLocationMouseOver={this.handleLocationMouseOver}
 						onLocationMouseOut={this.handleLocationMouseOut}
-						onLocationClick={this.handleLocationClick}
 						onLocationFocus={this.handleLocationFocus}
 						onLocationBlur={this.handleLocationBlur}
-						isLocationSelected={this.isLocationSelected} />
+						onChange={this.handleOnChange} />
 				</div>
 			</article>
 		);

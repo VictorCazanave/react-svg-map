@@ -1,6 +1,6 @@
 import React from 'react';
-import { SVGMap, Taiwan } from '../../../src/';
-import { getLocationName, getLocationSelected } from '../utils';
+import { CheckboxSVGMap, Taiwan } from '../../../src/';
+import { getLocationName } from '../utils';
 import '../../../src/svg-map.scss';
 
 class CheckboxMap extends React.Component {
@@ -10,15 +10,14 @@ class CheckboxMap extends React.Component {
 		this.state = {
 			pointedLocation: null,
 			focusedLocation: null,
-			selectedLocations: new Set()
+			selectedLocations: []
 		};
 
 		this.handleLocationMouseOver = this.handleLocationMouseOver.bind(this);
 		this.handleLocationMouseOut = this.handleLocationMouseOut.bind(this);
-		this.handleLocationClick = this.handleLocationClick.bind(this);
 		this.handleLocationFocus = this.handleLocationFocus.bind(this);
 		this.handleLocationBlur = this.handleLocationBlur.bind(this);
-		this.isLocationSelected = this.isLocationSelected.bind(this);
+		this.handleOnChange = this.handleOnChange.bind(this);
 	}
 
 	handleLocationMouseOver(event) {
@@ -30,23 +29,6 @@ class CheckboxMap extends React.Component {
 		this.setState({ pointedLocation: null });
 	}
 
-	handleLocationClick(event) {
-		const clickedLocation = getLocationName(event);
-		const isSelected = getLocationSelected(event);
-
-		this.setState(prevState => {
-			let selectedLocations = new Set(prevState.selectedLocations);
-
-			if (isSelected) {
-				selectedLocations.delete(clickedLocation);
-			} else {
-				selectedLocations.add(clickedLocation);
-			}
-
-			return { ...prevState, selectedLocations };
-		});
-	}
-
 	handleLocationFocus(event) {
 		const focusedLocation = getLocationName(event);
 		this.setState({ focusedLocation: focusedLocation });
@@ -56,8 +38,10 @@ class CheckboxMap extends React.Component {
 		this.setState({ focusedLocation: null });
 	}
 
-	isLocationSelected(location) {
-		return this.state.selectedLocations.has(location);
+	handleOnChange(selectedLocations) {
+		this.setState(prevState => {
+			return { ...prevState, selectedLocations };
+		});
 	}
 
 	render() {
@@ -83,15 +67,14 @@ class CheckboxMap extends React.Component {
 					</div>
 				</div>
 				<div className="examples__block__map">
-					<SVGMap
+					<CheckboxSVGMap
 						map={Taiwan}
-						type="checkbox"
 						onLocationMouseOver={this.handleLocationMouseOver}
 						onLocationMouseOut={this.handleLocationMouseOut}
 						onLocationClick={this.handleLocationClick}
 						onLocationFocus={this.handleLocationFocus}
 						onLocationBlur={this.handleLocationBlur}
-						isLocationSelected={this.isLocationSelected} />
+						onChange={this.handleOnChange} />
 				</div>
 			</article>
 		);
