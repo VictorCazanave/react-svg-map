@@ -45,7 +45,7 @@ class RadioMap extends React.Component {
 	}
 
 	isLocationSelected(location) {
-		return this.state.selectedLocation === location.name;
+		return this.state.selectedLocation === location;
 	}
 
 	render() {

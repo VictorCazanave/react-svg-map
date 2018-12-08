@@ -57,7 +57,7 @@ class CheckboxMap extends React.Component {
 	}
 
 	isLocationSelected(location) {
-		return this.state.selectedLocations.has(location.name);
+		return this.state.selectedLocations.has(location);
 	}
 
 	render() {
