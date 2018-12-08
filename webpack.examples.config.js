@@ -44,6 +44,10 @@ module.exports = (env, options) => {
 						minimize: true
 					}
 				}]
+			},
+			{
+				test: /\.svg$/,
+				loader: 'svg-inline-loader'
 			}]
 		},
 		resolve: {
