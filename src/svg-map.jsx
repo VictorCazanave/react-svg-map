@@ -16,8 +16,9 @@ class SVGMap extends React.Component {
 	}
 
 	componentDidMount() {
-		// Add CSS class
+		// Add CSS class and aria role
 		this.svg.setAttribute('class', this.props.className);
+		this.svg.setAttribute('role', this.props.role);
 
 		for (let i = 0; i < this.paths.length; i++) {
 			const path = this.paths[i];
@@ -33,14 +34,13 @@ class SVGMap extends React.Component {
 			path.addEventListener('blur', this.props.onLocationBlur);
 
 			// Add attributes
-			path.setAttribute('tabIndex', this.props.tabIndex);
-			path.setAttribute('role', this.props.type);
-			path.setAttribute('tabIndex', this.props.tabIndex);
+			path.setAttribute('tabindex', this.props.locationTabIndex);
+			path.setAttribute('role', this.props.locationRole);
 			path.setAttribute('aria-label', name);
 
 			// Add aria-checked attribute when needed
 			if (this.props.isLocationSelected) {
-				path.setAttribute('aria-checked', this.props.isLocationSelected(name));
+				path.setAttribute('aria-checked', this.props.isLocationSelected(path));
 			}
 		}
 	}
@@ -50,9 +50,8 @@ class SVGMap extends React.Component {
 		if (this.props.isLocationSelected) {
 			for (let i = 0; i < this.paths.length; i++) {
 				const path = this.paths[i];
-				const name = path.getAttribute('name');
 
-				path.setAttribute('aria-checked', this.props.isLocationSelected(name));
+				path.setAttribute('aria-checked', this.props.isLocationSelected(path));
 			}
 		}
 	}
@@ -86,8 +85,9 @@ class SVGMap extends React.Component {
 SVGMap.propTypes = {
 	map: PropTypes.node.isRequired,
 	className: PropTypes.string,
-	tabIndex: PropTypes.string,
-	type: PropTypes.string,
+	role: PropTypes.string,
+	locationTabIndex: PropTypes.string,
+	locationRole: PropTypes.string,
 	onLocationMouseOver: PropTypes.func,
 	onLocationMouseOut: PropTypes.func,
 	onLocationMouseMove: PropTypes.func,
@@ -100,8 +100,9 @@ SVGMap.propTypes = {
 
 SVGMap.defaultProps = {
 	className: 'svg-map',
-	tabIndex: '0', // Focusable locations
-	type: 'none' // No role
+	role: 'none', // No role for map
+	locationTabIndex: '0', // Focusable locations
+	locationRole: 'none', // No role for locations
 };
 
 export default SVGMap;
