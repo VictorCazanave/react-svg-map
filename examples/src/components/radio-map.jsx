@@ -38,9 +38,12 @@ class RadioMap extends React.Component {
 		this.setState({ focusedLocation: null });
 	}
 
-	handleOnChange(selectedLocation) {
+	handleOnChange(node) {
 		this.setState(prevState => {
-			return { ...prevState, selectedLocation };
+			return { 
+				...prevState,
+				selectedLocation: node.attributes.name.value
+			};
 		});
 	}
 
