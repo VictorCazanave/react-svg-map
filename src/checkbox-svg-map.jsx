@@ -11,10 +11,11 @@ class CheckboxSVGMap extends React.Component {
 		};
 
 		this.handleLocationClick = this.handleLocationClick.bind(this);
+		this.handleLocationKeyDown = this.handleLocationKeyDown.bind(this);
 		this.isLocationSelected = this.isLocationSelected.bind(this);
 	}
 
-	handleLocationClick(event) {
+	toggleLocation(event) {
 		const location = event.target.attributes.name.value;
 
 		this.setState(prevState => {
@@ -35,25 +36,39 @@ class CheckboxSVGMap extends React.Component {
 			// Return new state
 			return { selectedLocations };
 		});
-
 	}
 
-	isLocationSelected(location) {
-		return this.state.selectedLocations.indexOf(location) > -1;
+	handleLocationClick(event) {
+		this.toggleLocation(event);
+	}
+
+	handleLocationKeyDown(event) {
+		// Space
+		if (event.keyCode === 32) {
+			event.preventDefault();
+			this.toggleLocation(event);
+		}
+	}
+
+	isLocationSelected(path) {
+		return this.state.selectedLocations.indexOf(path.attributes.name.value) > -1;
 	}
 
 	render() {
 		return (
 			<SVGMap
 				map={this.props.map}
-				type="checkbox"
+				role="group"
+				locationRole="checkbox"
 				onLocationClick={this.handleLocationClick}
+				onLocationKeyDown={this.handleLocationKeyDown}
 				isLocationSelected={this.isLocationSelected}
 				onLocationMouseOver={this.props.onLocationMouseOver}
 				onLocationMouseOut={this.props.onLocationMouseOut}
 				onLocationFocus={this.props.onLocationFocus}
 				onLocationBlur={this.props.onLocationBlur}
-				onChange={this.props.onChange} />
+				onChange={this.props.onChange}
+			/>
 		);
 	}
 }
