@@ -3,24 +3,31 @@ import PropTypes from 'prop-types';
 
 function SVGMap(props) {
 	return (
-		<svg className="svg-map" xmlns="http://www.w3.org/2000/svg" viewBox={props.map.viewBox} role="group" aria-label={props.map.label}>
-			{props.map.locations.map(location => {
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox={props.map.viewBox}
+			className={props.className}
+			role={props.role}
+			aria-label={props.map.label}
+		>
+			{props.map.locations.map((location, index) => {
 				return (
 					<path
 						id={location.id}
-						className="svg-map__location"
 						name={location.name}
 						d={location.path}
+						className={props.locationClassName}
+						tabIndex={typeof props.locationTabIndex === 'function' ? props.locationTabIndex(location, index) : props.locationTabIndex || props.tabIndex}
+						role={props.locationRole || props.type}
+						aria-label={location.name}
+						aria-checked={props.isLocationSelected && props.isLocationSelected(location, index)}
 						onMouseOver={props.onLocationMouseOver}
 						onMouseOut={props.onLocationMouseOut}
 						onMouseMove={props.onLocationMouseMove}
 						onClick={props.onLocationClick}
+						onKeyDown={props.onLocationKeyDown}
 						onFocus={props.onLocationFocus}
 						onBlur={props.onLocationBlur}
-						tabIndex={props.tabIndex}
-						role={props.type}
-						aria-label={location.name}
-						aria-checked={props.isLocationSelected && props.isLocationSelected(location)}
 						key={location.id}
 					/>
 				);
@@ -30,31 +37,47 @@ function SVGMap(props) {
 }
 
 SVGMap.propTypes = {
+	// Map properties
 	map: PropTypes.shape({
 		viewBox: PropTypes.string.isRequired,
 		locations: PropTypes.arrayOf(
 			PropTypes.shape({
 				path: PropTypes.string.isRequired,
-				name: PropTypes.string,
-				id: PropTypes.string
+				id: PropTypes.string.isRequired,
+				name: PropTypes.string
 			})
 		).isRequired,
 		label: PropTypes.string
 	}).isRequired,
-	tabIndex: PropTypes.string,
-	type: PropTypes.string,
+	className: PropTypes.string,
+	role: PropTypes.string,
+
+	// Locations properties
+	locationClassName: PropTypes.string,
+	locationTabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+	locationRole: PropTypes.string,
 	onLocationMouseOver: PropTypes.func,
 	onLocationMouseOut: PropTypes.func,
 	onLocationMouseMove: PropTypes.func,
 	onLocationClick: PropTypes.func,
+	onLocationKeyDown: PropTypes.func,
 	onLocationFocus: PropTypes.func,
 	onLocationBlur: PropTypes.func,
-	isLocationSelected: PropTypes.func
+	isLocationSelected: PropTypes.func,
+
+	// Deprecated properties
+	tabIndex: PropTypes.string,
+	type: PropTypes.string
 };
 
 SVGMap.defaultProps = {
-	tabIndex: '0', // Focusable locations
-	type: 'none'
+	className: 'svg-map',
+	role: 'none', // No role for map
+	locationClassName: 'svg-map__location',
+	locationTabIndex: '0', // Focusable locations
+	locationRole: 'none', // No role for locations
+	tabIndex: '0',
+	type: 'none',
 };
 
 export default SVGMap;
