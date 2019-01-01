@@ -41,6 +41,7 @@
 		"semi": [
 			"error",
 			"always"
-		]
+		],
+		"react/no-find-dom-node": "off"
 	}
 }
