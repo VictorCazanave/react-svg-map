@@ -46,7 +46,9 @@ class CheckboxSVGMap extends React.Component {
 			}
 
 			// Call onChange event handler
-			this.props.onChange(selectedLocations);
+			if (this.props.onChange) {
+				this.props.onChange(selectedLocations);
+			}
 
 			// Return new state
 			return { selectedLocations };
@@ -89,7 +91,6 @@ class CheckboxSVGMap extends React.Component {
 				onLocationMouseOut={this.props.onLocationMouseOut}
 				onLocationFocus={this.props.onLocationFocus}
 				onLocationBlur={this.props.onLocationBlur}
-				onChange={this.props.onChange}
 			/>
 		);
 	}
