@@ -41,6 +41,8 @@
 		"babel-preset-env": "^1.7.0",
 		"babel-preset-react": "^6.24.1",
 		"css-loader": "^0.28.11",
+		"enzyme": "^3.8.0",
+		"enzyme-adapter-react-16": "^1.8.0",
 		"eslint": "^4.19.1",
 		"eslint-loader": "^2.0.0",
 		"eslint-plugin-jest": "^21.17.0",
@@ -67,6 +69,7 @@
 		"react-dom": "^16.0.0"
 	},
 	"jest": {
+		"setupTestFrameworkScriptFile": "<rootDir>/jest-setup.js",
 		"moduleNameMapper": {
 			"\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
 		},
