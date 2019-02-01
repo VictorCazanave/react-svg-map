@@ -67,7 +67,9 @@ class RadioSVGMap extends React.Component {
 		this.setState({ selectedLocation: location });
 
 		// Call onChange event handler
-		this.props.onChange(location);
+		if (this.props.onChange) {
+			this.props.onChange(location);
+		}
 	}
 
 	/**
