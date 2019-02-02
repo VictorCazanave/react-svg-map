@@ -72,6 +72,16 @@ describe('RadioSVGMap component', () => {
 			expect(location.props()['aria-checked']).toBeFalsy();
 			expect(previousLocation.props()['aria-checked']).toBeTruthy();
 		});
+
+		test('makes location focusable when selected', () => {
+			expect(location.props()['tabIndex']).toEqual('-1');
+
+			location.simulate('click');
+			wrapper.update();
+			location = wrapper.find(locationSelector);
+
+			expect(location.props()['tabIndex']).toEqual('0');
+		});
 	});
 
 	// TODO: Add tests for first/last location and right/left arrow

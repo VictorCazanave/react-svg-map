@@ -33,7 +33,7 @@ class RadioSVGMap extends React.Component {
 	getLocationTabIndex(location, index) {
 		let tabIndex = null;
 
-		if (this.state.selectLocation) {
+		if (this.state.selectedLocation) {
 			// Only selected location is focusable
 			tabIndex = this.isLocationSelected(location) ? '0' : '-1';
 		} else {
