@@ -121,6 +121,8 @@ class RadioSVGMap extends React.Component {
 				role="radiogroup"
 				locationTabIndex={this.getLocationTabIndex}
 				locationRole="radio"
+				className={this.props.className}
+				locationClassName={this.props.locationClassName}
 				isLocationSelected={this.isLocationSelected}
 				onLocationClick={this.handleLocationClick}
 				onLocationKeyDown={this.handleLocationKeyDown}
@@ -152,6 +154,7 @@ RadioSVGMap.propTypes = {
 		label: PropTypes.string
 	}).isRequired,
 	className: PropTypes.string,
+	locationClassName: PropTypes.string,
 	onLocationMouseOver: PropTypes.func,
 	onLocationMouseOut: PropTypes.func,
 	onLocationMouseMove: PropTypes.func,
