@@ -89,6 +89,7 @@ class CheckboxSVGMap extends React.Component {
 				onLocationKeyDown={this.handleLocationKeyDown}
 				onLocationMouseOver={this.props.onLocationMouseOver}
 				onLocationMouseOut={this.props.onLocationMouseOut}
+				onLocationMouseMove={this.props.onLocationMouseMove}
 				onLocationFocus={this.props.onLocationFocus}
 				onLocationBlur={this.props.onLocationBlur}
 			/>
