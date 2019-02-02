@@ -74,7 +74,6 @@ class CheckboxMap extends React.Component {
 						map={Taiwan}
 						onLocationMouseOver={this.handleLocationMouseOver}
 						onLocationMouseOut={this.handleLocationMouseOut}
-						onLocationClick={this.handleLocationClick}
 						onLocationFocus={this.handleLocationFocus}
 						onLocationBlur={this.handleLocationBlur}
 						onChange={this.handleOnChange} />
