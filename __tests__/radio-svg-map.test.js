@@ -1,6 +1,13 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import { RadioSVGMap, Australia } from '../src';
+
+jest.mock('react-dom', () => ({
+	findDOMNode: () => ({
+		querySelectorAll: jest.fn(),
+	})
+}));
 
 // TODO: Create utility functions to avoid code duplication
 describe('RadioSVGMap component', () => {
@@ -130,6 +137,44 @@ describe('RadioSVGMap component', () => {
 			location.simulate('click');
 
 			expect(handleOnChange).toHaveBeenCalledWith(location.getDOMNode());
+		});
+	});
+
+	describe('Properties', () => {
+		const map = {
+			label: 'label',
+			viewBox: 'viewBox',
+			locations: [{
+				name: 'name',
+				id: 'id',
+				path: 'path'
+			}]
+		};
+
+		test('displays map with default props', () => {
+			const component = renderer.create(<RadioSVGMap map={map} />);
+			const tree = component.toJSON();
+
+			expect(tree).toMatchSnapshot();
+		});
+
+		test('displays map with custom props', () => {
+			const eventHandler = () => 'eventHandler';
+			const component = renderer.create(
+				<RadioSVGMap map={map}
+					className="className"
+					locationClassName="locationClassName"
+					onLocationMouseOver={eventHandler}
+					onLocationMouseOut={eventHandler}
+					onLocationMouseMove={eventHandler}
+					onLocationFocus={eventHandler}
+					onLocationBlur={eventHandler}
+					onChange={eventHandler}
+				/>
+			);
+			const tree = component.toJSON();
+
+			expect(tree).toMatchSnapshot();
 		});
 	});
 });

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioSVGMap component Properties displays map with custom props 1`] = `
+<svg
+  aria-label="label"
+  className="className"
+  role="radiogroup"
+  viewBox="viewBox"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    aria-checked={null}
+    aria-label="name"
+    className="locationClassName"
+    d="path"
+    id="id"
+    name="name"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseMove={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    role="radio"
+    tabIndex="0"
+  />
+</svg>
+`;
+
+exports[`RadioSVGMap component Properties displays map with default props 1`] = `
+<svg
+  aria-label="label"
+  className="svg-map"
+  role="radiogroup"
+  viewBox="viewBox"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    aria-checked={null}
+    aria-label="name"
+    className="svg-map__location"
+    d="path"
+    id="id"
+    name="name"
+    onBlur={undefined}
+    onClick={[Function]}
+    onFocus={undefined}
+    onKeyDown={[Function]}
+    onMouseMove={undefined}
+    onMouseOut={undefined}
+    onMouseOver={undefined}
+    role="radio"
+    tabIndex="0"
+  />
+</svg>
+`;
