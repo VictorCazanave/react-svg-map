@@ -73,7 +73,10 @@
 		"moduleNameMapper": {
 			"\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
 		},
+		"collectCoverage": true,
 		"coverageDirectory": "./coverage/",
-		"collectCoverage": true
+		"collectCoverageFrom": [
+			"src/*.jsx"
+		]
 	}
 }
