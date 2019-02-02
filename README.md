@@ -52,7 +52,7 @@ ReactDOM.render(
 ```
 
 ### Checkbox SVG Map
-This is an implementation of `SVGMap` that behaves like a group of checkboxes.
+This is an implementation of `SVGMap` that behaves like a group of checkboxes.  
 It is based on [this WAI-ARIA example](https://www.w3.org/TR/wai-aria-practices/examples/checkbox/checkbox-1/checkbox-1.html) to support keyboard navigation and be accessible.
 
 * Import `CheckboxSVGMap` component and the map you want from `react-svg-map`.
@@ -83,7 +83,7 @@ ReactDOM.render(
 ```
 
 ### Radio SVG Map
-This is an implementation of `SVGMap` that behaves like a group of radio buttons.
+This is an implementation of `SVGMap` that behaves like a group of radio buttons.  
 It is based on [this WAI-ARIA example](https://www.w3.org/TR/wai-aria-practices/examples/radio/radio-1/radio-1.html) to support keyboard navigation and be accessible.
 
 * Import `RadioSVGMap` component and the map you want from `react-svg-map`.
