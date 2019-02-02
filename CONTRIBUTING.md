@@ -21,7 +21,7 @@ If you want to contribute to this project, here's a quick guide:
 * Import and export the map in `/src/index.js`
 
 ### Tests
-* Add a test in `/__tests__/svg-maps.tests.jsx` for default display: `SVGMap displays map of [Country] with default props`
+* Add a test in `/__tests__/svg-maps.tests.js` for this map: `displays map of [Country]`
 * Update the snapshots with `npm run build-tests`
 * Run ESLint with `npm run lint`
 * Run the tests with `npm test`
