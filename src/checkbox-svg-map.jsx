@@ -84,6 +84,8 @@ class CheckboxSVGMap extends React.Component {
 				map={this.props.map}
 				role="group"
 				locationRole="checkbox"
+				className={this.props.className}
+				locationClassName={this.props.locationClassName}
 				isLocationSelected={this.isLocationSelected}
 				onLocationClick={this.handleLocationClick}
 				onLocationKeyDown={this.handleLocationKeyDown}
@@ -113,6 +115,7 @@ CheckboxSVGMap.propTypes = {
 		label: PropTypes.string
 	}).isRequired,
 	className: PropTypes.string,
+	locationClassName: PropTypes.string,
 	onLocationMouseOver: PropTypes.func,
 	onLocationMouseOut: PropTypes.func,
 	onLocationMouseMove: PropTypes.func,
