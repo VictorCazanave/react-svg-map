@@ -6,7 +6,7 @@
 [![Dependency Status](https://david-dm.org/VictorCazanave/react-svg-map.svg)](https://david-dm.org/VictorCazanave/react-svg-map)
 [![peerDependencies Status](https://david-dm.org/VictorCazanave/react-svg-map/peer-status.svg)](https://david-dm.org/VictorCazanave/react-svg-map?type=peer)
 
-A React.js component to display an interactive SVG map.
+A set of React.js components to display an interactive SVG map.
 
 ![React SVG Map](https://github.com/VictorCazanave/react-svg-map/blob/master/react-svg-map.gif)
 
@@ -19,6 +19,10 @@ A React.js component to display an interactive SVG map.
 `npm install --save react-svg-map`
 
 ## Usage
+
+### Simple SVG Map
+
+This is the base component to display an SVG map.
 
 * Import `SVGMap` component and the map you want from `react-svg-map`.
 * Optionally, import `react-svg-map/lib/index.css` if you want to apply the default styles.
@@ -47,20 +51,118 @@ ReactDOM.render(
 );
 ```
 
+### Checkbox SVG Map
+This is an implementation of `SVGMap` that behaves like a group of checkboxes.
+It is based on [this WAI-ARIA example](https://www.w3.org/TR/wai-aria-practices/examples/checkbox/checkbox-1/checkbox-1.html) to support keyboard navigation and be accessible.
+
+* Import `CheckboxSVGMap` component and the map you want from `react-svg-map`.
+* Optionally, import `react-svg-map/lib/index.css` if you want to apply the default styles.
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { CheckboxSVGMap, Taiwan } from 'react-svg-map';
+import 'react-svg-map/lib/index.css';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <CheckboxSVGMap map={Taiwan} />
+    );
+  }
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+);
+```
+
+### Radio SVG Map
+This is an implementation of `SVGMap` that behaves like a group of radio buttons.
+It is based on [this WAI-ARIA example](https://www.w3.org/TR/wai-aria-practices/examples/radio/radio-1/radio-1.html) to support keyboard navigation and be accessible.
+
+* Import `RadioSVGMap` component and the map you want from `react-svg-map`.
+* Optionally, import `react-svg-map/lib/index.css` if you want to apply the default styles.
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { RadioSVGMap, Taiwan } from 'react-svg-map';
+import 'react-svg-map/lib/index.css';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <RadioSVGMap map={Taiwan} />
+    );
+  }
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+);
+```
+
 ## API
+
+### SVGMap
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
-| tabIndex | string | `'0'` | Tabindex of each location. This property is used to set the `tabindex` HTML attribute. |
-| type | string | `'none'` | Type of each location: `'radio'`/`'checkbox'`/`'link'`. This property is only used to set the `role` HTML attribute and should match the behaviour of your map. See [examples](https://github.com/VictorCazanave/react-svg-map/tree/master/examples/src) for more details. |
-| onLocationMouseOver | function |  | Invoked when the user put the mouse over a location. |
-| onLocationMouseOut | function |  | Invoked when the user put the mouse out of a location. |
-| onLocationMouseMove | function |  | Invoked when the user move the mouse on a location. |
-| onLocationClick | function |  | Invoked when the user click on a location. |
-| onLocationFocus | function |  | Invoked when the user focus a location (with mouse or keyboard). |
-| onLocationBlur | function |  | Invoked when the user unfocus a location. |
-| isLocationSelected | function |  | Executed to determine if a location is selected when using checkbox or radio behaviour. This property is used to set the `aria-checked` HTML attribute. |
+| className | string | `'svg-map'` | CSS class of `<svg>`. |
+| role | string | `'none'` | ARIA role of `<svg>`. |
+| locationClassName | string | `'svg-map__location'` | CSS class of each `<path>`. |
+| locationTabIndex | string or function | `'0'` | Tabindex each `<path>`. |
+| locationRole | string | `'none'` | ARIA role of each `<path>`. |
+| onLocationMouseOver | function |  | Invoked when the user puts the mouse over a location. |
+| onLocationMouseOut | function |  | Invoked when the user puts the mouse out of a location. |
+| onLocationMouseMove | function |  | Invoked when the user moves the mouse on a location. |
+| onLocationClick | function |  | Invoked when the user clicks on a location. |
+| onLocationKeyDown | function |  | Invoked when the user hits a keyboard key on a location. |
+| onLocationFocus | function |  | Invoked when the user focuses a location. |
+| onLocationBlur | function |  | Invoked when the user unfocuses a location. |
+| isLocationSelected | function |  | Executed to determine if a location is selected. This property is used to set the `aria-checked` HTML attribute. |
+| tabIndex | string | `'0'` | **DEPRECATED:** Although this property still works, it has been replaced by `locationTabIndex` and will be removed in next major version. |
+| type | string | `'none'` | **DEPRECATED:** Although this property still works, it has been replaced by `locationRole` and will be removed in next major version. |
+
+### CheckboxSVGMap
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
+| className | string | `'svg-map'` | CSS class of `<svg>`. |
+| locationClassName | string | `'svg-map__location'` | CSS class of each `<path>`. |
+| onChange | function |  | Invoked when the user selects/deselects a location. The list of selected locations is passed as parameter. |
+| onLocationMouseOver | function |  | Invoked when the user puts the mouse over a location. |
+| onLocationMouseOut | function |  | Invoked when the user puts the mouse out of a location. |
+| onLocationMouseMove | function |  | Invoked when the user moves the mouse on a location. |
+| onLocationFocus | function |  | Invoked when the user focuses a location. |
+| onLocationBlur | function |  | Invoked when the user unfocuses a location. |
+
+### RadioSVGMap
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
+| className | string | `'svg-map'` | CSS class of `<svg>`. |
+| locationClassName | string | `'svg-map__location'` | CSS class of each `<path>`. |
+| onChange | function |  | Invoked when the user selects a location. The selected location is passed as parameter. |
+| onLocationMouseOver | function |  | Invoked when the user puts the mouse over a location. |
+| onLocationMouseOut | function |  | Invoked when the user puts the mouse out of a location. |
+| onLocationMouseMove | function |  | Invoked when the user moves the mouse on a location. |
+| onLocationFocus | function |  | Invoked when the user focuses a location. |
+| onLocationBlur | function |  | Invoked when the user unfocuses a location. |
 
 ## Maps
 
