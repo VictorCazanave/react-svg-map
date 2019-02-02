@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.2.0]
+### Added
+- Create CheckboxSVGMap and RadioSVGMap components
+- Add unit tests
+
+### Changed
+- Update examples
+- Deprecate tabIndex and type properties
+- Improve snapshot tests
+- Update dev dependencies
+
 ## [1.1.0]
 ### Added
 - Create Utah map
