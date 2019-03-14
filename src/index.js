@@ -6,6 +6,7 @@ import France from './maps/france';
 import Taiwan from './maps/taiwan';
 import USA from './maps/usa';
 import Utah from './maps/utah';
+import World from './maps/world';
 import './svg-map.scss';
 
 export {
@@ -16,5 +17,6 @@ export {
 	France,
 	Taiwan,
 	USA,
-	Utah
+	Utah,
+	World
 };
