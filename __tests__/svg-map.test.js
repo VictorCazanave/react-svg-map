@@ -55,33 +55,32 @@ describe('SVGMap component', () => {
 			expect(tree).toMatchSnapshot();
 		});
 
-		test('SVGMap displays map of France', () => {
+		test('displays map of France', () => {
 			const component = renderer.create(<SVGMap map={France} />);
 			const tree = component.toJSON();
 
 			expect(tree).toMatchSnapshot();
 		});
 
-		test('SVGMap displays map of Taiwan', () => {
+		test('displays map of Taiwan', () => {
 			const component = renderer.create(<SVGMap map={Taiwan} />);
 			const tree = component.toJSON();
 
 			expect(tree).toMatchSnapshot();
 		});
 
-		test('SVGMap displays map of USA', () => {
+		test('displays map of USA', () => {
 			const component = renderer.create(<SVGMap map={USA} />);
 			const tree = component.toJSON();
 
 			expect(tree).toMatchSnapshot();
 		});
 
-		test('SVGMap displays map of Utah', () => {
+		test('displays map of Utah', () => {
 			const component = renderer.create(<SVGMap map={Utah} />);
 			const tree = component.toJSON();
 
 			expect(tree).toMatchSnapshot();
 		});
-
 	});
 });
