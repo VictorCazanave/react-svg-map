@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function SVGMap(props) {
+
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +17,7 @@ function SVGMap(props) {
 						id={location.id}
 						name={location.name}
 						d={location.path}
-						className={props.locationClassName}
+						className={getLocationClassName(props,location,index)}
 						tabIndex={typeof props.locationTabIndex === 'function' ? props.locationTabIndex(location, index) : props.locationTabIndex || props.tabIndex}
 						role={props.locationRole || props.type}
 						aria-label={location.name}
@@ -35,7 +36,19 @@ function SVGMap(props) {
 		</svg>
 	);
 }
-
+function getLocationClassName(props,location,index) {
+	let result='';
+	if(props.locationClassName){
+		result=props.locationClassName;
+	}
+	if(props.handleLocationClasses && typeof props.handleLocationClasses==='function'){
+		let classes=props.handleLocationClasses(location,index);
+		if(classes){
+			result=result+' '+classes;
+		}
+	}
+	return result;
+}
 SVGMap.propTypes = {
 	// Map properties
 	map: PropTypes.shape({
@@ -64,6 +77,7 @@ SVGMap.propTypes = {
 	onLocationFocus: PropTypes.func,
 	onLocationBlur: PropTypes.func,
 	isLocationSelected: PropTypes.func,
+	handleLocationClasses: PropTypes.func,
 
 	// Deprecated properties
 	tabIndex: PropTypes.string,
