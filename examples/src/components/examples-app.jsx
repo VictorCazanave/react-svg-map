@@ -3,6 +3,7 @@ import CheckboxMap from './checkbox-map';
 import RadioMap from './radio-map';
 import LinkMap from './link-map';
 import TooltipMap from './tooltip-map';
+import HeatMap from './heat-map';
 import './examples-app.scss';
 
 class ExamplesApp extends React.Component {
@@ -20,6 +21,7 @@ class ExamplesApp extends React.Component {
 				<CheckboxMap />
 				<LinkMap />
 				<TooltipMap />
+				<HeatMap />
 			</section>
 		);
 	}
