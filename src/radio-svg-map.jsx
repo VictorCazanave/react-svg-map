@@ -15,7 +15,6 @@ class RadioSVGMap extends React.Component {
 		this.isLocationSelected = this.isLocationSelected.bind(this);
 		this.handleLocationClick = this.handleLocationClick.bind(this);
 		this.handleLocationKeyDown = this.handleLocationKeyDown.bind(this);
-		this.handleLocationClasses = this.handleLocationClasses.bind(this);
 	}
 
 	componentDidMount() {
@@ -54,22 +53,7 @@ class RadioSVGMap extends React.Component {
 	isLocationSelected(location) {
 		return this.state.selectedLocation && this.state.selectedLocation.id === location.id;
 	}
-	/**
-	 * Indicate whether a location is selected
-	 *
-	 * @param {Object} location - Location object
-	 * @returns {boolean} True if the location is selected
-	 */
-	handleLocationClasses(location, index) {
-		if (this.props.classes && Array.isArray(this.props.classes)) {
-			return this.props.classes[
-				location.id
-			] || this.props.classes[
-				index
-			];
-		}
-		return '';
-	}
+
 	/**
 	 * Select a location
 	 * 
@@ -140,7 +124,6 @@ class RadioSVGMap extends React.Component {
 				className={this.props.className}
 				locationClassName={this.props.locationClassName}
 				isLocationSelected={this.isLocationSelected}
-				handleLocationClasses={this.handleLocationClasses}
 				onLocationClick={this.handleLocationClick}
 				onLocationKeyDown={this.handleLocationKeyDown}
 				onLocationMouseOver={this.props.onLocationMouseOver}
@@ -171,7 +154,6 @@ RadioSVGMap.propTypes = {
 		label: PropTypes.string
 	}).isRequired,
 	className: PropTypes.string,
-	classes: PropTypes.array,
 	locationClassName: PropTypes.string,
 	onLocationMouseOver: PropTypes.func,
 	onLocationMouseOut: PropTypes.func,
