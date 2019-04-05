@@ -3,7 +3,7 @@ import { SVGMap, USA } from '../../../src/';
 import { getLocationName } from '../utils';
 import '../../../src/svg-map.scss';
 
-class TooltipMap extends React.Component {
+class HeatMap extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -45,7 +45,7 @@ class TooltipMap extends React.Component {
 		return (
 			<article className="examples__block">
 				<h2 className="examples__block__title">
-					USA SVG map with tooltips
+					USA SVG map with tooltips and a heat map
 				</h2>
 				<div className="examples__block__map examples__block__map--usa">
 					<SVGMap
@@ -64,4 +64,4 @@ class TooltipMap extends React.Component {
 	}
 }
 
-export default TooltipMap;
+export default HeatMap;

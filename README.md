@@ -133,8 +133,10 @@ ReactDOM.render(
 | onLocationFocus | function |  | Invoked when the user focuses a location. |
 | onLocationBlur | function |  | Invoked when the user unfocuses a location. |
 | isLocationSelected | function |  | Executed to determine if a location is selected. This property is used to set the `aria-checked` HTML attribute. |
+| handleLocationClasses | function |  | Adds user and context specific classes to the className property of individual locations|
 | tabIndex | string | `'0'` | **DEPRECATED:** Although this property still works, it has been replaced by `locationTabIndex` and will be removed in next major version. |
 | type | string | `'none'` | **DEPRECATED:** Although this property still works, it has been replaced by `locationRole` and will be removed in next major version. |
+
 
 ### CheckboxSVGMap
 
@@ -326,8 +328,8 @@ You can modify existing maps or create your own.
 #### Modify a map
 
 1. Import the map to modify.
-1. Create a new object from this map.
-1. Pass this new object as `map` prop of `<SVGMap />` component.
+2. Create a new object from this map.
+3. Pass this new object as `map` prop of `<SVGMap />` component.
 
 ```javascript
 import React from 'react';
