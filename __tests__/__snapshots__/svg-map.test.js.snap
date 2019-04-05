@@ -2248,6 +2248,34 @@ exports[`SVGMap component Maps displays map of Utah 1`] = `
 </svg>
 `;
 
+exports[`SVGMap component Properties displays heat map with custom location css 1`] = `
+<svg
+  aria-label="label"
+  className="className"
+  role="role"
+  viewBox="viewBox"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    aria-checked="isLocationSelected"
+    aria-label="name"
+    className="locationClassName heat0"
+    d="path"
+    id="id"
+    name="name"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseMove={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    role="locationRole"
+    tabIndex="locationTabIndex"
+  />
+</svg>
+`;
+
 exports[`SVGMap component Properties displays map with custom props 1`] = `
 <svg
   aria-label="label"

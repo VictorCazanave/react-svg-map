@@ -45,7 +45,35 @@ describe('SVGMap component', () => {
 
 			expect(tree).toMatchSnapshot();
 		});
+
+		test('displays heat map with custom location css', () => {
+			const eventHandler = () => 'eventHandler';
+			const isLocationSelected = () => 'isLocationSelected';
+			const generateHeat = () => 'heat0';
+			const component = renderer.create(
+				<SVGMap map={map}
+					className="className"
+					role="role"
+					locationClassName="locationClassName"
+					locationTabIndex="locationTabIndex"
+					locationRole="locationRole"
+					onLocationMouseOver={eventHandler}
+					onLocationMouseOut={eventHandler}
+					onLocationMouseMove={eventHandler}
+					onLocationClick={eventHandler}
+					onLocationKeyDown={eventHandler}
+					onLocationFocus={eventHandler}
+					onLocationBlur={eventHandler}
+					isLocationSelected={isLocationSelected}
+					handleLocationClasses={generateHeat}
+				/>
+			);
+			const tree = component.toJSON();
+
+			expect(tree).toMatchSnapshot();
+		});
 	});
+
 
 	describe('Maps', () => {
 		test('displays map of Australia', () => {
