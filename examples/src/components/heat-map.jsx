@@ -38,7 +38,7 @@ class HeatMap extends React.Component {
 	}
 
 	generateHeat(location, index) {
-		return 'heat' + (index % 4);
+		return 'svg-map__location heat' + (index % 4);
 	}
 
 	render() {
@@ -53,7 +53,7 @@ class HeatMap extends React.Component {
 						onLocationMouseOver={this.handleLocationMouseOver}
 						onLocationMouseOut={this.handleLocationMouseOut}
 						onLocationMouseMove={this.handleLocationMouseMove}
-						handleLocationClasses={this.generateHeat}
+						locationClassName={this.generateHeat}
 					/>
 					<div className="examples__block__map__tooltip" style={this.state.tooltipStyle}>
 						{this.state.pointedLocation}

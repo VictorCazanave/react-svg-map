@@ -17,7 +17,7 @@ function SVGMap(props) {
 						id={location.id}
 						name={location.name}
 						d={location.path}
-						className={getLocationClassName(props,location,index)}
+						className={typeof props.locationClassName === 'function' ? props.locationClassName(location, index) : props.locationClassName}
 						tabIndex={typeof props.locationTabIndex === 'function' ? props.locationTabIndex(location, index) : props.locationTabIndex || props.tabIndex}
 						role={props.locationRole || props.type}
 						aria-label={location.name}
@@ -36,19 +36,7 @@ function SVGMap(props) {
 		</svg>
 	);
 }
-function getLocationClassName(props,location,index) {
-	let result='';
-	if(props.locationClassName){
-		result=props.locationClassName;
-	}
-	if(props.handleLocationClasses && typeof props.handleLocationClasses==='function'){
-		let classes=props.handleLocationClasses(location,index);
-		if(classes){
-			result=result+' '+classes;
-		}
-	}
-	return result;
-}
+
 SVGMap.propTypes = {
 	// Map properties
 	map: PropTypes.shape({
@@ -66,7 +54,7 @@ SVGMap.propTypes = {
 	role: PropTypes.string,
 
 	// Locations properties
-	locationClassName: PropTypes.string,
+	locationClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 	locationTabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 	locationRole: PropTypes.string,
 	onLocationMouseOver: PropTypes.func,

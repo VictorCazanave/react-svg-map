@@ -2259,7 +2259,7 @@ exports[`SVGMap component Properties displays heat map with custom location css 
   <path
     aria-checked="isLocationSelected"
     aria-label="name"
-    className="locationClassName heat0"
+    className="svg-map__location heat0"
     d="path"
     id="id"
     name="name"
