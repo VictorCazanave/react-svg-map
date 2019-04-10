@@ -122,7 +122,7 @@ ReactDOM.render(
 | map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
 | className | string | `'svg-map'` | CSS class of `<svg>`. |
 | role | string | `'none'` | ARIA role of `<svg>`. |
-| locationClassName | string | `'svg-map__location'` | CSS class of each `<path>`. |
+| locationClassName | string or function | `'svg-map__location'` | CSS class of each `<path>`. |
 | locationTabIndex | string or function | `'0'` | Tabindex each `<path>`. |
 | locationRole | string | `'none'` | ARIA role of each `<path>`. |
 | onLocationMouseOver | function |  | Invoked when the user puts the mouse over a location. |
@@ -133,7 +133,6 @@ ReactDOM.render(
 | onLocationFocus | function |  | Invoked when the user focuses a location. |
 | onLocationBlur | function |  | Invoked when the user unfocuses a location. |
 | isLocationSelected | function |  | Executed to determine if a location is selected. This property is used to set the `aria-checked` HTML attribute. |
-| handleLocationClasses | function |  | Adds user and context specific classes to the className property of individual locations|
 | tabIndex | string | `'0'` | **DEPRECATED:** Although this property still works, it has been replaced by `locationTabIndex` and will be removed in next major version. |
 | type | string | `'none'` | **DEPRECATED:** Although this property still works, it has been replaced by `locationRole` and will be removed in next major version. |
 
