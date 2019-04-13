@@ -122,7 +122,7 @@ ReactDOM.render(
 | map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
 | className | string | `'svg-map'` | CSS class of `<svg>`. |
 | role | string | `'none'` | ARIA role of `<svg>`. |
-| locationClassName | string | `'svg-map__location'` | CSS class of each `<path>`. |
+| locationClassName | string or function | `'svg-map__location'` | CSS class of each `<path>`. |
 | locationTabIndex | string or function | `'0'` | Tabindex each `<path>`. |
 | locationRole | string | `'none'` | ARIA role of each `<path>`. |
 | onLocationMouseOver | function |  | Invoked when the user puts the mouse over a location. |
@@ -135,6 +135,7 @@ ReactDOM.render(
 | isLocationSelected | function |  | Executed to determine if a location is selected. This property is used to set the `aria-checked` HTML attribute. |
 | tabIndex | string | `'0'` | **DEPRECATED:** Although this property still works, it has been replaced by `locationTabIndex` and will be removed in next major version. |
 | type | string | `'none'` | **DEPRECATED:** Although this property still works, it has been replaced by `locationRole` and will be removed in next major version. |
+
 
 ### CheckboxSVGMap
 
@@ -326,8 +327,8 @@ You can modify existing maps or create your own.
 #### Modify a map
 
 1. Import the map to modify.
-1. Create a new object from this map.
-1. Pass this new object as `map` prop of `<SVGMap />` component.
+2. Create a new object from this map.
+3. Pass this new object as `map` prop of `<SVGMap />` component.
 
 ```javascript
 import React from 'react';
