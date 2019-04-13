@@ -8,7 +8,7 @@
 		"build": "webpack --mode production",
 		"lint": "eslint src/*.js* src/maps/*.js",
 		"test": "jest",
-		"build-examples": "webpack --mode production --config webpack.examples.config.js",
+		"build-demo": "webpack --mode production --config webpack.examples.config.js && cp examples/dist/* docs",
 		"build-tests": "jest -u",
 		"prepare": "npm run lint && npm test && npm run build"
 	},
