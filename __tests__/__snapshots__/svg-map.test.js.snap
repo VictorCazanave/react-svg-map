@@ -2248,30 +2248,47 @@ exports[`SVGMap component Maps displays map of Utah 1`] = `
 </svg>
 `;
 
-exports[`SVGMap component Properties displays heat map with custom location css 1`] = `
+exports[`SVGMap component Properties displays map with custom function location props 1`] = `
 <svg
   aria-label="label"
-  className="className"
-  role="role"
+  className="svg-map"
+  role="none"
   viewBox="viewBox"
   xmlns="http://www.w3.org/2000/svg"
 >
   <path
-    aria-checked="isLocationSelected"
-    aria-label="name"
-    className="svg-map__location heat0"
-    d="path"
-    id="id"
-    name="name"
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseMove={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
-    role="locationRole"
-    tabIndex="locationTabIndex"
+    aria-checked={undefined}
+    aria-label="name0"
+    className="locationClassName-0"
+    d="path0"
+    id="id0"
+    name="name0"
+    onBlur={undefined}
+    onClick={undefined}
+    onFocus={undefined}
+    onKeyDown={undefined}
+    onMouseMove={undefined}
+    onMouseOut={undefined}
+    onMouseOver={undefined}
+    role="none"
+    tabIndex="locationTabIndex-0"
+  />
+  <path
+    aria-checked={undefined}
+    aria-label="name1"
+    className="locationClassName-1"
+    d="path1"
+    id="id1"
+    name="name1"
+    onBlur={undefined}
+    onClick={undefined}
+    onFocus={undefined}
+    onKeyDown={undefined}
+    onMouseMove={undefined}
+    onMouseOut={undefined}
+    onMouseOver={undefined}
+    role="none"
+    tabIndex="locationTabIndex-1"
   />
 </svg>
 `;
@@ -2286,11 +2303,28 @@ exports[`SVGMap component Properties displays map with custom props 1`] = `
 >
   <path
     aria-checked="isLocationSelected"
-    aria-label="name"
+    aria-label="name0"
     className="locationClassName"
-    d="path"
-    id="id"
-    name="name"
+    d="path0"
+    id="id0"
+    name="name0"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseMove={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    role="locationRole"
+    tabIndex="locationTabIndex"
+  />
+  <path
+    aria-checked="isLocationSelected"
+    aria-label="name1"
+    className="locationClassName"
+    d="path1"
+    id="id1"
+    name="name1"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -2314,11 +2348,28 @@ exports[`SVGMap component Properties displays map with default props 1`] = `
 >
   <path
     aria-checked={undefined}
-    aria-label="name"
+    aria-label="name0"
     className="svg-map__location"
-    d="path"
-    id="id"
-    name="name"
+    d="path0"
+    id="id0"
+    name="name0"
+    onBlur={undefined}
+    onClick={undefined}
+    onFocus={undefined}
+    onKeyDown={undefined}
+    onMouseMove={undefined}
+    onMouseOut={undefined}
+    onMouseOver={undefined}
+    role="none"
+    tabIndex="0"
+  />
+  <path
+    aria-checked={undefined}
+    aria-label="name1"
+    className="svg-map__location"
+    d="path1"
+    id="id1"
+    name="name1"
     onBlur={undefined}
     onClick={undefined}
     onFocus={undefined}

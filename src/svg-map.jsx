@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function SVGMap(props) {
-
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +64,6 @@ SVGMap.propTypes = {
 	onLocationFocus: PropTypes.func,
 	onLocationBlur: PropTypes.func,
 	isLocationSelected: PropTypes.func,
-	handleLocationClasses: PropTypes.func,
 
 	// Deprecated properties
 	tabIndex: PropTypes.string,

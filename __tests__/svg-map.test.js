@@ -8,9 +8,14 @@ describe('SVGMap component', () => {
 			label: 'label',
 			viewBox: 'viewBox',
 			locations: [{
-				name: 'name',
-				id: 'id',
-				path: 'path'
+				name: 'name0',
+				id: 'id0',
+				path: 'path0'
+			},
+			{
+				name: 'name1',
+				id: 'id1',
+				path: 'path1'
 			}]
 		};
 
@@ -46,25 +51,13 @@ describe('SVGMap component', () => {
 			expect(tree).toMatchSnapshot();
 		});
 
-		test('displays heat map with custom location css', () => {
-			const eventHandler = () => 'eventHandler';
-			const isLocationSelected = () => 'isLocationSelected';
-			const generateHeat = () => 'svg-map__location heat0';
+		test('displays map with custom function location props', () => {
+			const locationClassName = (location, index) => `locationClassName-${index}`;
+			const locationTabIndex = (location, index) => `locationTabIndex-${index}`;
 			const component = renderer.create(
 				<SVGMap map={map}
-					className="className"
-					role="role"
-					locationTabIndex="locationTabIndex"
-					locationRole="locationRole"
-					onLocationMouseOver={eventHandler}
-					onLocationMouseOut={eventHandler}
-					onLocationMouseMove={eventHandler}
-					onLocationClick={eventHandler}
-					onLocationKeyDown={eventHandler}
-					onLocationFocus={eventHandler}
-					onLocationBlur={eventHandler}
-					isLocationSelected={isLocationSelected}
-					locationClassName={generateHeat}
+					locationClassName={locationClassName}
+					locationTabIndex={locationTabIndex}
 				/>
 			);
 			const tree = component.toJSON();
@@ -72,7 +65,6 @@ describe('SVGMap component', () => {
 			expect(tree).toMatchSnapshot();
 		});
 	});
-
 
 	describe('Maps', () => {
 		test('displays map of Australia', () => {

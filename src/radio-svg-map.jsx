@@ -154,7 +154,7 @@ RadioSVGMap.propTypes = {
 		label: PropTypes.string
 	}).isRequired,
 	className: PropTypes.string,
-	locationClassName: PropTypes.string,
+	locationClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 	onLocationMouseOver: PropTypes.func,
 	onLocationMouseOut: PropTypes.func,
 	onLocationMouseMove: PropTypes.func,

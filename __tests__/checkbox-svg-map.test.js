@@ -11,6 +11,7 @@ describe('CheckboxSVGMap component', () => {
 	let location = null;
 
 	beforeEach(() => {
+		// TODO: Use fake map to simplify tests?
 		wrapper = mount(<CheckboxSVGMap map={Australia} onChange={handleOnChange} />);
 		location = wrapper.find(locationSelector);
 	});

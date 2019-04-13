@@ -21,6 +21,7 @@ describe('RadioSVGMap component', () => {
 	let nextLocation = null;
 
 	beforeEach(() => {
+		// TODO: Use fake map to simplify tests?
 		wrapper = mount(<RadioSVGMap map={Australia} onChange={handleOnChange} />);
 		location = wrapper.find(locationSelector);
 		previousLocation = wrapper.find(previousLocationSelector);
@@ -84,7 +85,6 @@ describe('RadioSVGMap component', () => {
 		});
 	});
 
-	// TODO: Add tests for first/last location and right/left arrow
 	describe('Keyboard navigation', () => {
 		test('selects focused unselected location when hitting spacebar', () => {
 			expect(location.props()['aria-checked']).toBeFalsy();

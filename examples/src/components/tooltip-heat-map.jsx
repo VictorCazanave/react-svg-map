@@ -1,9 +1,9 @@
 import React from 'react';
-import { SVGMap, USA } from '../../../src/';
+import { SVGMap, USA } from '../../../src';
 import { getLocationName } from '../utils';
 import '../../../src/svg-map.scss';
 
-class TooltipMap extends React.Component {
+class TooltipHeatMap extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -37,15 +37,21 @@ class TooltipMap extends React.Component {
 		this.setState({ tooltipStyle });
 	}
 
+	getLocationClassName(location, index) {
+		// Generate random heat map
+		return `svg-map__location svg-map__location--heat${index % 4}`;
+	}
+
 	render() {
 		return (
 			<article className="examples__block">
 				<h2 className="examples__block__title">
-					USA SVG map with tooltips
+					USA SVG heat map with tooltips
 				</h2>
 				<div className="examples__block__map examples__block__map--usa">
 					<SVGMap
 						map={USA}
+						locationClassName={this.getLocationClassName}
 						onLocationMouseOver={this.handleLocationMouseOver}
 						onLocationMouseOut={this.handleLocationMouseOut}
 						onLocationMouseMove={this.handleLocationMouseMove} />
@@ -58,4 +64,4 @@ class TooltipMap extends React.Component {
 	}
 }
 
-export default TooltipMap;
+export default TooltipHeatMap;
