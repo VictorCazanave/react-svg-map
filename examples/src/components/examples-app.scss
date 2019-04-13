@@ -51,17 +51,27 @@
 
 			&--usa {
 				width: 800px; // USA needs more space	for tooltip
-				.svg-map{
-					&__location {
-						&.heat1{
-							opacity:0.8;
-						}
-						&.heat2{
-							opacity:0.6;
-						}
-						&.heat3{
-							opacity:0.4;
-						}
+
+				.svg-map__location {
+					&--heat0 {
+						fill: blue;
+					}
+
+					&--heat1 {
+						fill: lightblue;
+					}
+
+					&--heat2 {
+						fill: orange;
+					}
+
+					&--heat3 {
+						fill: red;
+					}
+
+					&:focus,
+					&:hover {
+						opacity: 0.75;
 					}
 				}
 			}
