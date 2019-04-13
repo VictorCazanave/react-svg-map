@@ -122,8 +122,8 @@ ReactDOM.render(
 | map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
 | className | string | `'svg-map'` | CSS class of `<svg>`. |
 | role | string | `'none'` | ARIA role of `<svg>`. |
-| locationClassName | string or function | `'svg-map__location'` | CSS class of each `<path>`. |
-| locationTabIndex | string or function | `'0'` | Tabindex each `<path>`. |
+| locationClassName | string or function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index. |
+| locationTabIndex | string or function | `'0'` | Tabindex each `<path>`. The function parameters are the location object and the location index. |
 | locationRole | string | `'none'` | ARIA role of each `<path>`. |
 | onLocationMouseOver | function |  | Invoked when the user puts the mouse over a location. |
 | onLocationMouseOut | function |  | Invoked when the user puts the mouse out of a location. |
@@ -136,14 +136,13 @@ ReactDOM.render(
 | tabIndex | string | `'0'` | **DEPRECATED:** Although this property still works, it has been replaced by `locationTabIndex` and will be removed in next major version. |
 | type | string | `'none'` | **DEPRECATED:** Although this property still works, it has been replaced by `locationRole` and will be removed in next major version. |
 
-
 ### CheckboxSVGMap
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
 | className | string | `'svg-map'` | CSS class of `<svg>`. |
-| locationClassName | string | `'svg-map__location'` | CSS class of each `<path>`. |
+| locationClassName | string or function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index. |
 | onChange | function |  | Invoked when the user selects/deselects a location. The list of selected locations is passed as parameter. |
 | onLocationMouseOver | function |  | Invoked when the user puts the mouse over a location. |
 | onLocationMouseOut | function |  | Invoked when the user puts the mouse out of a location. |
@@ -157,7 +156,7 @@ ReactDOM.render(
 | ---- | ---- | ------- | ----------- |
 | map | object | **required** | Describe SVG map to display. See [maps section](#maps) for more details. |
 | className | string | `'svg-map'` | CSS class of `<svg>`. |
-| locationClassName | string | `'svg-map__location'` | CSS class of each `<path>`. |
+| locationClassName | string or function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index. |
 | onChange | function |  | Invoked when the user selects a location. The selected location is passed as parameter. |
 | onLocationMouseOver | function |  | Invoked when the user puts the mouse over a location. |
 | onLocationMouseOut | function |  | Invoked when the user puts the mouse out of a location. |
@@ -327,8 +326,8 @@ You can modify existing maps or create your own.
 #### Modify a map
 
 1. Import the map to modify.
-2. Create a new object from this map.
-3. Pass this new object as `map` prop of `<SVGMap />` component.
+1. Create a new object from this map.
+1. Pass this new object as `map` prop of `<SVGMap />` component.
 
 ```javascript
 import React from 'react';
