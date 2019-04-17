@@ -8,7 +8,7 @@
 
 A set of React.js components to display an interactive SVG map.
 
-![React SVG Map](https://github.com/VictorCazanave/react-svg-map/blob/master/react-svg-map.gif)
+![React SVG Map](https://media.giphy.com/media/QWpIwVdhY81RL05iNo/giphy.gif)
 
 ## Demo
 
