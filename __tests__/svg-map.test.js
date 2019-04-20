@@ -1,26 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { SVGMap, Australia, France, Taiwan, USA, Utah } from '../src/';
+import FakeMap from './fake-map';
+import { SVGMap } from '../src/';
 
 describe('SVGMap component', () => {
 	describe('Properties', () => {
-		const map = {
-			label: 'label',
-			viewBox: 'viewBox',
-			locations: [{
-				name: 'name0',
-				id: 'id0',
-				path: 'path0'
-			},
-			{
-				name: 'name1',
-				id: 'id1',
-				path: 'path1'
-			}]
-		};
-
 		test('displays map with default props', () => {
-			const component = renderer.create(<SVGMap map={map} />);
+			const component = renderer.create(<SVGMap map={FakeMap} />);
 			const tree = component.toJSON();
 
 			expect(tree).toMatchSnapshot();
@@ -30,7 +16,7 @@ describe('SVGMap component', () => {
 			const eventHandler = () => 'eventHandler';
 			const isLocationSelected = () => 'isLocationSelected';
 			const component = renderer.create(
-				<SVGMap map={map}
+				<SVGMap map={FakeMap}
 					className="className"
 					role="role"
 					locationClassName="locationClassName"
@@ -55,48 +41,11 @@ describe('SVGMap component', () => {
 			const locationClassName = (location, index) => `locationClassName-${index}`;
 			const locationTabIndex = (location, index) => `locationTabIndex-${index}`;
 			const component = renderer.create(
-				<SVGMap map={map}
+				<SVGMap map={FakeMap}
 					locationClassName={locationClassName}
 					locationTabIndex={locationTabIndex}
 				/>
 			);
-			const tree = component.toJSON();
-
-			expect(tree).toMatchSnapshot();
-		});
-	});
-
-	describe('Maps', () => {
-		test('displays map of Australia', () => {
-			const component = renderer.create(<SVGMap map={Australia} />);
-			const tree = component.toJSON();
-
-			expect(tree).toMatchSnapshot();
-		});
-
-		test('displays map of France', () => {
-			const component = renderer.create(<SVGMap map={France} />);
-			const tree = component.toJSON();
-
-			expect(tree).toMatchSnapshot();
-		});
-
-		test('displays map of Taiwan', () => {
-			const component = renderer.create(<SVGMap map={Taiwan} />);
-			const tree = component.toJSON();
-
-			expect(tree).toMatchSnapshot();
-		});
-
-		test('displays map of USA', () => {
-			const component = renderer.create(<SVGMap map={USA} />);
-			const tree = component.toJSON();
-
-			expect(tree).toMatchSnapshot();
-		});
-
-		test('displays map of Utah', () => {
-			const component = renderer.create(<SVGMap map={Utah} />);
 			const tree = component.toJSON();
 
 			expect(tree).toMatchSnapshot();

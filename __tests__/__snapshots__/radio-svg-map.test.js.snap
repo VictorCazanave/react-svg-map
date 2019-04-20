@@ -10,11 +10,11 @@ exports[`RadioSVGMap component Properties displays map with custom props 1`] = `
 >
   <path
     aria-checked={null}
-    aria-label="name"
+    aria-label="name0"
     className="locationClassName"
-    d="path"
-    id="id"
-    name="name"
+    d="path0"
+    id="id0"
+    name="name0"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -24,6 +24,40 @@ exports[`RadioSVGMap component Properties displays map with custom props 1`] = `
     onMouseOver={[Function]}
     role="radio"
     tabIndex="0"
+  />
+  <path
+    aria-checked={null}
+    aria-label="name1"
+    className="locationClassName"
+    d="path1"
+    id="id1"
+    name="name1"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseMove={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    role="radio"
+    tabIndex="-1"
+  />
+  <path
+    aria-checked={null}
+    aria-label="name2"
+    className="locationClassName"
+    d="path2"
+    id="id2"
+    name="name2"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseMove={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+    role="radio"
+    tabIndex="-1"
   />
 </svg>
 `;
@@ -38,11 +72,11 @@ exports[`RadioSVGMap component Properties displays map with default props 1`] = 
 >
   <path
     aria-checked={null}
-    aria-label="name"
+    aria-label="name0"
     className="svg-map__location"
-    d="path"
-    id="id"
-    name="name"
+    d="path0"
+    id="id0"
+    name="name0"
     onBlur={undefined}
     onClick={[Function]}
     onFocus={undefined}
@@ -52,6 +86,40 @@ exports[`RadioSVGMap component Properties displays map with default props 1`] = 
     onMouseOver={undefined}
     role="radio"
     tabIndex="0"
+  />
+  <path
+    aria-checked={null}
+    aria-label="name1"
+    className="svg-map__location"
+    d="path1"
+    id="id1"
+    name="name1"
+    onBlur={undefined}
+    onClick={[Function]}
+    onFocus={undefined}
+    onKeyDown={[Function]}
+    onMouseMove={undefined}
+    onMouseOut={undefined}
+    onMouseOver={undefined}
+    role="radio"
+    tabIndex="-1"
+  />
+  <path
+    aria-checked={null}
+    aria-label="name2"
+    className="svg-map__location"
+    d="path2"
+    id="id2"
+    name="name2"
+    onBlur={undefined}
+    onClick={[Function]}
+    onFocus={undefined}
+    onKeyDown={[Function]}
+    onMouseMove={undefined}
+    onMouseOut={undefined}
+    onMouseOver={undefined}
+    role="radio"
+    tabIndex="-1"
   />
 </svg>
 `;
