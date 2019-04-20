@@ -1,7 +1,7 @@
 import React from 'react';
-import { CheckboxSVGMap, Taiwan } from '../../../src/';
+import Taiwan from '@svg-maps/taiwan.main';
+import { CheckboxSVGMap } from '../../../src/';
 import { getLocationName } from '../utils';
-import '../../../src/svg-map.scss';
 
 class CheckboxMap extends React.Component {
 	constructor(props) {

@@ -1,71 +1,72 @@
 {
-  "name": "react-svg-map",
-  "version": "1.3.2",
-  "description": "A set of React.js components to display an interactive SVG map",
-  "main": "lib/index.js",
-  "scripts": {
-    "start": "webpack-dev-server --mode development --open --config webpack.examples.config.js",
-    "build": "webpack --mode production",
-    "lint": "eslint src/*.js* src/maps/*.js",
-    "test": "jest",
-    "build-demo": "webpack --mode production --config webpack.examples.config.js && cp examples/dist/* docs",
-    "build-tests": "jest -u",
-    "prepare": "npm run lint && npm test && npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/VictorCazanave/react-svg-map.git"
-  },
-  "keywords": [
-    "react",
-    "component",
-    "svg",
-    "interactive",
-    "map",
-    "australia",
-    "france",
-    "taiwan",
-    "usa"
-  ],
-  "author": "Victor Cazanave <victor.cazanave@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/VictorCazanave/react-svg-map/issues"
-  },
-  "homepage": "https://github.com/VictorCazanave/react-svg-map#readme",
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-jest": "^22.4.4",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.11",
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.8.0",
-    "eslint": "^4.19.1",
-    "eslint-loader": "^2.1.1",
-    "eslint-plugin-jest": "^21.27.2",
-    "eslint-plugin-react": "^7.12.4",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
-    "jest": "^22.4.4",
-    "mini-css-extract-plugin": "^0.2.0",
-    "node-sass": "^4.11.0",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-test-renderer": "^16.7.0",
-    "sass-loader": "^6.0.7",
-    "style-loader": "^0.20.3",
-    "webpack": "^4.29.0",
-    "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14"
-  },
-  "dependencies": {
-    "prop-types": "^15.6.2"
-  },
-  "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
-  }
+	"name": "react-svg-map",
+	"version": "1.3.2",
+	"description": "A set of React.js components to display an interactive SVG map",
+	"main": "lib/index.js",
+	"scripts": {
+		"start": "webpack-dev-server --mode development --open --config webpack.examples.config.js",
+		"build": "webpack --mode production",
+		"lint": "eslint src/*.js* src/maps/*.js",
+		"test": "jest",
+		"build-demo": "webpack --mode production --config webpack.examples.config.js && cp examples/dist/* docs",
+		"build-tests": "jest -u",
+		"prepare": "npm run lint && npm test && npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/VictorCazanave/react-svg-map.git"
+	},
+	"keywords": [
+		"react",
+		"component",
+		"svg",
+		"interactive",
+		"map"
+	],
+	"author": "Victor Cazanave <victor.cazanave@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/VictorCazanave/react-svg-map/issues"
+	},
+	"homepage": "https://github.com/VictorCazanave/react-svg-map#readme",
+	"devDependencies": {
+		"@svg-maps/australia": "^1.0.0-alpha.2",
+		"@svg-maps/france.regions": "^1.0.0-alpha.2",
+		"@svg-maps/taiwan.main": "^1.0.0-alpha.2",
+		"@svg-maps/usa": "^1.0.0-alpha.2",
+		"@svg-maps/usa.utah": "^1.0.0-alpha.2",
+		"babel-core": "^6.26.3",
+		"babel-jest": "^22.4.4",
+		"babel-loader": "^7.1.5",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-react": "^6.24.1",
+		"css-loader": "^0.28.11",
+		"enzyme": "^3.8.0",
+		"enzyme-adapter-react-16": "^1.8.0",
+		"eslint": "^4.19.1",
+		"eslint-loader": "^2.1.1",
+		"eslint-plugin-jest": "^21.27.2",
+		"eslint-plugin-react": "^7.12.4",
+		"html-loader": "^0.5.5",
+		"html-webpack-plugin": "^3.2.0",
+		"jest": "^22.4.4",
+		"mini-css-extract-plugin": "^0.2.0",
+		"node-sass": "^4.11.0",
+		"react": "^16.7.0",
+		"react-dom": "^16.7.0",
+		"react-test-renderer": "^16.7.0",
+		"sass-loader": "^6.0.7",
+		"style-loader": "^0.20.3",
+		"webpack": "^4.29.0",
+		"webpack-cli": "^3.2.1",
+		"webpack-dev-server": "^3.1.14"
+	},
+	"dependencies": {
+		"prop-types": "^15.6.2"
+	},
+	"peerDependencies": {
+		"react": "^16.0.0",
+		"react-dom": "^16.0.0"
+	}
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import { SVGMap, France } from '../../../src/';
+import France from '@svg-maps/france.regions';
+import { SVGMap } from '../../../src/';
 import { getLocationId, getLocationName } from '../utils';
-import '../../../src/svg-map.scss';
 
 class LinkMap extends React.Component {
 	constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
-import { SVGMap, USA } from '../../../src';
+import USA from '@svg-maps/usa';
+import { SVGMap } from '../../../src';
 import { getLocationName } from '../utils';
-import '../../../src/svg-map.scss';
 
 class TooltipHeatMap extends React.Component {
 	constructor(props) {
