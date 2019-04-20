@@ -34,7 +34,7 @@ You have to install the map you need from [svg-maps](https://github.com/VictorCa
 
 If you are still using the 1.x.x version, look at the [v1 documentation](https://github.com/VictorCazanave/react-svg-map/tree/v1#react-svg-map).
 
-### Simple SVG Map
+### :earth_africa: Simple SVG Map
 
 This is the base component to display an SVG map.
 
@@ -82,7 +82,7 @@ ReactDOM.render(<App />, document.getElementById("app"));
 | isLocationSelected  | function           |                       | Executed to determine if a location is selected. This property is used to set the `aria-checked` HTML attribute.                          |
 
 
-### Checkbox SVG Map
+### :ballot_box_with_check: Checkbox SVG Map
 
 This is an implementation of `SVGMap` that behaves like a group of checkboxes.  
 It is based on this [WAI-ARIA example](https://www.w3.org/TR/wai-aria-practices/examples/checkbox/checkbox-1/checkbox-1.html) to support keyboard navigation and be accessible.
@@ -124,7 +124,7 @@ ReactDOM.render(<App />, document.getElementById("app"));
 | onLocationMouseMove | function           |                       | Invoked when the user moves the mouse on a location.                                                       |
 | onLocationFocus     | function           |                       | Invoked when the user focuses a location.                                                                  |
 | onLocationBlur      | function           |                       | Invoked when the user unfocuses a location.          
-### Radio SVG Map
+### :radio_button: Radio SVG Map
 
 This is an implementation of `SVGMap` that behaves like a group of radio buttons.  
 It is based on this [WAI-ARIA example](https://www.w3.org/TR/wai-aria-practices/examples/radio/radio-1/radio-1.html) to support keyboard navigation and be accessible.
