@@ -4,9 +4,7 @@ module.exports = {
   testURL: 'http://localhost',
 
   setupTestFrameworkScriptFile: '<rootDir>/jest-setup.js',
-  moduleNameMapper: {
-    '\\.(css|scss)$': '<rootDir>/__mocks__/styleMock.js'
-  },
+  testMatch: ['**/__tests__/**/*.test.js'],
   collectCoverage: true,
   coverageDirectory: './coverage/',
   collectCoverageFrom: [

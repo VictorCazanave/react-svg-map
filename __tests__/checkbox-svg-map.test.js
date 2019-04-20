@@ -1,18 +1,18 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import { CheckboxSVGMap, Australia } from '../src';
+import FakeMap from './fake-map';
+import { CheckboxSVGMap } from '../src';
 
 // TODO: Create utility functions to avoid code duplication
 describe('CheckboxSVGMap component', () => {
-	const locationSelector = '#nsw';
+	const locationSelector = '#id0';
 	const handleOnChange = jest.fn();
 	let wrapper = null;
 	let location = null;
 
 	beforeEach(() => {
-		// TODO: Use fake map to simplify tests?
-		wrapper = mount(<CheckboxSVGMap map={Australia} onChange={handleOnChange} />);
+		wrapper = mount(<CheckboxSVGMap map={FakeMap} onChange={handleOnChange} />);
 		location = wrapper.find(locationSelector);
 	});
 
@@ -21,7 +21,7 @@ describe('CheckboxSVGMap component', () => {
 	});
 
 	describe('Mouse navigation', () => {
-		test('selects clicked location when not selected yet', () => {
+		test('selects location when clicking on not yet selected location', () => {
 			expect(location.props()['aria-checked']).toBeFalsy();
 
 			location.simulate('click');
@@ -31,7 +31,7 @@ describe('CheckboxSVGMap component', () => {
 			expect(location.props()['aria-checked']).toBeTruthy();
 		});
 
-		test('deselects clicked location when already selected', () => {
+		test('deselects location when clicking on already selected location', () => {
 			location.simulate('click');
 			wrapper.update();
 			location = wrapper.find(locationSelector);
@@ -69,7 +69,7 @@ describe('CheckboxSVGMap component', () => {
 			expect(location.props()['aria-checked']).toBeFalsy();
 		});
 
-		test('deselects clicked location when already selected', () => {
+		test('deselects focused already selected location when hitting spacebar', () => {
 			location.simulate('focus');
 			location.simulate('keydown', { keyCode: 32 });
 			wrapper.update();
@@ -95,18 +95,8 @@ describe('CheckboxSVGMap component', () => {
 	});
 
 	describe('Properties', () => {
-		const map = {
-			label: 'label',
-			viewBox: 'viewBox',
-			locations: [{
-				name: 'name',
-				id: 'id',
-				path: 'path'
-			}]
-		};
-
 		test('displays map with default props', () => {
-			const component = renderer.create(<CheckboxSVGMap map={map} />);
+			const component = renderer.create(<CheckboxSVGMap map={FakeMap} />);
 			const tree = component.toJSON();
 
 			expect(tree).toMatchSnapshot();
@@ -115,7 +105,7 @@ describe('CheckboxSVGMap component', () => {
 		test('displays map with custom props', () => {
 			const eventHandler = () => 'eventHandler';
 			const component = renderer.create(
-				<CheckboxSVGMap map={map}
+				<CheckboxSVGMap map={FakeMap}
 					className="className"
 					locationClassName="locationClassName"
 					onLocationMouseOver={eventHandler}

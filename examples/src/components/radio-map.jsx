@@ -1,7 +1,7 @@
 import React from 'react';
-import { RadioSVGMap, Australia } from '../../../src/';
+import Australia from '@svg-maps/australia';
+import { RadioSVGMap } from '../../../src/';
 import { getLocationName } from '../utils';
-import '../../../src/svg-map.scss';
 
 class RadioMap extends React.Component {
 	constructor(props) {

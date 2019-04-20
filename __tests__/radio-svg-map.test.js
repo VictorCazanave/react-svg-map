@@ -1,7 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import { RadioSVGMap, Australia } from '../src';
+import FakeMap from './fake-map';
+import { RadioSVGMap } from '../src';
 
 jest.mock('react-dom', () => ({
 	findDOMNode: () => ({
@@ -11,9 +12,9 @@ jest.mock('react-dom', () => ({
 
 // TODO: Create utility functions to avoid code duplication
 describe('RadioSVGMap component', () => {
-	const locationSelector = '#nsw';
-	const previousLocationSelector = '#act';
-	const nextLocationSelector = '#nt-groote-eylandt';
+	const locationSelector = '#id1';
+	const previousLocationSelector = '#id0';
+	const nextLocationSelector = '#id2';
 	const handleOnChange = jest.fn();
 	let wrapper = null;
 	let location = null;
@@ -21,8 +22,7 @@ describe('RadioSVGMap component', () => {
 	let nextLocation = null;
 
 	beforeEach(() => {
-		// TODO: Use fake map to simplify tests?
-		wrapper = mount(<RadioSVGMap map={Australia} onChange={handleOnChange} />);
+		wrapper = mount(<RadioSVGMap map={FakeMap} onChange={handleOnChange} />);
 		location = wrapper.find(locationSelector);
 		previousLocation = wrapper.find(previousLocationSelector);
 		nextLocation = wrapper.find(nextLocationSelector);
@@ -33,7 +33,7 @@ describe('RadioSVGMap component', () => {
 	});
 
 	describe('Mouse navigation', () => {
-		test('selects clicked location when not selected yet', () => {
+		test('selects location when clicking on not yet selected location', () => {
 			expect(location.props()['aria-checked']).toBeFalsy();
 
 			location.simulate('click');
@@ -43,7 +43,7 @@ describe('RadioSVGMap component', () => {
 			expect(location.props()['aria-checked']).toBeTruthy();
 		});
 
-		test('does not deselect clicked location when already selected', () => {
+		test('does not deselect location when clicking on already selected location', () => {
 			location.simulate('click');
 			wrapper.update();
 			location = wrapper.find(locationSelector);
@@ -57,7 +57,7 @@ describe('RadioSVGMap component', () => {
 			expect(location.props()['aria-checked']).toBeTruthy();
 		});
 
-		test('selects new clicked location and deselects former selected location', () => {
+		test('selects new location and deselects former selected when clicking on new location', () => {
 			location.simulate('click');
 			wrapper.update();
 			location = wrapper.find(locationSelector);
@@ -86,7 +86,7 @@ describe('RadioSVGMap component', () => {
 	});
 
 	describe('Keyboard navigation', () => {
-		test('selects focused unselected location when hitting spacebar', () => {
+		test('selects focused not yet selected location when hitting spacebar', () => {
 			expect(location.props()['aria-checked']).toBeFalsy();
 
 			location.simulate('focus');
@@ -97,7 +97,7 @@ describe('RadioSVGMap component', () => {
 			expect(location.props()['aria-checked']).toBeTruthy();
 		});
 
-		test('does not deselect focused selected location when hitting spacebar', () => {
+		test('does not deselect focused already selected location when hitting spacebar', () => {
 			location.simulate('focus');
 			location.simulate('keydown', { keyCode: 32 });
 			wrapper.update();
@@ -151,18 +151,8 @@ describe('RadioSVGMap component', () => {
 	});
 
 	describe('Properties', () => {
-		const map = {
-			label: 'label',
-			viewBox: 'viewBox',
-			locations: [{
-				name: 'name',
-				id: 'id',
-				path: 'path'
-			}]
-		};
-
 		test('displays map with default props', () => {
-			const component = renderer.create(<RadioSVGMap map={map} />);
+			const component = renderer.create(<RadioSVGMap map={FakeMap} />);
 			const tree = component.toJSON();
 
 			expect(tree).toMatchSnapshot();
@@ -171,7 +161,7 @@ describe('RadioSVGMap component', () => {
 		test('displays map with custom props', () => {
 			const eventHandler = () => 'eventHandler';
 			const component = renderer.create(
-				<RadioSVGMap map={map}
+				<RadioSVGMap map={FakeMap}
 					className="className"
 					locationClassName="locationClassName"
 					onLocationMouseOver={eventHandler}

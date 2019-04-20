@@ -17,8 +17,8 @@ function SVGMap(props) {
 						name={location.name}
 						d={location.path}
 						className={typeof props.locationClassName === 'function' ? props.locationClassName(location, index) : props.locationClassName}
-						tabIndex={typeof props.locationTabIndex === 'function' ? props.locationTabIndex(location, index) : props.locationTabIndex || props.tabIndex}
-						role={props.locationRole || props.type}
+						tabIndex={typeof props.locationTabIndex === 'function' ? props.locationTabIndex(location, index) : props.locationTabIndex}
+						role={props.locationRole}
 						aria-label={location.name}
 						aria-checked={props.isLocationSelected && props.isLocationSelected(location, index)}
 						onMouseOver={props.onLocationMouseOver}
@@ -64,18 +64,12 @@ SVGMap.propTypes = {
 	onLocationFocus: PropTypes.func,
 	onLocationBlur: PropTypes.func,
 	isLocationSelected: PropTypes.func,
-
-	// Deprecated properties
-	tabIndex: PropTypes.string,
-	type: PropTypes.string
 };
 
 SVGMap.defaultProps = {
 	className: 'svg-map',
 	role: 'none', // No role for map
 	locationClassName: 'svg-map__location',
-	tabIndex: '0',  // Focusable locations (also used for locationTabIndex)
-	type: 'none', // No role for locations (also used for locationRole)
 };
 
 export default SVGMap;
