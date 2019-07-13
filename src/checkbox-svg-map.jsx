@@ -84,6 +84,7 @@ class CheckboxSVGMap extends React.Component {
 				map={this.props.map}
 				role="group"
 				locationRole="checkbox"
+				locationTabIndex="0"
 				className={this.props.className}
 				locationClassName={this.props.locationClassName}
 				isLocationSelected={this.isLocationSelected}
