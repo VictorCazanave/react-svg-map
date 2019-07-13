@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.1]
+### Fixed
+- Fix tabindex of CheckboxSVGMap
+
+## [2.0.0]
+### Removed
+- Externalize maps ([svg-maps](https://github.com/VictorCazanave/svg-maps/))
+- Remove deprecated tabIndex and type properties
+
+### Changed
+- Update documentation
+- Update tests using fake maps
+
 ## [1.3.1]
 ### Changed
 - Use GitHub pages to host demo
