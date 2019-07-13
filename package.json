@@ -21,7 +21,9 @@
 		"component",
 		"svg",
 		"interactive",
-		"map"
+		"map",
+		"checkbox",
+		"radiobutton"
 	],
 	"author": "Victor Cazanave <victor.cazanave@gmail.com>",
 	"license": "MIT",
