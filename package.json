@@ -31,6 +31,10 @@
 		"url": "https://github.com/VictorCazanave/react-svg-map/issues"
 	},
 	"homepage": "https://github.com/VictorCazanave/react-svg-map#readme",
+	"files": [
+		"/src",
+		"/lib"
+	],
 	"devDependencies": {
 		"@svg-maps/australia": "^1.1.0",
 		"@svg-maps/france.regions": "^1.1.0",
