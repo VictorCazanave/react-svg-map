@@ -113,17 +113,18 @@ ReactDOM.render(<App />, document.getElementById("app"));
 
 #### API
 
-| Prop                | Type             | Default               | Description                                                                                                |
-| ------------------- | ---------------- | --------------------- | ---------------------------------------------------------------------------------------------------------- |
-| map                 | Object           | **required**          | Describe SVG map to display. See [maps section](#maps) for more details.                                   |
-| className           | String           | `'svg-map'`           | CSS class of `<svg>`.                                                                                      |
-| locationClassName   | String\|Function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index.        |
-| onChange            | Function         |                       | Invoked when the user selects/deselects a location. The list of selected locations is passed as parameter. |
-| onLocationMouseOver | Function         |                       | Invoked when the user puts the mouse over a location.                                                      |
-| onLocationMouseOut  | Function         |                       | Invoked when the user puts the mouse out of a location.                                                    |
-| onLocationMouseMove | Function         |                       | Invoked when the user moves the mouse on a location.                                                       |
-| onLocationFocus     | Function         |                       | Invoked when the user focuses a location.                                                                  |
-| onLocationBlur      | Function         |                       | Invoked when the user unfocuses a location.                                                                |
+| Prop                | Type             | Default               | Description                                                                                                                              |
+| ------------------- | ---------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| map                 | Object           | **required**          | Describe SVG map to display. See [maps section](#maps) for more details.                                                                 |
+| className           | String           | `'svg-map'`           | CSS class of `<svg>`.                                                                                                                    |
+| locationClassName   | String\|Function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index.                                      |
+| selectedLocationIds | String[]         |                       | List of `id`s of the **initial** selected locations. It is used only when the component is mounted and is not synchronized when updated. |
+| onChange            | Function         |                       | Invoked when the user selects/deselects a location. The list of selected locations is passed as parameter.                               |
+| onLocationMouseOver | Function         |                       | Invoked when the user puts the mouse over a location.                                                                                    |
+| onLocationMouseOut  | Function         |                       | Invoked when the user puts the mouse out of a location.                                                                                  |
+| onLocationMouseMove | Function         |                       | Invoked when the user moves the mouse on a location.                                                                                     |
+| onLocationFocus     | Function         |                       | Invoked when the user focuses a location.                                                                                                |
+| onLocationBlur      | Function         |                       | Invoked when the user unfocuses a location.                                                                                              |
 ### :radio_button: Radio SVG Map
 
 This is an implementation of `SVGMap` that behaves like a group of radio buttons.  

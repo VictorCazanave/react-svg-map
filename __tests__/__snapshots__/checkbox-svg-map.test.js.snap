@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CheckboxSVGMap component Properties displays map with custom props 1`] = `
+exports[`CheckboxSVGMap component Rendering displays map with custom props 1`] = `
 <svg
   aria-label="label"
   className="className"
@@ -62,7 +62,7 @@ exports[`CheckboxSVGMap component Properties displays map with custom props 1`] 
 </svg>
 `;
 
-exports[`CheckboxSVGMap component Properties displays map with default props 1`] = `
+exports[`CheckboxSVGMap component Rendering displays map with default props 1`] = `
 <svg
   aria-label="label"
   className="svg-map"
