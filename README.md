@@ -64,22 +64,22 @@ ReactDOM.render(<App />, document.getElementById("app"));
 
 #### API
 
-| Prop                | Type               | Default               | Description                                                                                                                               |
-| ------------------- | ------------------ | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| map                 | object             | **required**          | Describe SVG map to display. See [maps section](#maps) for more details.                                                                  |
-| className           | string             | `'svg-map'`           | CSS class of `<svg>`.                                                                                                                     |
-| role                | string             | `'none'`              | ARIA role of `<svg>`.                                                                                                                     |
-| locationClassName   | string or function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index.                                       |
-| locationTabIndex    | string or function | `'0'`                 | Tabindex each `<path>`. The function parameters are the location object and the location index.                                           |
-| locationRole        | string             | `'none'`              | ARIA role of each `<path>`.                                                                                                               |
-| onLocationMouseOver | function           |                       | Invoked when the user puts the mouse over a location.                                                                                     |
-| onLocationMouseOut  | function           |                       | Invoked when the user puts the mouse out of a location.                                                                                   |
-| onLocationMouseMove | function           |                       | Invoked when the user moves the mouse on a location.                                                                                      |
-| onLocationClick     | function           |                       | Invoked when the user clicks on a location.                                                                                               |
-| onLocationKeyDown   | function           |                       | Invoked when the user hits a keyboard key on a location.                                                                                  |
-| onLocationFocus     | function           |                       | Invoked when the user focuses a location.                                                                                                 |
-| onLocationBlur      | function           |                       | Invoked when the user unfocuses a location.                                                                                               |
-| isLocationSelected  | function           |                       | Executed to determine if a location is selected. This property is used to set the `aria-checked` HTML attribute.                          |
+| Prop                | Type             | Default               | Description                                                                                                      |
+| ------------------- | ---------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| map                 | object           | **required**          | Describe SVG map to display. See [maps section](#maps) for more details.                                         |
+| className           | String           | `'svg-map'`           | CSS class of `<svg>`.                                                                                            |
+| role                | String           | `'none'`              | ARIA role of `<svg>`.                                                                                            |
+| locationClassName   | String\|Function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index.              |
+| locationTabIndex    | String\|Function | `'0'`                 | Tabindex each `<path>`. The function parameters are the location object and the location index.                  |
+| locationRole        | String           | `'none'`              | ARIA role of each `<path>`.                                                                                      |
+| onLocationMouseOver | Function         |                       | Invoked when the user puts the mouse over a location.                                                            |
+| onLocationMouseOut  | Function         |                       | Invoked when the user puts the mouse out of a location.                                                          |
+| onLocationMouseMove | Function         |                       | Invoked when the user moves the mouse on a location.                                                             |
+| onLocationClick     | Function         |                       | Invoked when the user clicks on a location.                                                                      |
+| onLocationKeyDown   | Function         |                       | Invoked when the user hits a keyboard key on a location.                                                         |
+| onLocationFocus     | Function         |                       | Invoked when the user focuses a location.                                                                        |
+| onLocationBlur      | Function         |                       | Invoked when the user unfocuses a location.                                                                      |
+| isLocationSelected  | Function         |                       | Executed to determine if a location is selected. This property is used to set the `aria-checked` HTML attribute. |
 
 
 ### :ballot_box_with_check: Checkbox SVG Map
@@ -113,17 +113,17 @@ ReactDOM.render(<App />, document.getElementById("app"));
 
 #### API
 
-| Prop                | Type               | Default               | Description                                                                                                |
-| ------------------- | ------------------ | --------------------- | ---------------------------------------------------------------------------------------------------------- |
-| map                 | object             | **required**          | Describe SVG map to display. See [maps section](#maps) for more details.                                   |
-| className           | string             | `'svg-map'`           | CSS class of `<svg>`.                                                                                      |
-| locationClassName   | string or function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index.        |
-| onChange            | function           |                       | Invoked when the user selects/deselects a location. The list of selected locations is passed as parameter. |
-| onLocationMouseOver | function           |                       | Invoked when the user puts the mouse over a location.                                                      |
-| onLocationMouseOut  | function           |                       | Invoked when the user puts the mouse out of a location.                                                    |
-| onLocationMouseMove | function           |                       | Invoked when the user moves the mouse on a location.                                                       |
-| onLocationFocus     | function           |                       | Invoked when the user focuses a location.                                                                  |
-| onLocationBlur      | function           |                       | Invoked when the user unfocuses a location.          
+| Prop                | Type             | Default               | Description                                                                                                |
+| ------------------- | ---------------- | --------------------- | ---------------------------------------------------------------------------------------------------------- |
+| map                 | Object           | **required**          | Describe SVG map to display. See [maps section](#maps) for more details.                                   |
+| className           | String           | `'svg-map'`           | CSS class of `<svg>`.                                                                                      |
+| locationClassName   | String\|Function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index.        |
+| onChange            | Function         |                       | Invoked when the user selects/deselects a location. The list of selected locations is passed as parameter. |
+| onLocationMouseOver | Function         |                       | Invoked when the user puts the mouse over a location.                                                      |
+| onLocationMouseOut  | Function         |                       | Invoked when the user puts the mouse out of a location.                                                    |
+| onLocationMouseMove | Function         |                       | Invoked when the user moves the mouse on a location.                                                       |
+| onLocationFocus     | Function         |                       | Invoked when the user focuses a location.                                                                  |
+| onLocationBlur      | Function         |                       | Invoked when the user unfocuses a location.                                                                |
 ### :radio_button: Radio SVG Map
 
 This is an implementation of `SVGMap` that behaves like a group of radio buttons.  
@@ -155,17 +155,17 @@ ReactDOM.render(<App />, document.getElementById("app"));
 
 #### API
 
-| Prop                | Type               | Default               | Description                                                                                         |
-| ------------------- | ------------------ | --------------------- | --------------------------------------------------------------------------------------------------- |
-| map                 | object             | **required**          | Describe SVG map to display. See [maps section](#maps) for more details.                            |
-| className           | string             | `'svg-map'`           | CSS class of `<svg>`.                                                                               |
-| locationClassName   | string or function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index. |
-| onChange            | function           |                       | Invoked when the user selects a location. The selected location is passed as parameter.             |
-| onLocationMouseOver | function           |                       | Invoked when the user puts the mouse over a location.                                               |
-| onLocationMouseOut  | function           |                       | Invoked when the user puts the mouse out of a location.                                             |
-| onLocationMouseMove | function           |                       | Invoked when the user moves the mouse on a location.                                                |
-| onLocationFocus     | function           |                       | Invoked when the user focuses a location.                                                           |
-| onLocationBlur      | function           |                       | Invoked when the user unfocuses a location.                                                         |
+| Prop                | Type             | Default               | Description                                                                                         |
+| ------------------- | ---------------- | --------------------- | --------------------------------------------------------------------------------------------------- |
+| map                 | Object           | **required**          | Describe SVG map to display. See [maps section](#maps) for more details.                            |
+| className           | String           | `'svg-map'`           | CSS class of `<svg>`.                                                                               |
+| locationClassName   | String\|Function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index. |
+| onChange            | Function         |                       | Invoked when the user selects a location. The selected location is passed as parameter.             |
+| onLocationMouseOver | Function         |                       | Invoked when the user puts the mouse over a location.                                               |
+| onLocationMouseOut  | Function         |                       | Invoked when the user puts the mouse out of a location.                                             |
+| onLocationMouseMove | Function         |                       | Invoked when the user moves the mouse on a location.                                                |
+| onLocationFocus     | Function         |                       | Invoked when the user focuses a location.                                                           |
+| onLocationBlur      | Function         |                       | Invoked when the user unfocuses a location.                                                         |
 
 ## Maps
 
