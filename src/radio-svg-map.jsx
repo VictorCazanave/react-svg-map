@@ -19,8 +19,17 @@ class RadioSVGMap extends React.Component {
 
 	componentDidMount() {
 		// List of location nodes
-		// TODO: Use ref instead?
-		this.locations = ReactDOM.findDOMNode(this).querySelectorAll('path');
+		// TODO: Find a cleaner way
+		// Cannot use ref on SvgMap (with React 16.0.0) because it is a functional component
+		// https://5a046bf5a6188f4b8fa4938a--reactjs.netlify.app/docs/refs-and-the-dom.html#refs-and-functional-components
+		this.locations = [...ReactDOM.findDOMNode(this).getElementsByTagName('path')];
+
+		// Set initial selected location
+		if (this.props.selectedLocationId) {
+			const selectedLocation = this.locations.find(location => location.id === this.props.selectedLocationId);
+
+			this.setState({ selectedLocation });
+		}
 	}
 
 	/**
@@ -78,7 +87,12 @@ class RadioSVGMap extends React.Component {
 	 * @param {Event} event - Triggered click event
 	 */
 	handleLocationClick(event) {
-		this.selectLocation(event.target);
+		const clickedLocation = event.target;
+
+		// Select clicked location if not already selected
+		if (clickedLocation !== this.state.selectedLocation) {
+			this.selectLocation(clickedLocation);
+		}
 	}
 
 	/**
@@ -94,7 +108,7 @@ class RadioSVGMap extends React.Component {
 			event.preventDefault();
 
 			// Select focused location if not already selected
-			if (this.state.selectedLocation !== focusedLocation) {
+			if (focusedLocation !== this.state.selectedLocation) {
 				this.selectLocation(focusedLocation);
 			}
 
@@ -132,13 +146,13 @@ class RadioSVGMap extends React.Component {
 				onLocationFocus={this.props.onLocationFocus}
 				onLocationBlur={this.props.onLocationBlur}
 				onChange={this.props.onChange}
-				ref={this.setLocationNodes}
 			/>
 		);
 	}
 }
 
 RadioSVGMap.propTypes = {
+	selectedLocationId: PropTypes.string,
 	onChange: PropTypes.func,
 
 	// SVGMap props
