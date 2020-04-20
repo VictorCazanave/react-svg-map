@@ -3,6 +3,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.1.0]
+### Added
+- Add `selectedLocationId` and `selectedLocationIds` props to handle initial selected locations
+- Add `childrenBefore` and `childrenAfter` props to handle "slots"
+
+## [2.0.2]
+### Added
+- Add files property in package.json to reduce size of package
+- 
+### Changed
+- Update dependencies to fix security issues
+
 ## [2.0.1]
 ### Fixed
 - Fix tabindex of CheckboxSVGMap
