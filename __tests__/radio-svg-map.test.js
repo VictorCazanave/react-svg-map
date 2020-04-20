@@ -212,6 +212,8 @@ describe('RadioSVGMap component', () => {
 					onLocationFocus={eventHandler}
 					onLocationBlur={eventHandler}
 					onChange={eventHandler}
+					childrenBefore={<text>childrenBefore</text>}
+					childrenAfter={<text>childrenAfter</text>}
 				/>
 			);
 			const tree = component.toJSON();

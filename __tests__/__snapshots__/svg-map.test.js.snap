@@ -70,6 +70,9 @@ exports[`SVGMap component Properties displays map with custom props 1`] = `
   viewBox="viewBox"
   xmlns="http://www.w3.org/2000/svg"
 >
+  <text>
+    childrenBefore
+  </text>
   <path
     aria-checked="isLocationSelected"
     aria-label="name0"
@@ -121,6 +124,9 @@ exports[`SVGMap component Properties displays map with custom props 1`] = `
     role="locationRole"
     tabIndex="locationTabIndex"
   />
+  <text>
+    childrenAfter
+  </text>
 </svg>
 `;
 

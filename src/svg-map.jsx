@@ -10,6 +10,7 @@ function SVGMap(props) {
 			role={props.role}
 			aria-label={props.map.label}
 		>
+			{props.childrenBefore}
 			{props.map.locations.map((location, index) => {
 				return (
 					<path
@@ -32,6 +33,7 @@ function SVGMap(props) {
 					/>
 				);
 			})}
+			{props.childrenAfter}
 		</svg>
 	);
 }
@@ -64,6 +66,10 @@ SVGMap.propTypes = {
 	onLocationFocus: PropTypes.func,
 	onLocationBlur: PropTypes.func,
 	isLocationSelected: PropTypes.func,
+
+	// Slots
+	childrenBefore: PropTypes.node,
+	childrenAfter: PropTypes.node,
 };
 
 SVGMap.defaultProps = {

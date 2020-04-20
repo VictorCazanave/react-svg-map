@@ -110,6 +110,8 @@ class CheckboxSVGMap extends React.Component {
 				onLocationMouseMove={this.props.onLocationMouseMove}
 				onLocationFocus={this.props.onLocationFocus}
 				onLocationBlur={this.props.onLocationBlur}
+				childrenBefore={this.props.childrenBefore}
+				childrenAfter={this.props.childrenAfter}
 			/>
 		);
 	}
@@ -138,6 +140,8 @@ CheckboxSVGMap.propTypes = {
 	onLocationMouseMove: PropTypes.func,
 	onLocationFocus: PropTypes.func,
 	onLocationBlur: PropTypes.func,
+	childrenBefore: PropTypes.node,
+	childrenAfter: PropTypes.node,
 };
 
 export default CheckboxSVGMap;
