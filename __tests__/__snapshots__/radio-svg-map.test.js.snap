@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RadioSVGMap component Properties displays map with custom props 1`] = `
+exports[`RadioSVGMap component Rendering displays map with custom props 1`] = `
 <svg
   aria-label="label"
   className="className"
@@ -62,7 +62,7 @@ exports[`RadioSVGMap component Properties displays map with custom props 1`] = `
 </svg>
 `;
 
-exports[`RadioSVGMap component Properties displays map with default props 1`] = `
+exports[`RadioSVGMap component Rendering displays map with default props 1`] = `
 <svg
   aria-label="label"
   className="svg-map"

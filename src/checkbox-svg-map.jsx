@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import SVGMap from './svg-map';
 
@@ -7,12 +8,26 @@ class CheckboxSVGMap extends React.Component {
 		super(props);
 
 		this.state = {
+			// TODO: Store only ids instead of nodes?
 			selectedLocations: []
 		};
 
 		this.isLocationSelected = this.isLocationSelected.bind(this);
 		this.handleLocationClick = this.handleLocationClick.bind(this);
 		this.handleLocationKeyDown = this.handleLocationKeyDown.bind(this);
+	}
+
+	componentDidMount() {
+		// Set initial selected locations
+		if (this.props.selectedLocationIds) {
+			// TODO: Find a cleaner way
+			// Cannot use ref on SvgMap (with React 16.0.0) because it is a functional component
+			// https://5a046bf5a6188f4b8fa4938a--reactjs.netlify.app/docs/refs-and-the-dom.html#refs-and-functional-components
+			const svgNode = ReactDOM.findDOMNode(this);
+			const selectedLocations = this.props.selectedLocationIds.map(locationId => svgNode.getElementById(locationId));
+
+			this.setState({ selectedLocations });
+		}
 	}
 
 	/**
@@ -101,6 +116,7 @@ class CheckboxSVGMap extends React.Component {
 }
 
 CheckboxSVGMap.propTypes = {
+	selectedLocationIds: PropTypes.arrayOf(PropTypes.string),
 	onChange: PropTypes.func,
 
 	// SVGMap props
