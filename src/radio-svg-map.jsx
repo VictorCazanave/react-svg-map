@@ -146,6 +146,8 @@ class RadioSVGMap extends React.Component {
 				onLocationFocus={this.props.onLocationFocus}
 				onLocationBlur={this.props.onLocationBlur}
 				onChange={this.props.onChange}
+				childrenBefore={this.props.childrenBefore}
+				childrenAfter={this.props.childrenAfter}
 			/>
 		);
 	}
@@ -174,6 +176,8 @@ RadioSVGMap.propTypes = {
 	onLocationMouseMove: PropTypes.func,
 	onLocationFocus: PropTypes.func,
 	onLocationBlur: PropTypes.func,
+	childrenBefore: PropTypes.node,
+	childrenAfter: PropTypes.node,
 };
 
 export default RadioSVGMap;

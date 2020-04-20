@@ -8,6 +8,9 @@ exports[`CheckboxSVGMap component Rendering displays map with custom props 1`] =
   viewBox="viewBox"
   xmlns="http://www.w3.org/2000/svg"
 >
+  <text>
+    childrenBefore
+  </text>
   <path
     aria-checked={false}
     aria-label="name0"
@@ -59,6 +62,9 @@ exports[`CheckboxSVGMap component Rendering displays map with custom props 1`] =
     role="checkbox"
     tabIndex="0"
   />
+  <text>
+    childrenAfter
+  </text>
 </svg>
 `;
 

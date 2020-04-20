@@ -66,7 +66,7 @@ ReactDOM.render(<App />, document.getElementById("app"));
 
 | Prop                | Type             | Default               | Description                                                                                                      |
 | ------------------- | ---------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| map                 | object           | **required**          | Describe SVG map to display. See [maps section](#maps) for more details.                                         |
+| map                 | Object           | **required**          | Describe SVG map to display. See [maps section](#maps) for more details.                                         |
 | className           | String           | `'svg-map'`           | CSS class of `<svg>`.                                                                                            |
 | role                | String           | `'none'`              | ARIA role of `<svg>`.                                                                                            |
 | locationClassName   | String\|Function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index.              |
@@ -80,7 +80,8 @@ ReactDOM.render(<App />, document.getElementById("app"));
 | onLocationFocus     | Function         |                       | Invoked when the user focuses a location.                                                                        |
 | onLocationBlur      | Function         |                       | Invoked when the user unfocuses a location.                                                                      |
 | isLocationSelected  | Function         |                       | Executed to determine if a location is selected. This property is used to set the `aria-checked` HTML attribute. |
-
+| childrenBefore      | Node             |                       | "Slot" before all the locations (`<path>`).                                                                      |
+| childrenAfter       | Node             |                       | "Slot" after all the locations (`<path>`).                                                                       |
 
 ### :ballot_box_with_check: Checkbox SVG Map
 
@@ -125,6 +126,9 @@ ReactDOM.render(<App />, document.getElementById("app"));
 | onLocationMouseMove | Function         |                       | Invoked when the user moves the mouse on a location.                                                                                     |
 | onLocationFocus     | Function         |                       | Invoked when the user focuses a location.                                                                                                |
 | onLocationBlur      | Function         |                       | Invoked when the user unfocuses a location.                                                                                              |
+| childrenBefore      | Node             |                       | "Slot" before all the locations (`<path>`).                                                                                              |
+| childrenAfter       | Node             |                       | "Slot" after all the locations (`<path>`).                                                                                               |
+
 ### :radio_button: Radio SVG Map
 
 This is an implementation of `SVGMap` that behaves like a group of radio buttons.  
@@ -168,6 +172,8 @@ ReactDOM.render(<App />, document.getElementById("app"));
 | onLocationMouseMove | Function         |                       | Invoked when the user moves the mouse on a location.                                                                           |
 | onLocationFocus     | Function         |                       | Invoked when the user focuses a location.                                                                                      |
 | onLocationBlur      | Function         |                       | Invoked when the user unfocuses a location.                                                                                    |
+| childrenBefore      | Node             |                       | "Slot" before all the locations (`<path>`).                                                                                    |
+| childrenAfter       | Node             |                       | "Slot" after all the locations (`<path>`).                                                                                     |
 
 ## Maps
 

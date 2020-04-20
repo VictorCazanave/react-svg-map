@@ -30,6 +30,8 @@ describe('SVGMap component', () => {
 					onLocationFocus={eventHandler}
 					onLocationBlur={eventHandler}
 					isLocationSelected={isLocationSelected}
+					childrenBefore={<text>childrenBefore</text>}
+					childrenAfter={<text>childrenAfter</text>}
 				/>
 			);
 			const tree = component.toJSON();

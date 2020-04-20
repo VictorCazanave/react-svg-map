@@ -8,6 +8,9 @@ exports[`RadioSVGMap component Rendering displays map with custom props 1`] = `
   viewBox="viewBox"
   xmlns="http://www.w3.org/2000/svg"
 >
+  <text>
+    childrenBefore
+  </text>
   <path
     aria-checked={null}
     aria-label="name0"
@@ -59,6 +62,9 @@ exports[`RadioSVGMap component Rendering displays map with custom props 1`] = `
     role="radio"
     tabIndex="-1"
   />
+  <text>
+    childrenAfter
+  </text>
 </svg>
 `;
 
