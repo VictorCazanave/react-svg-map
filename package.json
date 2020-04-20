@@ -60,7 +60,7 @@
 		"mini-css-extract-plugin": "^0.2.0",
 		"node-sass": "^4.13.0",
 		"react": "16.1.0",
-		"react-dom": "16.1.0",
+		"react-dom": "16.13.0",
 		"react-test-renderer": "16.1.0",
 		"sass-loader": "^6.0.7",
 		"style-loader": "^0.20.3",
