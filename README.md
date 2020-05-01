@@ -33,7 +33,7 @@ _A set of React.js components to display an interactive SVG map._
 
 You have to install the map you need from [svg-maps](https://github.com/VictorCazanave/svg-maps) or you can use your own map. See [maps section](#maps) for more details.
 
-If you are still using the 1.x.x version, look at the [v1 documentation](https://github.com/VictorCazanave/react-svg-map/tree/v1#react-svg-map).
+If you are still using the 1.x.x version, look at the [v1 documentation](https://github.com/VictorCazanave/react-svg-map/tree/v1.3.2#react-svg-map).
 
 ### :earth_africa: Simple SVG Map
 
