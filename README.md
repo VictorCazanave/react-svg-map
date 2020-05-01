@@ -7,7 +7,7 @@
 [![peerDependencies Status](https://david-dm.org/VictorCazanave/react-svg-map/peer-status.svg)](https://david-dm.org/VictorCazanave/react-svg-map?type=peer)
 [![License](https://img.shields.io/github/license/VictorCazanave/react-svg-map?color=blue)](https://github.com/VictorCazanave/react-svg-map/blob/master/LICENSE)
 
-A set of React.js components to display an interactive SVG map.
+_A set of React.js components to display an interactive SVG map._
 
 ![React SVG Map](https://media.giphy.com/media/QWpIwVdhY81RL05iNo/giphy.gif)
 
