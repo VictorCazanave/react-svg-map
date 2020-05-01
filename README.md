@@ -221,7 +221,3 @@ It is recommended to not modify the SVG properties (viewBox, path), because it m
 #### Create a map
 
 If you create a new map (other country, city...), feel free to [contribute to svg-maps project](https://github.com/VictorCazanave/svg-maps/blob/master/CONTRIBUTING.md)!
-
-## License
-
-MIT
