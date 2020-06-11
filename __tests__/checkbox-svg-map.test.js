@@ -106,7 +106,7 @@ describe('CheckboxSVGMap component', () => {
 			wrapper = mount(
 				<CheckboxSVGMap
 					map={FakeMap}
-					selectedLocationIds={['id0', 'id1']}
+					selectedLocationIds={['id0', 'id1', 'invalid-id']}
 					onChange={handleOnChange}
 				/>,
 				{ attachTo: container }
@@ -121,7 +121,7 @@ describe('CheckboxSVGMap component', () => {
 			handleOnChange.mockClear();
 		});
 
-		test('selects initial locations when ids are provided', () => {
+		test('selects initial locations when valid ids are provided', () => {
 			expect(selectedLocation.props()['aria-checked']).toBeTruthy();
 			expect(otherSelectedLocation.props()['aria-checked']).toBeTruthy();
 			expect(unselectedLocation.props()['aria-checked']).toBeFalsy();
