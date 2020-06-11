@@ -24,7 +24,8 @@ class CheckboxSVGMap extends React.Component {
 			// Cannot use ref on SvgMap (with React 16.0.0) because it is a functional component
 			// https://5a046bf5a6188f4b8fa4938a--reactjs.netlify.app/docs/refs-and-the-dom.html#refs-and-functional-components
 			const svgNode = ReactDOM.findDOMNode(this);
-			const selectedLocations = this.props.selectedLocationIds.map(locationId => svgNode.getElementById(locationId));
+			const selectedLocations = this.props.selectedLocationIds.map(locationId => svgNode.getElementById(locationId))
+				.filter(location => !!location); // Remove null locations when invalid id
 
 			this.setState({ selectedLocations });
 		}
@@ -37,7 +38,7 @@ class CheckboxSVGMap extends React.Component {
 	 * @returns {boolean} True if the location is selected
 	 */
 	isLocationSelected(location) {
-		return this.state.selectedLocations.findIndex(selectedLocation => selectedLocation.id === location.id) > -1;
+		return this.state.selectedLocations.some(selectedLocation => selectedLocation.id === location.id);
 	}
 
 	/**
