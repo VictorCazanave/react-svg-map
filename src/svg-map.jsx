@@ -20,7 +20,7 @@ function SVGMap(props) {
 						className={typeof props.locationClassName === 'function' ? props.locationClassName(location, index) : props.locationClassName}
 						tabIndex={typeof props.locationTabIndex === 'function' ? props.locationTabIndex(location, index) : props.locationTabIndex}
 						role={props.locationRole}
-						aria-label={location.name}
+						aria-label={typeof props.locationAriaLabel === 'undefined' ? location.name : props.locationAriaLabel(location, index)}
 						aria-checked={props.isLocationSelected && props.isLocationSelected(location, index)}
 						onMouseOver={props.onLocationMouseOver}
 						onMouseOut={props.onLocationMouseOut}
@@ -66,6 +66,7 @@ SVGMap.propTypes = {
 	onLocationFocus: PropTypes.func,
 	onLocationBlur: PropTypes.func,
 	isLocationSelected: PropTypes.func,
+	locationAriaLabel: PropTypes.func,
 
 	// Slots
 	childrenBefore: PropTypes.node,
