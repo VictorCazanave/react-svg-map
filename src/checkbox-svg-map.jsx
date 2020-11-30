@@ -114,7 +114,6 @@ class CheckboxSVGMap extends React.Component {
 				onLocationBlur={this.props.onLocationBlur}
 				childrenBefore={this.props.childrenBefore}
 				childrenAfter={this.props.childrenAfter}
-
 			/>
 		);
 	}
