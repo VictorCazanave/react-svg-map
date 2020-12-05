@@ -15,7 +15,6 @@ describe('SVGMap component', () => {
 		test('displays map with custom props', () => {
 			const eventHandler = () => 'eventHandler';
 			const isLocationSelected = () => 'isLocationSelected';
-			const locationAriaLabel = (location, index) => `${location.name}-${index}`
 			const component = renderer.create(
 				<SVGMap map={FakeMap}
 					className="className"
@@ -33,7 +32,6 @@ describe('SVGMap component', () => {
 					isLocationSelected={isLocationSelected}
 					childrenBefore={<text>childrenBefore</text>}
 					childrenAfter={<text>childrenAfter</text>}
-					locationAriaLabel={locationAriaLabel}
 				/>
 			);
 			const tree = component.toJSON();
@@ -44,10 +42,12 @@ describe('SVGMap component', () => {
 		test('displays map with custom function location props', () => {
 			const locationClassName = (location, index) => `locationClassName-${index}`;
 			const locationTabIndex = (location, index) => `locationTabIndex-${index}`;
+			const locationAriaLabel = (location, index) => `${location.name}-${index}`;
 			const component = renderer.create(
 				<SVGMap map={FakeMap}
 					locationClassName={locationClassName}
 					locationTabIndex={locationTabIndex}
+					locationAriaLabel={locationAriaLabel}
 				/>
 			);
 			const tree = component.toJSON();

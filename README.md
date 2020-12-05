@@ -73,7 +73,7 @@ ReactDOM.render(<App />, document.getElementById("app"));
 | locationClassName   | String\|Function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index.              |
 | locationTabIndex    | String\|Function | `'0'`                 | Tabindex each `<path>`. The function parameters are the location object and the location index.                  |
 | locationRole        | String           | `'none'`              | ARIA role of each `<path>`.                                                                                      |
-| locationAriaLabel   | Function | `${location.name}` | aria-label of each location. The function parameters are the location object and the location index.            |
+| locationAriaLabel   | Function         | `location.name`       | ARIA label of each `<path>`. The function parameters are the location object and the location index.             |
 | onLocationMouseOver | Function         |                       | Invoked when the user puts the mouse over a location.                                                            |
 | onLocationMouseOut  | Function         |                       | Invoked when the user puts the mouse out of a location.                                                          |
 | onLocationMouseMove | Function         |                       | Invoked when the user moves the mouse on a location.                                                             |
@@ -121,7 +121,7 @@ ReactDOM.render(<App />, document.getElementById("app"));
 | map                 | Object           | **required**          | Describe SVG map to display. See [maps section](#maps) for more details.                                                                 |
 | className           | String           | `'svg-map'`           | CSS class of `<svg>`.                                                                                                                    |
 | locationClassName   | String\|Function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index.                                      |
-| locationAriaLabel   | Function | `${location.name}` | aria-label of each location. The function parameters are the location object and the location index.            |
+| locationAriaLabel   | Function         | `location.name`       | ARIA label of each `<path>`. The function parameters are the location object and the location index.                                     |
 | selectedLocationIds | String[]         |                       | List of `id`s of the **initial** selected locations. It is used only when the component is mounted and is not synchronized when updated. |
 | onChange            | Function         |                       | Invoked when the user selects/deselects a location. The list of selected locations is passed as parameter.                               |
 | onLocationMouseOver | Function         |                       | Invoked when the user puts the mouse over a location.                                                                                    |
@@ -168,7 +168,7 @@ ReactDOM.render(<App />, document.getElementById("app"));
 | map                 | Object           | **required**          | Describe SVG map to display. See [maps section](#maps) for more details.                                                       |
 | className           | String           | `'svg-map'`           | CSS class of `<svg>`.                                                                                                          |
 | locationClassName   | String\|Function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index.                            |
-| locationAriaLabel   | Function | `${location.name}` | aria-label of each location. The function parameters are the location object and the location index.            |
+| locationAriaLabel   | Function         | `location.name`       | ARIA label of each `<path>`. The function parameters are the location object and the location index.                           |
 | selectedLocationId  | String           |                       | `id` of the **initial** selected location. It is used only when the component is mounted and is not synchronized when updated. |
 | onChange            | Function         |                       | Invoked when the user selects a location. The selected location is passed as parameter.                                        |
 | onLocationMouseOver | Function         |                       | Invoked when the user puts the mouse over a location.                                                                          |
