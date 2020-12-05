@@ -5,7 +5,6 @@
 [![codecov](https://codecov.io/gh/VictorCazanave/react-svg-map/branch/master/graph/badge.svg)](https://codecov.io/gh/VictorCazanave/react-svg-map)
 [![Dependency Status](https://david-dm.org/VictorCazanave/react-svg-map.svg)](https://david-dm.org/VictorCazanave/react-svg-map)
 [![peerDependencies Status](https://david-dm.org/VictorCazanave/react-svg-map/peer-status.svg)](https://david-dm.org/VictorCazanave/react-svg-map?type=peer)
-[![License](https://img.shields.io/github/license/VictorCazanave/react-svg-map?color=blue)](https://github.com/VictorCazanave/react-svg-map/blob/master/LICENSE)
 
 _A set of React.js components to display an interactive SVG map._
 
