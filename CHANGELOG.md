@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.2.0]
+### Added
+- Add `locationAriaLabel` prop to customize ARIA label of each location [#49](https://github.com/VictorCazanave/react-svg-map/pull/49)
+
+### Fixed
+- Add missing default values of `locationTabIndex` and locationRole` props
+- Use MIT license instead of GPLv3
+
 ## [2.1.2]
 ### Fixed
 - Add missing CSS file in production
