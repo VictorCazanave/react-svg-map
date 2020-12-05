@@ -75,7 +75,7 @@ exports[`SVGMap component Properties displays map with custom props 1`] = `
   </text>
   <path
     aria-checked="isLocationSelected"
-    aria-label="name0"
+    aria-label="name0-0"
     className="locationClassName"
     d="path0"
     id="id0"
@@ -92,7 +92,7 @@ exports[`SVGMap component Properties displays map with custom props 1`] = `
   />
   <path
     aria-checked="isLocationSelected"
-    aria-label="name1"
+    aria-label="name1-1"
     className="locationClassName"
     d="path1"
     id="id1"
@@ -109,7 +109,7 @@ exports[`SVGMap component Properties displays map with custom props 1`] = `
   />
   <path
     aria-checked="isLocationSelected"
-    aria-label="name2"
+    aria-label="name2-2"
     className="locationClassName"
     d="path2"
     id="id2"
