@@ -22,7 +22,7 @@ exports[`SVGMap component Properties displays map with custom function location 
     onMouseMove={undefined}
     onMouseOut={undefined}
     onMouseOver={undefined}
-    role={undefined}
+    role="none"
     tabIndex="locationTabIndex-0"
   />
   <path
@@ -39,7 +39,7 @@ exports[`SVGMap component Properties displays map with custom function location 
     onMouseMove={undefined}
     onMouseOut={undefined}
     onMouseOver={undefined}
-    role={undefined}
+    role="none"
     tabIndex="locationTabIndex-1"
   />
   <path
@@ -56,7 +56,7 @@ exports[`SVGMap component Properties displays map with custom function location 
     onMouseMove={undefined}
     onMouseOut={undefined}
     onMouseOver={undefined}
-    role={undefined}
+    role="none"
     tabIndex="locationTabIndex-2"
   />
 </svg>
@@ -152,8 +152,8 @@ exports[`SVGMap component Properties displays map with default props 1`] = `
     onMouseMove={undefined}
     onMouseOut={undefined}
     onMouseOver={undefined}
-    role={undefined}
-    tabIndex={undefined}
+    role="none"
+    tabIndex="0"
   />
   <path
     aria-checked={undefined}
@@ -169,8 +169,8 @@ exports[`SVGMap component Properties displays map with default props 1`] = `
     onMouseMove={undefined}
     onMouseOut={undefined}
     onMouseOver={undefined}
-    role={undefined}
-    tabIndex={undefined}
+    role="none"
+    tabIndex="0"
   />
   <path
     aria-checked={undefined}
@@ -186,8 +186,8 @@ exports[`SVGMap component Properties displays map with default props 1`] = `
     onMouseMove={undefined}
     onMouseOut={undefined}
     onMouseOver={undefined}
-    role={undefined}
-    tabIndex={undefined}
+    role="none"
+    tabIndex="0"
   />
 </svg>
 `;

@@ -77,6 +77,8 @@ SVGMap.defaultProps = {
 	className: 'svg-map',
 	role: 'none', // No role for map
 	locationClassName: 'svg-map__location',
+	locationTabIndex: '0',
+	locationRole: 'none',
 };
 
 export default SVGMap;
