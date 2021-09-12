@@ -3,7 +3,7 @@ import France from '@svg-maps/france.regions';
 import { SVGMap } from '../../../src/';
 import { getLocationId, getLocationName } from '../utils';
 
-class LinkMap extends React.Component {
+class LinkMap extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
@@ -29,36 +29,30 @@ class LinkMap extends React.Component {
 			focusedLocation: null,
 			clickedLocation: null
 		};
-
-		this.handleLocationMouseOver = this.handleLocationMouseOver.bind(this);
-		this.handleLocationMouseOut = this.handleLocationMouseOut.bind(this);
-		this.handleLocationClick = this.handleLocationClick.bind(this);
-		this.handleLocationFocus = this.handleLocationFocus.bind(this);
-		this.handleLocationBlur = this.handleLocationBlur.bind(this);
 	}
 
-	handleLocationMouseOver(event) {
+	handleLocationMouseOver = (event) => {
 		const pointedLocation = getLocationName(event);
 		this.setState({ pointedLocation: pointedLocation });
 	}
 
-	handleLocationMouseOut() {
+	handleLocationMouseOut = () => {
 		this.setState({ pointedLocation: null });
 	}
 
-	handleLocationClick(event) {
+	handleLocationClick = (event) => {
 		const clickedLocation = getLocationName(event);
 		const clickedLocationId = getLocationId(event);
 		this.setState({ clickedLocation: clickedLocation });
 		window.open(this.links[clickedLocationId], '_blank');
 	}
 
-	handleLocationFocus(event) {
+	handleLocationFocus = (event) => {
 		const focusedLocation = getLocationName(event);
 		this.setState({ focusedLocation: focusedLocation });
 	}
 
-	handleLocationBlur() {
+	handleLocationBlur = () => {
 		this.setState({ focusedLocation: null });
 	}
 

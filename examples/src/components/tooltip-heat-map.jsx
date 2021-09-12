@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import USA from '@svg-maps/usa';
+
 import { SVGMap } from '../../../src';
 import { getLocationName } from '../utils';
 
-class TooltipHeatMap extends React.Component {
+class TooltipHeatMap extends PureComponent {
 	constructor(props) {
 		super(props);
 
@@ -13,22 +14,18 @@ class TooltipHeatMap extends React.Component {
 				display: 'none'
 			}
 		};
-
-		this.handleLocationMouseOver = this.handleLocationMouseOver.bind(this);
-		this.handleLocationMouseOut = this.handleLocationMouseOut.bind(this);
-		this.handleLocationMouseMove = this.handleLocationMouseMove.bind(this);
 	}
 
-	handleLocationMouseOver(event) {
+	handleLocationMouseOver = (event) => {
 		const pointedLocation = getLocationName(event);
 		this.setState({ pointedLocation });
 	}
 
-	handleLocationMouseOut() {
+	handleLocationMouseOut = () => {
 		this.setState({ pointedLocation: null, tooltipStyle: { display: 'none' } });
 	}
 
-	handleLocationMouseMove(event) {
+	handleLocationMouseMove = (event) => {
 		const tooltipStyle = {
 			display: 'block',
 			top: event.clientY + 10,
@@ -37,7 +34,7 @@ class TooltipHeatMap extends React.Component {
 		this.setState({ tooltipStyle });
 	}
 
-	getLocationClassName(location, index) {
+	getLocationClassName = (location, index) => {
 		// Generate random heat map
 		return `svg-map__location svg-map__location--heat${index % 4}`;
 	}

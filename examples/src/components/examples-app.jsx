@@ -6,7 +6,7 @@ import TooltipHeatMap from './tooltip-heat-map';
 import '../../../src/svg-map.scss';
 import './examples-app.scss';
 
-class ExamplesApp extends React.Component {
+class ExamplesApp extends React.PureComponent {
 	constructor(props) {
 		super(props);
 	}

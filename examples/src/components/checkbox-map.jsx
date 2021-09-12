@@ -3,7 +3,7 @@ import Taiwan from '@svg-maps/taiwan.main';
 import { CheckboxSVGMap } from '../../../src/';
 import { getLocationName } from '../utils';
 
-class CheckboxMap extends React.Component {
+class CheckboxMap extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
@@ -12,33 +12,27 @@ class CheckboxMap extends React.Component {
 			focusedLocation: null,
 			selectedLocations: []
 		};
-
-		this.handleLocationMouseOver = this.handleLocationMouseOver.bind(this);
-		this.handleLocationMouseOut = this.handleLocationMouseOut.bind(this);
-		this.handleLocationFocus = this.handleLocationFocus.bind(this);
-		this.handleLocationBlur = this.handleLocationBlur.bind(this);
-		this.handleOnChange = this.handleOnChange.bind(this);
 	}
 
-	handleLocationMouseOver(event) {
+	handleLocationMouseOver = (event) => {
 		const pointedLocation = getLocationName(event);
 		this.setState({ pointedLocation: pointedLocation });
 	}
 
-	handleLocationMouseOut() {
+	handleLocationMouseOut = () => {
 		this.setState({ pointedLocation: null });
 	}
 
-	handleLocationFocus(event) {
+	handleLocationFocus = (event) => {
 		const focusedLocation = getLocationName(event);
 		this.setState({ focusedLocation: focusedLocation });
 	}
 
-	handleLocationBlur() {
+	handleLocationBlur = () => {
 		this.setState({ focusedLocation: null });
 	}
 
-	handleOnChange(selectedNodes) {
+	handleOnChange = (selectedNodes) => {
 		this.setState(prevState => {
 			return {
 				...prevState,
