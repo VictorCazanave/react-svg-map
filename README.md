@@ -49,7 +49,7 @@ import Taiwan from "@svg-maps/taiwan";
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
 
-class App extends React.Component {
+class App extends React.PureComponent {
   constructor(props) {
     super(props);
   }
@@ -100,7 +100,7 @@ import Taiwan from "@svg-maps/taiwan";
 import { CheckboxSVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
 
-class App extends React.Component {
+class App extends React.PureComponent {
   constructor(props) {
     super(props);
   }
@@ -147,7 +147,7 @@ import Taiwan from "@svg-maps/taiwan";
 import { RadioSVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
 
-class App extends React.Component {
+class App extends React.PureComponent {
   constructor(props) {
     super(props);
   }
@@ -182,7 +182,7 @@ ReactDOM.render(<App />, document.getElementById("app"));
 
 ### Existing maps
 
-Since v2.0.0 this package does not provide maps anymore. All the existing maps have been moved to the independant [svg-maps](https://github.com/VictorCazanave/svg-maps) project because they may be useful for other components/projects.
+Since v2.0.0 this package does not provide maps anymore. All the existing maps have been moved to the independent [svg-maps](https://github.com/VictorCazanave/svg-maps) project because they may be useful for other components/projects.
 
 ### Custom maps
 
@@ -199,7 +199,7 @@ import React from "react";
 import Taiwan from "@svg-maps/taiwan";
 import { SVGMap } from "react-svg-map";
 
-class App extends React.Component {
+class App extends React.PureComponent {
   constructor(props) {
     super(props);
 
