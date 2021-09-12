@@ -5,36 +5,21 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 module.exports = (env, options) => {
 	return {
 		entry: './examples/src/index.jsx',
-		output: {
-			path: path.resolve(__dirname, 'examples/dist'),
-			filename: 'index.js',
-		},
+		mode: process.env.NODE_ENV ?? 'development',
 		performance: {
 			hints: false // Disable assets limit
 		},
 		module: {
 			rules: [{
-				test: /\.jsx?/,
+				test: /\.(jsx?|tsx?)/,
+				include: [path.resolve(__dirname, 'examples'), path.resolve(__dirname, 'src')],
 				exclude: /node_modules/,
-				use: [
-					'babel-loader',
-					{
-						loader: 'eslint-loader',
-						options: {
-							emitWarning: options.mode === 'development', // Avoid to block compilation when ESLint error
-						}
-					}
-				],
+				loader: 'babel-loader',
 			}, {
-				test: /\.scss$/,
+				test: /\.(css|s[ac]ss)$/,
+				include: [path.resolve(__dirname, 'examples'), path.resolve(__dirname, 'src')],
 				exclude: /node_modules/,
-				use: [{
-					loader: 'style-loader'
-				}, {
-					loader: 'css-loader'
-				}, {
-					loader: 'sass-loader'
-				}]
+				use: ['style-loader', 'css-loader', 'sass-loader']
 			}, {
 				test: /\.html$/,
 				exclude: /node_modules/,
@@ -54,6 +39,10 @@ module.exports = (env, options) => {
 				template: './examples/src/index.html',
 				filename: './index.html'
 			})
-		]
+		],
+		output: {
+			path: path.resolve(__dirname, 'examples/dist'),
+			filename: 'index.js',
+		},
 	};
 };
