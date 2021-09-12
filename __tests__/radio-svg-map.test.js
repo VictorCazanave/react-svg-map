@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+
 import FakeMap from './fake-map';
 import { RadioSVGMap } from '../src';
 
 // TODO: Try to make it more readable
 // TODO: Create utility functions to avoid code duplication
 describe('RadioSVGMap component', () => {
-	const locationSelector = '#id1';
-	const previousLocationSelector = '#id0';
-	const nextLocationSelector = '#id2';
+	const locationSelector = 'id1';
+	const previousLocationSelector = 'id0';
+	const nextLocationSelector = 'id2';
 
 	let wrapper;
 	let location;
@@ -19,10 +21,10 @@ describe('RadioSVGMap component', () => {
 
 	describe('Navigation', () => {
 		beforeEach(() => {
-			wrapper = mount(<RadioSVGMap map={FakeMap} />);
-			location = wrapper.find(locationSelector);
-			previousLocation = wrapper.find(previousLocationSelector);
-			nextLocation = wrapper.find(nextLocationSelector);
+			wrapper = render(<RadioSVGMap map={FakeMap} />);
+			location =  screen.getByTestId(locationSelector);
+			previousLocation = screen.getByTestId(previousLocationSelector);
+			nextLocation = screen.getByTestId(nextLocationSelector);
 		});
 
 		afterEach(() => {
@@ -30,112 +32,100 @@ describe('RadioSVGMap component', () => {
 		});
 
 		describe('Mouse', () => {
-			test('selects location when clicking on not yet selected location', () => {
-				expect(location.props()['aria-checked']).toBeFalsy();
+			it('selects location when clicking on not yet selected location', () => {
+				expect(location.getAttribute('aria-checked')).toBe(null);
 
-				location.simulate('click');
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+				userEvent.click(location);
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeTruthy();
+				expect(location).toHaveAttribute('aria-checked');
 			});
 
-			test('does not deselect location when clicking on already selected location', () => {
-				location.simulate('click');
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+			it('does not deselect location when clicking on already selected location', () => {
+				userEvent.click(location);
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeTruthy();
+				expect(location).toHaveAttribute('aria-checked', 'true');
 
-				location.simulate('click');
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+				userEvent.click(location);
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeTruthy();
+				expect(location).toHaveAttribute('aria-checked', 'true');
 			});
 
-			test('selects new location and deselects former selected when clicking on new location', () => {
-				location.simulate('click');
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+			it('selects new location and deselects former selected when clicking on new location', () => {
+				userEvent.click(location);
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeTruthy();
-				expect(previousLocation.props()['aria-checked']).toBeFalsy();
+				expect(location).toHaveAttribute('aria-checked', 'true');
+				expect(previousLocation).toHaveAttribute('aria-checked', 'false');
+				
+				userEvent.click(previousLocation);
+				location = screen.getByTestId(locationSelector);
+				previousLocation = screen.getByTestId(previousLocationSelector);
 
-				previousLocation.simulate('click');
-				wrapper.update();
-				location = wrapper.find(locationSelector);
-				previousLocation = wrapper.find(previousLocationSelector);
-
-				expect(location.props()['aria-checked']).toBeFalsy();
-				expect(previousLocation.props()['aria-checked']).toBeTruthy();
+				expect(location).toHaveAttribute('aria-checked', 'false');
+				expect(previousLocation).toHaveAttribute('aria-checked', 'true');
 			});
 
-			test('makes location focusable when selected', () => {
-				expect(location.props()['tabIndex']).toEqual('-1');
-
-				location.simulate('click');
-				wrapper.update();
-				location = wrapper.find(locationSelector);
-
-				expect(location.props()['tabIndex']).toEqual('0');
+			it('makes location focusable when selected', () => {
+				expect(location).toHaveProperty('tabIndex', -1);
+				
+				userEvent.click(location);
+				location = screen.getByTestId(locationSelector);
+				
+				expect(location).toHaveProperty('tabIndex', 0);
 			});
 		});
 
 		describe('Keyboard', () => {
-			test('selects focused not yet selected location when hitting spacebar', () => {
-				expect(location.props()['aria-checked']).toBeFalsy();
+			it('selects focused not yet selected location when hitting spacebar', () => {
+				expect(location.getAttribute('aria-checked')).toBe(null);
 
-				location.simulate('focus');
-				location.simulate('keydown', { keyCode: 32 });
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+				location.focus();
+				userEvent.keyboard('{space}');
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeTruthy();
+				expect(location).toHaveAttribute('aria-checked', 'true');
 			});
 
-			test('does not deselect focused already selected location when hitting spacebar', () => {
-				location.simulate('focus');
-				location.simulate('keydown', { keyCode: 32 });
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+			it('does not deselect focused already selected location when hitting spacebar', () => {
+				location.focus();
+				userEvent.keyboard('{space}');
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeTruthy();
+				expect(location).toHaveAttribute('aria-checked', 'true');
 
-				location.simulate('focus');
-				location.simulate('keydown', { keyCode: 32 });
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+				location.focus();
+				userEvent.keyboard('{space}');
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeTruthy();
+				expect(location).toHaveAttribute('aria-checked', 'true');
 			});
 
-			test('selects next/first location when hitting down/right arrow', () => {
-				expect(location.props()['aria-checked']).toBeFalsy();
-				expect(nextLocation.props()['aria-checked']).toBeFalsy();
+			it('selects next/first location when hitting down/right arrow', () => {
+				expect(location.getAttribute('aria-checked')).toBe(null);
+				expect(nextLocation.getAttribute('aria-checked')).toBe(null);
 
-				location.simulate('focus');
-				location.simulate('keydown', { keyCode: 39 });
-				wrapper.update();
-				location = wrapper.find(locationSelector);
-				nextLocation = wrapper.find(nextLocationSelector);
+				location.focus();
+				userEvent.keyboard('{arrowright}');
+				location = screen.getByTestId(locationSelector);
+				nextLocation = screen.getByTestId(nextLocationSelector);
 
-				expect(location.props()['aria-checked']).toBeFalsy();
-				expect(nextLocation.props()['aria-checked']).toBeTruthy();
+				expect(location).toHaveAttribute('aria-checked', 'false');
+				expect(nextLocation).toHaveAttribute('aria-checked', 'true');
 			});
 
-			test('selects previous/last location when hitting up/left arrow', () => {
-				expect(location.props()['aria-checked']).toBeFalsy();
-				expect(previousLocation.props()['aria-checked']).toBeFalsy();
+			it('selects previous/last location when hitting up/left arrow', () => {
+				expect(location.getAttribute('aria-checked')).toBe(null);
 
-				location.simulate('focus');
-				location.simulate('keydown', { keyCode: 37 });
-				wrapper.update();
-				location = wrapper.find(locationSelector);
-				previousLocation = wrapper.find(previousLocationSelector);
+				location.focus();
+				userEvent.keyboard('{arrowleft}');
+				location = screen.getByTestId(locationSelector);
+				previousLocation = screen.getByTestId(previousLocationSelector);
 
-				expect(location.props()['aria-checked']).toBeFalsy();
-				expect(previousLocation.props()['aria-checked']).toBeTruthy();
+				expect(location).toHaveAttribute('aria-checked', 'false');
+				expect(previousLocation).toHaveAttribute('aria-checked', 'true');
 			});
 		});
 	});
@@ -149,7 +139,7 @@ describe('RadioSVGMap component', () => {
 		const handleOnChange = jest.fn();
 
 		beforeEach(() => {
-			wrapper = mount(
+			wrapper = render(
 				<RadioSVGMap
 					map={FakeMap}
 					selectedLocationId="id1"
@@ -157,8 +147,8 @@ describe('RadioSVGMap component', () => {
 				/>,
 				{ attachTo: container }
 			);
-			location = wrapper.find(locationSelector);
-			nextLocation = wrapper.find(nextLocationSelector);
+			location = screen.getByTestId(locationSelector);
+			nextLocation = screen.getByTestId(nextLocationSelector);
 		});
 
 		afterEach(() => {
@@ -166,18 +156,18 @@ describe('RadioSVGMap component', () => {
 			handleOnChange.mockClear();
 		});
 
-		test('selects initial location when id is provided', () => {
-			expect(location.props()['aria-checked']).toBeTruthy();
+		it('selects initial location when id is provided', () => {
+			expect(location).toHaveAttribute('aria-checked', 'true');
 		});
 
-		test('calls onChange handler when selecting location', () => {
-			nextLocation.simulate('click');
+		it('calls onChange handler when selecting location', () => {
+			userEvent.click(nextLocation);
 
-			expect(handleOnChange).toHaveBeenCalledWith(nextLocation.getDOMNode());
+			expect(handleOnChange).toHaveBeenCalledWith(nextLocation);
 		});
 
-		test('does not call onChange handler when clicking on already selected location', () => {
-			location.simulate('click');
+		it('does not call onChange handler when clicking on already selected location', () => {
+			userEvent.click(location);
 
 			expect(handleOnChange).toHaveBeenCalledTimes(0);
 		});
@@ -193,14 +183,14 @@ describe('RadioSVGMap component', () => {
 			);
 		});
 
-		test('displays map with default props', () => {
+		it('displays map with default props', () => {
 			const component = renderer.create(<RadioSVGMap map={FakeMap} />);
 			const tree = component.toJSON();
 
 			expect(tree).toMatchSnapshot();
 		});
 
-		test('displays map with custom props', () => {
+		it('displays map with custom props', () => {
 			const eventHandler = () => 'eventHandler';
 			const component = renderer.create(
 				<RadioSVGMap map={FakeMap}

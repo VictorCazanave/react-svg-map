@@ -1,6 +1,8 @@
 import React from 'react';
+import {render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+
 import FakeMap from './fake-map';
 import { CheckboxSVGMap } from '../src';
 
@@ -10,13 +12,13 @@ describe('CheckboxSVGMap component', () => {
 	let wrapper;
 
 	describe('Navigation', () => {
-		const locationSelector = '#id0';
+		const locationSelector = 'id0';
 
 		let location;
 
 		beforeEach(() => {
-			wrapper = mount(<CheckboxSVGMap map={FakeMap} />);
-			location = wrapper.find(locationSelector);
+			wrapper = render(<CheckboxSVGMap map={FakeMap} />);
+			location = screen.getByTestId(locationSelector);
 		});
 
 		afterEach(() => {
@@ -25,67 +27,60 @@ describe('CheckboxSVGMap component', () => {
 
 		describe('Mouse', () => {
 			test('selects location when clicking on not yet selected location', () => {
-				expect(location.props()['aria-checked']).toBeFalsy();
+				expect(location).toHaveAttribute('aria-checked', 'false');
 
-				location.simulate('click');
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+				userEvent.click(location);
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeTruthy();
+				expect(location).toHaveAttribute('aria-checked', 'true');
 			});
 
 			test('deselects location when clicking on already selected location', () => {
-				location.simulate('click');
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+				userEvent.click(location);
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeTruthy();
+				expect(location).toHaveAttribute('aria-checked', 'true');
 
-				location.simulate('click');
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+				userEvent.click(location);
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeFalsy();
+				expect(location).toHaveAttribute('aria-checked', 'false');
 			});
 		});
 
 		describe('Keyboard', () => {
 			test('selects focused location when hitting spacebar', () => {
-				expect(location.props()['aria-checked']).toBeFalsy();
+				expect(location).toHaveAttribute('aria-checked', 'false');
 
-				location.simulate('focus');
-				location.simulate('keydown', { keyCode: 32 });
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+				location.focus();
+				userEvent.keyboard('{space}');
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeTruthy();
+				expect(location).toHaveAttribute('aria-checked', 'true');
 			});
 
 			test('does not select focused location when hitting other key', () => {
-				expect(location.props()['aria-checked']).toBeFalsy();
+				expect(location).toHaveAttribute('aria-checked', 'false');
 
-				location.simulate('focus');
-				location.simulate('keydown', { keyCode: 31 });
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+				location.focus();
+				userEvent.keyboard('{Key0}');
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeFalsy();
+				expect(location).toHaveAttribute('aria-checked', 'false');
 			});
 
 			test('deselects focused already selected location when hitting spacebar', () => {
-				location.simulate('focus');
-				location.simulate('keydown', { keyCode: 32 });
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+				location.focus();
+				userEvent.keyboard('{space}');
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeTruthy();
+				expect(location).toHaveAttribute('aria-checked', 'true');
 
-				location.simulate('focus');
-				location.simulate('keydown', { keyCode: 32 });
-				wrapper.update();
-				location = wrapper.find(locationSelector);
+				location.focus();
+				userEvent.keyboard('{space}');
+				location = screen.getByTestId(locationSelector);
 
-				expect(location.props()['aria-checked']).toBeFalsy();
+				expect(location).toHaveAttribute('aria-checked', 'false');
 			});
 		});
 	});
@@ -103,7 +98,7 @@ describe('CheckboxSVGMap component', () => {
 		let unselectedLocation;
 
 		beforeEach(() => {
-			wrapper = mount(
+			wrapper = render(
 				<CheckboxSVGMap
 					map={FakeMap}
 					selectedLocationIds={['id0', 'id1', 'invalid-id']}
@@ -111,9 +106,9 @@ describe('CheckboxSVGMap component', () => {
 				/>,
 				{ attachTo: container }
 			);
-			selectedLocation = wrapper.find('#id0');
-			otherSelectedLocation = wrapper.find('#id1');
-			unselectedLocation = wrapper.find('#id2');
+			selectedLocation = screen.getByTestId('id0');
+			otherSelectedLocation = screen.getByTestId('id1');
+			unselectedLocation = screen.getByTestId('id2');
 		});
 
 		afterEach(() => {
@@ -122,25 +117,25 @@ describe('CheckboxSVGMap component', () => {
 		});
 
 		test('selects initial locations when valid ids are provided', () => {
-			expect(selectedLocation.props()['aria-checked']).toBeTruthy();
-			expect(otherSelectedLocation.props()['aria-checked']).toBeTruthy();
-			expect(unselectedLocation.props()['aria-checked']).toBeFalsy();
+			expect(selectedLocation).toHaveAttribute('aria-checked', 'true');
+			expect(otherSelectedLocation).toHaveAttribute('aria-checked', 'true');
+			expect(unselectedLocation).toHaveAttribute('aria-checked', 'false');
 		});
 
 		test('calls onChange handler when selecting location', () => {
-			unselectedLocation.simulate('click');
+			userEvent.click(unselectedLocation);
 
 			expect(handleOnChange).toHaveBeenCalledWith([
-				selectedLocation.getDOMNode(),
-				otherSelectedLocation.getDOMNode(),
-				unselectedLocation.getDOMNode()
+				selectedLocation,
+				otherSelectedLocation,
+				unselectedLocation,
 			]);
 		});
 
 		test('calls onChange handler when deselecting location', () => {
-			otherSelectedLocation.simulate('click');
+			userEvent.click(otherSelectedLocation);
 
-			expect(handleOnChange).toHaveBeenCalledWith([selectedLocation.getDOMNode()]);
+			expect(handleOnChange).toHaveBeenCalledWith([selectedLocation]);
 		});
 	});
 
