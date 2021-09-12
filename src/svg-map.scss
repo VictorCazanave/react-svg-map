@@ -1,23 +1,30 @@
+@import url('./variables.css');
+
 .svg-map {
-	width: 100%;
 	height: auto;
-	stroke: #666;
-	stroke-width: 1;
+	stroke: var(--svg-map-delimiter);
 	stroke-linecap: round;
 	stroke-linejoin: round;
+	stroke-width: 1;
+	width: 100%;
 
 	&__location {
-		fill: #a1d99b;
 		cursor: pointer;
+		fill: var(--svg-map-location-background);
 
 		&:focus,
 		&:hover {
-			fill: #b8e2b3;
+			fill: var(--svg-map-location-hover);
 			outline: 0;
 		}
 
-		&[aria-checked=true] {
-			fill: #f4bc44;
+		&:focus {
+			fill: var(--svg-map-location-focus);
+			outline: 0;
+		}
+
+		&[aria-checked='true'] {
+			fill: var(--svg-map-location-selected);
 		}
 	}
 }
