@@ -1,12 +1,17 @@
 {
+	"root": true,
+	"parser": "babel-eslint",
 	"env": {
 		"browser": true,
 		"es6": true,
 		"jest/globals": true
 	},
 	"extends": [
+		"plugin:prettier/recommended",
+		"plugin:react/recommended",
 		"eslint:recommended",
-		"plugin:react/recommended"
+		"plugin:jsx-a11y/recommended",
+    "react-app/jest"
 	],
 	"settings": {
 		"react": {
@@ -14,7 +19,9 @@
 		}
 	},
 	"parserOptions": {
+		"ecmaVersion": 11,
 		"ecmaFeatures": {
+			"arrowFunctions": true,
 			"experimentalObjectRestSpread": true,
 			"jsx": true
 		},
@@ -22,12 +29,15 @@
 	},
 	"plugins": [
 		"react",
+		"prettier",
+		"@babel",
+		"jsx-a11y",
 		"jest"
 	],
 	"rules": {
 		"indent": [
 			"error",
-			"tab",
+			"space",
 			{
 				"SwitchCase": 1
 			}
