@@ -4,11 +4,11 @@
   "description": "A set of React.js components to display an interactive SVG map",
   "main": "lib/index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --config webpack.examples.config.js",
+    "start": "NODE_ENV=development webpack-dev-server --open --config webpack.examples.config.js",
     "build": "webpack",
     "lint": "eslint src/*.js",
     "test": "./node_modules/.bin/jest",
-    "build-demo": "webpack --mode production --config webpack.examples.config.js && cp examples/dist/* docs",
+    "build-demo": "NODE_ENV=production webpack --config webpack.examples.config.js && cp examples/dist/* docs",
     "build-tests": "jest -u",
     "prepare": "npm run lint && npm test && npm run build"
   },
