@@ -7,23 +7,26 @@ import '../../../src/svg-map.scss';
 import './examples-app.scss';
 
 class ExamplesApp extends React.PureComponent {
-	constructor(props) {
-		super(props);
-	}
+  constructor(props) {
+    super(props);
+  }
 
-	render() {
-		return (
-			<section className="examples">
-				<h1 className="examples__title">
-					Examples of <a href="https://www.npmjs.com/package/react-svg-map">react-svg-map</a>
-				</h1>
-				<RadioMap />
-				<CheckboxMap />
-				<LinkMap />
-				<TooltipHeatMap />
-			</section>
-		);
-	}
+  render() {
+    return (
+      <section className='examples'>
+        <h1 className='examples__title'>
+          Examples of{' '}
+          <a href='https://www.npmjs.com/package/react-svg-map'>
+            react-svg-map
+          </a>
+        </h1>
+        <RadioMap />
+        <CheckboxMap />
+        <LinkMap />
+        <TooltipHeatMap />
+      </section>
+    );
+  }
 }
 
 export default ExamplesApp;
