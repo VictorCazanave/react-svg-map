@@ -1,12 +1,11 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import Australia from '@svg-maps/australia';
 import { RadioSVGMap } from '../../../src/';
 import { getLocationName } from '../utils';
 
-class RadioMap extends React.PureComponent {
+class RadioMap extends PureComponent {
   constructor(props) {
     super(props);
-
     this.state = {
       pointedLocation: null,
       focusedLocation: null,
@@ -32,12 +31,9 @@ class RadioMap extends React.PureComponent {
     this.setState({ focusedLocation: null });
   };
 
-  handleOnChange = selectedNode => {
-    this.setState(prevState => {
-      return {
-        ...prevState,
-        selectedLocation: selectedNode.attributes.name.value,
-      };
+  handleOnChange = newLocation => {
+    this.setState({
+      selectedLocation: newLocation,
     });
   };
 
@@ -55,7 +51,7 @@ class RadioMap extends React.PureComponent {
             Focused location: {this.state.focusedLocation}
           </div>
           <div className='examples__block__info__item'>
-            Selected location: {this.state.selectedLocation}
+            Selected location: {this.state.selectedLocation?.name}
           </div>
         </div>
         <div className='examples__block__map examples__block__map--australia'>
@@ -65,7 +61,9 @@ class RadioMap extends React.PureComponent {
             onLocationMouseOut={this.handleLocationMouseOut}
             onLocationFocus={this.handleLocationFocus}
             onLocationBlur={this.handleLocationBlur}
+            ref={this.mapRef}
             onChange={this.handleOnChange}
+            value={this.state.selectedLocation}
           />
         </div>
       </article>

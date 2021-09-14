@@ -1,11 +1,12 @@
-import React from 'react';
+import { createRef, PureComponent } from 'react';
 import Taiwan from '@svg-maps/taiwan.main';
 import { CheckboxSVGMap } from '../../../src/';
 import { getLocationName } from '../utils';
 
-class CheckboxMap extends React.PureComponent {
+class CheckboxMap extends PureComponent {
   constructor(props) {
     super(props);
+    this.mapRef = createRef();
 
     this.state = {
       pointedLocation: null,
@@ -32,13 +33,21 @@ class CheckboxMap extends React.PureComponent {
     this.setState({ focusedLocation: null });
   };
 
-  handleOnChange = selectedNodes => {
+  handleOnChange = targetLocation => {
     this.setState(prevState => {
+      const existingLocationIx = prevState.selectedLocations.findIndex(
+        location => location.id === targetLocation.id
+      );
+      if (existingLocationIx === -1) {
+        return {
+          selectedLocations: prevState.selectedLocations.concat(targetLocation),
+        };
+      }
+      const updatedLocations = prevState.selectedLocations
+        .slice(0, existingLocationIx)
+        .concat(prevState.selectedLocations.slice(existingLocationIx + 1));
       return {
-        ...prevState,
-        selectedLocations: selectedNodes.map(
-          node => node.attributes.name.value
-        ),
+        selectedLocations: updatedLocations,
       };
     });
   };
@@ -57,8 +66,8 @@ class CheckboxMap extends React.PureComponent {
           <div className='examples__block__info__item'>
             Selected locations:
             <ul>
-              {[...this.state.selectedLocations].map(location => (
-                <li key={location}>{location}</li>
+              {this.state.selectedLocations.map(location => (
+                <li key={location.id}>{location.name}</li>
               ))}
             </ul>
           </div>
@@ -71,6 +80,7 @@ class CheckboxMap extends React.PureComponent {
             onLocationFocus={this.handleLocationFocus}
             onLocationBlur={this.handleLocationBlur}
             onChange={this.handleOnChange}
+            value={this.state.selectedLocations}
           />
         </div>
       </article>
