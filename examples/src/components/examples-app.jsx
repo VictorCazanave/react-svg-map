@@ -1,4 +1,4 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import CheckboxMap from './checkbox-map';
 import RadioMap from './radio-map';
 import LinkMap from './link-map';
@@ -6,7 +6,7 @@ import TooltipHeatMap from './tooltip-heat-map';
 import '../../../src/svg-map.scss';
 import './examples-app.scss';
 
-class ExamplesApp extends React.PureComponent {
+class ExamplesApp extends PureComponent {
   constructor(props) {
     super(props);
   }

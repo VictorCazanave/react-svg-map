@@ -1,5 +1,10 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import ExamplesApp from './components/examples-app';
 
-ReactDOM.render(<ExamplesApp />, document.getElementById('root'));
+ReactDOM.render(
+  <StrictMode>
+    <ExamplesApp />
+  </StrictMode>,
+  document.getElementById('root')
+);

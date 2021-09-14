@@ -1,9 +1,9 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import France from '@svg-maps/france.regions';
 import { SVGMap } from '../../../src/';
 import { getLocationId, getLocationName } from '../utils';
 
-class LinkMap extends React.PureComponent {
+class LinkMap extends PureComponent {
   constructor(props) {
     super(props);
 
