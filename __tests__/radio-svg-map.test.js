@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -6,6 +5,7 @@ import renderer from 'react-test-renderer';
 
 import FakeMap from './fake-map';
 import { RadioSVGMap } from '../src';
+import { getNodeAttributes } from '../src/utils';
 
 // TODO: Try to make it more readable
 // TODO: Create utility functions to avoid code duplication
@@ -137,14 +137,11 @@ describe('RadioSVGMap component', () => {
     document.body.appendChild(container);
 
     const handleOnChange = jest.fn();
+    const value = { id: 'id1' };
 
     beforeEach(() => {
       wrapper = render(
-        <RadioSVGMap
-          map={FakeMap}
-          selectedLocationId='id1'
-          onChange={handleOnChange}
-        />,
+        <RadioSVGMap map={FakeMap} onChange={handleOnChange} value={value} />,
         { attachTo: container }
       );
       location = screen.getByTestId(locationSelector);
@@ -162,8 +159,9 @@ describe('RadioSVGMap component', () => {
 
     it('calls onChange handler when selecting location', () => {
       userEvent.click(nextLocation);
+      const nextLocationAttributes = getNodeAttributes(nextLocation);
 
-      expect(handleOnChange).toHaveBeenCalledWith(nextLocation);
+      expect(handleOnChange).toHaveBeenCalledWith(nextLocationAttributes);
     });
 
     it('does not call onChange handler when clicking on already selected location', () => {
@@ -190,6 +188,7 @@ describe('RadioSVGMap component', () => {
 
     it('displays map with custom props', () => {
       const eventHandler = () => 'eventHandler';
+      const value = null;
       const component = renderer.create(
         <RadioSVGMap
           map={FakeMap}
@@ -201,6 +200,7 @@ describe('RadioSVGMap component', () => {
           onLocationFocus={eventHandler}
           onLocationBlur={eventHandler}
           onChange={eventHandler}
+          value={value}
           childrenBefore={<text>childrenBefore</text>}
           childrenAfter={<text>childrenAfter</text>}
         />

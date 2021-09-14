@@ -1,10 +1,10 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderer from 'react-test-renderer';
 
 import FakeMap from './fake-map';
 import { CheckboxSVGMap } from '../src';
+import { getNodeAttributes } from '../src/utils';
 
 // TODO: Try to make it more readable
 // TODO: Create utility functions to avoid code duplication
@@ -101,8 +101,8 @@ describe('CheckboxSVGMap component', () => {
       wrapper = render(
         <CheckboxSVGMap
           map={FakeMap}
-          selectedLocationIds={['id0', 'id1', 'invalid-id']}
           onChange={handleOnChange}
+          value={[{ id: 'id0' }, { id: 'id1' }, { id: 'invalid-id' }]}
         />,
         { attachTo: container }
       );
@@ -124,18 +124,21 @@ describe('CheckboxSVGMap component', () => {
 
     test('calls onChange handler when selecting location', () => {
       userEvent.click(unselectedLocation);
+      const unselectedLocationAttributes =
+        getNodeAttributes(unselectedLocation);
 
-      expect(handleOnChange).toHaveBeenCalledWith([
-        selectedLocation,
-        otherSelectedLocation,
-        unselectedLocation,
-      ]);
+      expect(handleOnChange).toHaveBeenCalledWith(unselectedLocationAttributes);
     });
 
     test('calls onChange handler when deselecting location', () => {
       userEvent.click(otherSelectedLocation);
+      const otherSelectedLocationAttributes = getNodeAttributes(
+        otherSelectedLocation
+      );
 
-      expect(handleOnChange).toHaveBeenCalledWith([selectedLocation]);
+      expect(handleOnChange).toHaveBeenCalledWith(
+        otherSelectedLocationAttributes
+      );
     });
   });
 
@@ -149,6 +152,7 @@ describe('CheckboxSVGMap component', () => {
 
     test('displays map with custom props', () => {
       const eventHandler = () => 'eventHandler';
+      const value = [];
       const component = renderer.create(
         <CheckboxSVGMap
           map={FakeMap}
@@ -160,6 +164,7 @@ describe('CheckboxSVGMap component', () => {
           onLocationFocus={eventHandler}
           onLocationBlur={eventHandler}
           onChange={eventHandler}
+          value={value}
           childrenBefore={<text>childrenBefore</text>}
           childrenAfter={<text>childrenAfter</text>}
         />
