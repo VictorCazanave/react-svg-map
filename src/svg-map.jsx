@@ -1,7 +1,30 @@
-import React, { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import {
+  LocationActions,
+  LocationAttributes,
+  MapAttributes,
+  MapType,
+} from './types';
 
 const SVGMap = forwardRef((props, ref) => {
+  const { isLocationSelected, map, type } = props;
+  useEffect(() => {
+    if (ref && ref.current) {
+      if (type === 'checkbox') {
+        const selectedLocations = map.locations.filter((location, index) =>
+          isLocationSelected(location, index)
+        );
+        ref.current.value = selectedLocations;
+      } else if (type === 'radio') {
+        const selectedLocation = map.locations.find((location, index) =>
+          isLocationSelected(location, index)
+        );
+        ref.current.value = selectedLocation;
+      }
+    }
+  }, [isLocationSelected, map, ref, type]);
+
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -9,6 +32,7 @@ const SVGMap = forwardRef((props, ref) => {
       className={
         props.className ? props.className.concat(' ', 'svg-map') : 'svg-map'
       }
+      name={props.name}
       ref={ref}
       role={props.role}
       aria-label={props.map.label}>
@@ -62,37 +86,20 @@ const SVGMap = forwardRef((props, ref) => {
 
 SVGMap.propTypes = {
   // Map properties
-  map: PropTypes.shape({
-    viewBox: PropTypes.string.isRequired,
-    locations: PropTypes.arrayOf(
-      PropTypes.shape({
-        path: PropTypes.string.isRequired,
-        id: PropTypes.string.isRequired,
-        name: PropTypes.string,
-      })
-    ).isRequired,
-    label: PropTypes.string,
-  }).isRequired,
-  className: PropTypes.string,
-  role: PropTypes.string,
-
+  ...LocationAttributes,
   // Locations properties
-  locationClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   locationTabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   locationRole: PropTypes.string,
   locationAriaLabel: PropTypes.func,
-  onLocationMouseOver: PropTypes.func,
-  onLocationMouseOut: PropTypes.func,
-  onLocationMouseMove: PropTypes.func,
+  isLocationSelected: PropTypes.func,
+  ...LocationActions,
   onLocationClick: PropTypes.func,
   onLocationKeyDown: PropTypes.func,
-  onLocationFocus: PropTypes.func,
-  onLocationBlur: PropTypes.func,
-  isLocationSelected: PropTypes.func,
-
-  // Slots
-  childrenBefore: PropTypes.node,
-  childrenAfter: PropTypes.node,
+  ...MapAttributes,
+  map: MapType.isRequired,
+  name: PropTypes.string,
+  role: PropTypes.string,
+  type: PropTypes.oneOf(['checkbox', 'radio']),
 };
 
 SVGMap.defaultProps = {
