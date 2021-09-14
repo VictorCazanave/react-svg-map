@@ -6,7 +6,7 @@
 [![Dependency Status](https://david-dm.org/VictorCazanave/react-svg-map.svg)](https://david-dm.org/VictorCazanave/react-svg-map)
 [![peerDependencies Status](https://david-dm.org/VictorCazanave/react-svg-map/peer-status.svg)](https://david-dm.org/VictorCazanave/react-svg-map?type=peer)
 
-_A set of React.js components to display an interactive SVG map._
+_A set of js components to display an interactive SVG map._
 
 ![React SVG Map](https://media.giphy.com/media/QWpIwVdhY81RL05iNo/giphy.gif)
 
@@ -48,7 +48,7 @@ import Taiwan from '@svg-maps/taiwan';
 import { SVGMap } from 'react-svg-map';
 import 'react-svg-map/lib/index.css';
 
-class App extends React.PureComponent {
+class App extends PureComponent {
   constructor(props) {
     super(props);
   }
@@ -98,7 +98,7 @@ import Taiwan from '@svg-maps/taiwan';
 import { CheckboxSVGMap } from 'react-svg-map';
 import 'react-svg-map/lib/index.css';
 
-class App extends React.PureComponent {
+class App extends PureComponent {
   constructor(props) {
     super(props);
   }
@@ -119,8 +119,9 @@ ReactDOM.render(<App />, document.getElementById('app'));
 | className           | String           | `'svg-map'`           | CSS class of `<svg>`.                                                                                                                    |
 | locationClassName   | String\|Function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index.                                      |
 | locationAriaLabel   | Function         | `location.name`       | ARIA label of each `<path>`. The function parameters are the location object and the location index.                                     |
-| selectedLocationIds | String[]         |                       | List of `id`s of the **initial** selected locations. It is used only when the component is mounted and is not synchronized when updated. |
-| onChange            | Function         |                       | Invoked when the user selects/deselects a location. The list of selected locations is passed as parameter.                               |
+| defaultValue        | Location[]       |          []           | List of `Location` objects (`{ id: String, name: String }`) of the **initial**   selected locations. It is used only when the component is mounted and is not synchronized when updated. |
+| onChange            | Function         |                       | Invoked when the user selects/deselects a location. The attributes object of the toggled location is passed as parameter.                               |
+| value               | Location[]       |                       | List of `Location` objects (`{ id: String, name: String }`). Used as a pair with `onChange` for controlled map.           |
 | onLocationMouseOver | Function         |                       | Invoked when the user puts the mouse over a location.                                                                                    |
 | onLocationMouseOut  | Function         |                       | Invoked when the user puts the mouse out of a location.                                                                                  |
 | onLocationMouseMove | Function         |                       | Invoked when the user moves the mouse on a location.                                                                                     |
@@ -144,7 +145,7 @@ import Taiwan from '@svg-maps/taiwan';
 import { RadioSVGMap } from 'react-svg-map';
 import 'react-svg-map/lib/index.css';
 
-class App extends React.PureComponent {
+class App extends PureComponent {
   constructor(props) {
     super(props);
   }
@@ -165,8 +166,9 @@ ReactDOM.render(<App />, document.getElementById('app'));
 | className           | String           | `'svg-map'`           | CSS class of `<svg>`.                                                                                                          |
 | locationClassName   | String\|Function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index.                            |
 | locationAriaLabel   | Function         | `location.name`       | ARIA label of each `<path>`. The function parameters are the location object and the location index.                           |
-| selectedLocationId  | String           |                       | `id` of the **initial** selected location. It is used only when the component is mounted and is not synchronized when updated. |
-| onChange            | Function         |                       | Invoked when the user selects a location. The selected location is passed as parameter.                                        |
+| defaultValue        | Location         |        `null`         | `Location` object (`{ id: String, name: String }`) of the **initial** selected location. It is used for the uncontrolled component map.         |
+| onChange            | Function         |                       | Invoked when the user selects a location. The attributes object of the selected location is passed as a parameter.                                        |
+| value               | Location       |                         | `Location` object (`{ id: String, name: String }`). Used as a pair with `onChange` for controlled map.           |
 | onLocationMouseOver | Function         |                       | Invoked when the user puts the mouse over a location.                                                                          |
 | onLocationMouseOut  | Function         |                       | Invoked when the user puts the mouse out of a location.                                                                        |
 | onLocationMouseMove | Function         |                       | Invoked when the user moves the mouse on a location.                                                                           |
@@ -195,7 +197,7 @@ You can modify existing maps or create your own.
 import Taiwan from '@svg-maps/taiwan';
 import { SVGMap } from 'react-svg-map';
 
-class App extends React.PureComponent {
+class App extends PureComponent {
   constructor(props) {
     super(props);
 
