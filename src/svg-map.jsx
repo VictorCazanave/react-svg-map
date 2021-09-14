@@ -11,16 +11,16 @@ const SVGMap = forwardRef((props, ref) => {
   const { isLocationSelected, map, type } = props;
   useEffect(() => {
     if (ref && ref.current) {
-      if (type === 'checkbox') {
-        const selectedLocations = map.locations.filter((location, index) =>
-          isLocationSelected(location, index)
-        );
-        ref.current.value = selectedLocations;
-      } else if (type === 'radio') {
+      if (type === 'radio') {
         const selectedLocation = map.locations.find((location, index) =>
           isLocationSelected(location, index)
         );
         ref.current.value = selectedLocation;
+      } else if (type === 'checkbox') {
+        const selectedLocations = map.locations.filter((location, index) =>
+          isLocationSelected(location, index)
+        );
+        ref.current.value = selectedLocations;
       }
     }
   }, [isLocationSelected, map, ref, type]);
@@ -103,10 +103,11 @@ SVGMap.propTypes = {
 };
 
 SVGMap.defaultProps = {
-  role: 'none', // No role for map
   locationClassName: 'svg-map__location',
   locationTabIndex: '0',
   locationRole: 'none',
+  role: 'none', // No role for map
+  type: 'radio',
 };
 
 SVGMap.displayName = 'SVGMap';

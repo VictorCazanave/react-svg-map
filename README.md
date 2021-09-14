@@ -68,6 +68,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 | map                 | Object           | **required**          | Describe SVG map to display. See [maps section](#maps) for more details.                                         |
 | className           | String           | `'svg-map'`           | CSS class of `<svg>`.                                                                                            |
 | role                | String           | `'none'`              | ARIA role of `<svg>`.                                                                                            |
+| type                | '`checkbox`' \| '`radio`'      | '`radio`'              | Defines the select method (single or multiple) of the location(s). Use `ref` to get the value of the map.                                                                                            |
 | locationClassName   | String\|Function | `'svg-map__location'` | CSS class of each `<path>`. The function parameters are the location object and the location index.              |
 | locationTabIndex    | String\|Function | `'0'`                 | Tabindex each `<path>`. The function parameters are the location object and the location index.                  |
 | locationRole        | String           | `'none'`              | ARIA role of each `<path>`.                                                                                      |
