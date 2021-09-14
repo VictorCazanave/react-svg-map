@@ -9,6 +9,7 @@
   "extends": [
     "plugin:prettier/recommended",
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "eslint:recommended",
     "plugin:jsx-a11y/recommended",
     "react-app/jest"
@@ -38,7 +39,8 @@
         "allowTemplateLiterals": true
       }
     ],
-    "semi": ["error", "always"],
-    "react/no-find-dom-node": "off"
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "semi": ["error", "always"]
   }
 }
