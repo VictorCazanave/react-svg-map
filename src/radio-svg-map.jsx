@@ -1,28 +1,26 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useRef } from 'react';
 import PropTypes from 'prop-types';
 import SVGMap from './svg-map';
+import { useControlled } from './useControlled';
+import {
+  LocationActions,
+  LocationAttributes,
+  LocationType,
+  MapAttributes,
+  MapType,
+} from './types';
+import { getNodeAttributes } from './utils';
 
 const RadioSVGMap = forwardRef((props, ref) => {
-  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [selectedLocation, setSelectedLocation, { isControlled }] =
+    useControlled({
+      controlledValue: props.value,
+      initialValue: props.value ?? props.defaultValue,
+      name: props.name,
+      onChange: props.onChange,
+    });
   const locationsRef = useRef([]);
   const mapRef = useRef();
-
-  useEffect(() => {
-    if (ref?.current ?? mapRef.current) {
-      const map = ref?.current ?? mapRef.current;
-      const locations = [...map.getElementsByTagName('path')];
-      locationsRef.current = locations;
-
-      // Set initial selected location
-      if (props.selectedLocationId) {
-        const foundLocation = locations.find(
-          location => location.id === props.selectedLocationId
-        );
-
-        setSelectedLocation(foundLocation);
-      }
-    }
-  }, [props.selectedLocationId]);
 
   /**
    * Get location tabindex value
@@ -63,13 +61,13 @@ const RadioSVGMap = forwardRef((props, ref) => {
   const selectLocation = location => {
     // Focus new selected location
     location.focus();
-
-    // Change selected location
-    setSelectedLocation(location);
-
-    // Call onChange event handler
-    if (props.onChange) {
-      props.onChange(location);
+    const newLocationAttributes = getNodeAttributes(location);
+    if (isControlled) {
+      // Call onChange event handler
+      props.onChange(newLocationAttributes);
+    } else {
+      // Change selected location
+      setSelectedLocation(newLocationAttributes);
     }
   };
 
@@ -82,7 +80,7 @@ const RadioSVGMap = forwardRef((props, ref) => {
     const clickedLocation = event.target;
 
     // Select clicked location if not already selected
-    if (clickedLocation !== selectedLocation) {
+    if (selectedLocation?.id !== clickedLocation.attributes.id.value) {
       selectLocation(clickedLocation);
     }
   };
@@ -134,6 +132,7 @@ const RadioSVGMap = forwardRef((props, ref) => {
       locationRole='radio'
       locationTabIndex={getLocationTabIndex}
       map={props.map}
+      name={props.name}
       onChange={props.onChange}
       onLocationBlur={props.onLocationBlur}
       onLocationClick={handleLocationClick}
@@ -144,36 +143,25 @@ const RadioSVGMap = forwardRef((props, ref) => {
       onLocationMouseOver={props.onLocationMouseOver}
       ref={ref ?? mapRef}
       role='radiogroup'
+      type='radio'
     />
   );
 });
 
 RadioSVGMap.propTypes = {
-  selectedLocationId: PropTypes.string,
-  onChange: PropTypes.func,
+  ...LocationActions,
+  ...LocationAttributes,
+  ...MapAttributes,
 
+  defaultValue: LocationType,
   // SVGMap props
-  map: PropTypes.shape({
-    viewBox: PropTypes.string.isRequired,
-    locations: PropTypes.arrayOf(
-      PropTypes.shape({
-        path: PropTypes.string.isRequired,
-        name: PropTypes.string,
-        id: PropTypes.string,
-      })
-    ).isRequired,
-    label: PropTypes.string,
-  }).isRequired,
-  className: PropTypes.string,
-  locationClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  locationAriaLabel: PropTypes.func,
-  onLocationMouseOver: PropTypes.func,
-  onLocationMouseOut: PropTypes.func,
-  onLocationMouseMove: PropTypes.func,
-  onLocationFocus: PropTypes.func,
-  onLocationBlur: PropTypes.func,
-  childrenBefore: PropTypes.node,
-  childrenAfter: PropTypes.node,
+  map: MapType.isRequired,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  value: LocationType,
+};
+RadioSVGMap.defaultProps = {
+  defaultValue: null,
 };
 
 RadioSVGMap.displayName = 'RadioSVGMap';
