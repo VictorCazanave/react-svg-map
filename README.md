@@ -43,6 +43,7 @@ This is the base component to display an SVG map.
 - Optionally, import `react-svg-map/lib/index.css` if you want to apply the default styles
 
 ```jsx
+import { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import Taiwan from '@svg-maps/taiwan';
 import { SVGMap } from 'react-svg-map';
@@ -94,6 +95,7 @@ It is based on this [WAI-ARIA example](https://www.w3.org/TR/wai-aria-practices/
 - Optionally, import `react-svg-map/lib/index.css` if you want to apply the default styles
 
 ```jsx
+import { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import Taiwan from '@svg-maps/taiwan';
 import { CheckboxSVGMap } from 'react-svg-map';
@@ -141,6 +143,7 @@ It is based on this [WAI-ARIA example](https://www.w3.org/TR/wai-aria-practices/
 - Optionally, import `react-svg-map/lib/index.css` if you want to apply the default styles
 
 ```jsx
+import { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import Taiwan from '@svg-maps/taiwan';
 import { RadioSVGMap } from 'react-svg-map';
@@ -195,6 +198,7 @@ You can modify existing maps or create your own.
 1. Pass this new object as `map` prop of `<SVGMap />` component
 
 ```jsx
+import { PureComponent } from 'react';
 import Taiwan from '@svg-maps/taiwan';
 import { SVGMap } from 'react-svg-map';
 

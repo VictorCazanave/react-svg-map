@@ -1,7 +1,7 @@
 .svg-map {
-  --svg-map-delimiter: #666666;
-  --svg-map-location-background: #a1d99b;
-  --svg-map-location-hover: #b8e2b3;
-  --svg-map-location-focus: #b8e2b3;
-  --svg-map-location-selected: #f4bc44;
+	--svg-map-delimiter: #666666;
+	--svg-map-location-background: #a1d99b;
+	--svg-map-location-hover: #b8e2b3;
+	--svg-map-location-focus: #b8e2b3;
+	--svg-map-location-selected: #f4bc44;
 }

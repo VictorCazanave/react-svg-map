@@ -22,5 +22,5 @@ export function getLocationName(event) {
  * @return {Boolean}     Is the location selected
  */
 export function getLocationSelected(event) {
-	return event.target.attributes['aria-checked'].value === 'true';
+	return event.target.attributes["aria-checked"].value === "true";
 }

@@ -1,13 +1,13 @@
 module.exports = {
 	"roots": [
-    "<rootDir>",
-  ],
+		"<rootDir>",
+	],
 	"modulePaths": [
-    "<rootDir>",
-  ],
+		"<rootDir>",
+	],
 	"moduleDirectories": [
-    "node_modules"
-  ],
+		"node_modules"
+	],
 	setupFilesAfterEnv: ['<rootDir>/jest-setup.js'],
 	// Fix "localStorage is not available for opaque origins" error
 	// https://github.com/jsdom/jsdom/issues/2304

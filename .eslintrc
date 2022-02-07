@@ -1,46 +1,45 @@
 {
-  "root": true,
-  "parser": "babel-eslint",
-  "env": {
-    "browser": true,
-    "es6": true,
-    "jest/globals": true
-  },
-  "extends": [
-    "plugin:prettier/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "eslint:recommended",
-    "plugin:jsx-a11y/recommended",
-    "react-app/jest"
-  ],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
-  "parserOptions": {
-    "ecmaVersion": 11,
-    "ecmaFeatures": {
-      "arrowFunctions": true,
-      "experimentalObjectRestSpread": true,
-      "jsx": true
-    },
-    "sourceType": "module"
-  },
-  "plugins": ["react", "prettier", "@babel", "jsx-a11y", "jest"],
-  "rules": {
-    "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    "quotes": [
-      "error",
-      "single",
-      {
-        "allowTemplateLiterals": true
-      }
-    ],
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    "semi": ["error", "always"]
-  }
+	"root": true,
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"es6": true,
+		"jest/globals": true
+	},
+	"extends": [
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+		"eslint:recommended",
+		"plugin:jsx-a11y/recommended",
+		"react-app/jest"
+	],
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"parserOptions": {
+		"ecmaVersion": 11,
+		"ecmaFeatures": {
+			"arrowFunctions": true,
+			"experimentalObjectRestSpread": true,
+			"jsx": true
+		},
+		"sourceType": "module"
+	},
+	"plugins": ["react", "@babel", "jsx-a11y", "jest"],
+	"rules": {
+		"indent": ["error", "tab"],
+		"linebreak-style": ["error", "unix"],
+		"quotes": [
+			"error",
+			"double",
+			{
+				"allowTemplateLiterals": true
+			}
+		],
+		"react/jsx-uses-react": "off",
+		"react/react-in-jsx-scope": "off",
+		"semi": ["error", "always"]
+	}
 }
