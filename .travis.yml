@@ -4,7 +4,7 @@ node_js:
   - "16"
 before_install:
   - npm install -g npm-install-peers
-before_script: npm-install-peers
+  - npm-install-peers
 script:
   - npm test
   - npm run build
