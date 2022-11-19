@@ -9,53 +9,29 @@ exports[`SVGMap component Properties displays map with custom function location 
   xmlns="http://www.w3.org/2000/svg"
 >
   <path
-    aria-checked={undefined}
     aria-label="name0-0"
     className="locationClassName-0"
     d="path0"
     id="id0"
     name="name0"
-    onBlur={undefined}
-    onClick={undefined}
-    onFocus={undefined}
-    onKeyDown={undefined}
-    onMouseMove={undefined}
-    onMouseOut={undefined}
-    onMouseOver={undefined}
     role="none"
     tabIndex="locationTabIndex-0"
   />
   <path
-    aria-checked={undefined}
     aria-label="name1-1"
     className="locationClassName-1"
     d="path1"
     id="id1"
     name="name1"
-    onBlur={undefined}
-    onClick={undefined}
-    onFocus={undefined}
-    onKeyDown={undefined}
-    onMouseMove={undefined}
-    onMouseOut={undefined}
-    onMouseOver={undefined}
     role="none"
     tabIndex="locationTabIndex-1"
   />
   <path
-    aria-checked={undefined}
     aria-label="name2-2"
     className="locationClassName-2"
     d="path2"
     id="id2"
     name="name2"
-    onBlur={undefined}
-    onClick={undefined}
-    onFocus={undefined}
-    onKeyDown={undefined}
-    onMouseMove={undefined}
-    onMouseOut={undefined}
-    onMouseOver={undefined}
     role="none"
     tabIndex="locationTabIndex-2"
   />
@@ -139,53 +115,29 @@ exports[`SVGMap component Properties displays map with default props 1`] = `
   xmlns="http://www.w3.org/2000/svg"
 >
   <path
-    aria-checked={undefined}
     aria-label="name0"
     className="svg-map__location"
     d="path0"
     id="id0"
     name="name0"
-    onBlur={undefined}
-    onClick={undefined}
-    onFocus={undefined}
-    onKeyDown={undefined}
-    onMouseMove={undefined}
-    onMouseOut={undefined}
-    onMouseOver={undefined}
     role="none"
     tabIndex="0"
   />
   <path
-    aria-checked={undefined}
     aria-label="name1"
     className="svg-map__location"
     d="path1"
     id="id1"
     name="name1"
-    onBlur={undefined}
-    onClick={undefined}
-    onFocus={undefined}
-    onKeyDown={undefined}
-    onMouseMove={undefined}
-    onMouseOut={undefined}
-    onMouseOver={undefined}
     role="none"
     tabIndex="0"
   />
   <path
-    aria-checked={undefined}
     aria-label="name2"
     className="svg-map__location"
     d="path2"
     id="id2"
     name="name2"
-    onBlur={undefined}
-    onClick={undefined}
-    onFocus={undefined}
-    onKeyDown={undefined}
-    onMouseMove={undefined}
-    onMouseOut={undefined}
-    onMouseOver={undefined}
     role="none"
     tabIndex="0"
   />

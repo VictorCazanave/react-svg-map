@@ -83,13 +83,8 @@ exports[`CheckboxSVGMap component Rendering displays map with default props 1`] 
     d="path0"
     id="id0"
     name="name0"
-    onBlur={undefined}
     onClick={[Function]}
-    onFocus={undefined}
     onKeyDown={[Function]}
-    onMouseMove={undefined}
-    onMouseOut={undefined}
-    onMouseOver={undefined}
     role="checkbox"
     tabIndex="0"
   />
@@ -100,13 +95,8 @@ exports[`CheckboxSVGMap component Rendering displays map with default props 1`] 
     d="path1"
     id="id1"
     name="name1"
-    onBlur={undefined}
     onClick={[Function]}
-    onFocus={undefined}
     onKeyDown={[Function]}
-    onMouseMove={undefined}
-    onMouseOut={undefined}
-    onMouseOver={undefined}
     role="checkbox"
     tabIndex="0"
   />
@@ -117,13 +107,8 @@ exports[`CheckboxSVGMap component Rendering displays map with default props 1`] 
     d="path2"
     id="id2"
     name="name2"
-    onBlur={undefined}
     onClick={[Function]}
-    onFocus={undefined}
     onKeyDown={[Function]}
-    onMouseMove={undefined}
-    onMouseOut={undefined}
-    onMouseOver={undefined}
     role="checkbox"
     tabIndex="0"
   />
